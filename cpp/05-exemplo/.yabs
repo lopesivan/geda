@@ -1,0 +1,28 @@
+local function app(cmd, args)
+    require("config.nvim_dev").app(cmd, args)
+end
+
+return {
+    tasks = {
+        ["⚙️ Configure"] = {
+            type = "lua",
+            command = function()
+                app("cmake", { "--preset", "default" })
+            end,
+        },
+
+        ["🛠️ Build"] = {
+            type = "lua",
+            command = function()
+                app("cmake", { "--build", "build" })
+            end,
+        },
+
+        ["🚀 Run"] = {
+            type = "lua",
+            command = function()
+                app("./build/app_example", { "" })
+            end,
+        },
+    },
+}
