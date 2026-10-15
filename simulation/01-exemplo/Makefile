@@ -16,7 +16,7 @@ run: $(NETLIST)
 	$(NGSPICE) -b $(NETLIST)
 
 plot: run
-	$(PYTHON) $(PLOT) $(DATA) "$(TITLE)"
+	$(PYTHON) $(PLOT) $(DATA)
 
 clean:
 	rm -f -- "$(DATA)" "$(NETLIST)" "$(SCHEM)~" plot.log title
