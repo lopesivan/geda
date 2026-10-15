@@ -1,4 +1,4 @@
-.PHONY: configure build run clean
+.PHONY: configure build run clean deploy svg png pdf
 
 configure: ## ⚙️  Configura o CMake com o preset default
 	PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/opt/geda/lib/pkgconfig \
@@ -18,6 +18,8 @@ DATA    := exemplo.dat
 SVG     := saida.svg
 PNG     := saida.png
 PDF     := saida.pdf
+
+deploy: configure build svg png pdf
 
 sim:
 	build/app --sim $(SCHEM)
