@@ -18,12 +18,13 @@ run: ## 🚀 Executa a aplicação (make run ARGS="--sim exemplo.sch")
 
 sim:
 	ARGS="--sim exemplo.sch" $(MAKE) -C build run
+
 svg:
-	ARGS="--render saida.svg exemplo.sch" $(MAKE) -C build run
+	build/app --render saida.svg  exemplo.sch
 png:
-	ARGS="--render saida.png exemplo.sch" $(MAKE) -C build run
+	build/app --render saida.png  exemplo.sch
 pdf:
-	ARGS="--render saida.pdf exemplo.sch" $(MAKE) -C build run
+	build/app --render saida.pdf  exemplo.sch
 
 clean: ## 🧹 Limpa os arquivos de build
 	rm -rf build saida.svg saida.png saida.pdf
