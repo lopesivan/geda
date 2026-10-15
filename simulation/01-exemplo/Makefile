@@ -19,4 +19,4 @@ plot: run
 	$(PYTHON) $(PLOT) $(DATA)
 
 clean:
-	rm -f $(DATA) $(NETLIST) *~
+	rm -f -- "$(DATA)" "$(NETLIST)" "$(SCHEM)~"
