@@ -1,0 +1,16 @@
+-> gdb -batch -ex run -ex bt --args ./build/app exemplo.sch
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7d759ae in scm_from_utf8_symboln () from /lib/x86_64-linux-gnu/libguile-2.2.so.1
+#0  0x00007ffff7d759ae in scm_from_utf8_symboln () at /lib/x86_64-linux-gnu/libguile-2.2.so.1
+#1  0x00007ffff7d1cbd6 in scm_c_define_gsubr () at /lib/x86_64-linux-gnu/libguile-2.2.so.1
+#2  0x00007ffff7f8c746 in g_register_libgeda_funcs () at g_register.c:82
+#3  0x00007ffff7f8c971 in libgeda_init () at libgeda.c:60
+#4  0x00005555555554b4 in geda_bridge_list_components ()
+#5  0x000055555555546c in main ()
+geda/cpp/04-exemplo on  main [? 48  2] via △ v4.4.3 🤖 RX8N9045ELX 󰡨 0
+-> ldd ./build/app | grep -i geda
+	libgeda.so.47 => /opt/geda/lib/libgeda.so.47 (0x00007262e9c88000)
+
