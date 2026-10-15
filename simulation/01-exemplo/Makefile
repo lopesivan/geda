@@ -7,7 +7,7 @@ PYTHON  := PYENV_VERSION=jupyter python3
 
 .PHONY: all run plot clean
 
-all: plot
+all: $(NETLIST)
 
 $(NETLIST):
 	./gera_netlist.sh $(SCHEM) $(NETLIST)
@@ -16,7 +16,7 @@ run: $(NETLIST)
 	$(NGSPICE) -b $(NETLIST)
 
 plot: run
-	$(PYTHON) $(PLOT) $(DATA)
+	$(PYTHON) $(PLOT) $(DATA) "$(TITLE)"
 
 clean:
-	rm -f -- "$(DATA)" "$(NETLIST)" "$(SCHEM)~" plot.log
+	rm -f -- "$(DATA)" "$(NETLIST)" "$(SCHEM)~" plot.log title
