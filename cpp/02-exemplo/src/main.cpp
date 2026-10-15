@@ -1,22 +1,17 @@
+
 #include <iostream>
+#include "geda_bridge.h"
 
-extern "C"
-{
-#include <libgeda/libgeda.h>
-#include <libgedacairo/libgedacairo.h>
-}
-
-int main(int argc, char* argv[])
-{
+int main() {
     std::cout << "gEDA C++ Application\n";
     std::cout << "====================\n";
-    std::cout << "libgeda: headers disponíveis\n";
-    std::cout << "libgedacairo: headers disponíveis\n";
 
-    if(argc > 1)
-    {
-        std::cout << "Arquivo solicitado: " << argv[1] << '\n';
+    if (!geda_bridge_check()) {
+        std::cerr << "Falha na camada de integracao.\n";
+        return 1;
     }
 
+    std::cout << "Camada C compilada e acessivel.\n";
     return 0;
 }
+
