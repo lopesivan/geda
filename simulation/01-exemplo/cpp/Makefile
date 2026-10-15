@@ -8,24 +8,29 @@ build: ## 🛠️  Compila o projeto na pasta build
 	PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/opt/geda/lib/pkgconfig \
 		cmake --build build
 
-# make run                              # app exemplo.sch
-# make run ARGS="--sim exemplo.sch"     # netlist + ngspice
-# make run ARGS="outro.sch"
-# Sem passar pelo Makefile também funciona:
-# ARGS="--sim exemplo.sch" cmake --build build --target run
 run: ## 🚀 Executa a aplicação (make run ARGS="--sim exemplo.sch")
 	ARGS="$(ARGS)" $(MAKE) -C build run
 
+SCHEM   := ../exemplo.sch
+NETLIST := exemplo.sp
+DATA    := exemplo.dat
+
+SVG     := saida.svg
+PNG     := saida.png
+PDF     := saida.pdf
+
 sim:
-	ARGS="--sim exemplo.sch" $(MAKE) -C build run
+	build/app --sim $(SCHEM)
 
 svg:
-	build/app --render saida.svg  exemplo.sch
+	build/app --render $(SVG) $(SCHEM)
+
 png:
-	build/app --render saida.png  exemplo.sch
+	build/app --render $(PNG) $(SCHEM)
+
 pdf:
-	build/app --render saida.pdf  exemplo.sch
+	build/app --render $(PDF) $(SCHEM)
 
 clean: ## 🧹 Limpa os arquivos de build
-	rm -rf build saida.svg saida.png saida.pdf
+	rm -rf build ../$(SVG) ../$(PNG) ../$(PDF)
 
