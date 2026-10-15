@@ -1,0 +1,26 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * /opt/geda/bin/xorn netlist --symbol-library /opt/geda/share/geda/sym/misc --symbol-library /opt/geda/share/geda/sym/power --symbol-library /opt/geda/share/geda/sym/relay --symbol-library /opt/geda/share/geda/sym/opto --symbol-library /opt/geda/share/geda/sym/supervisor --symbol-library /opt/geda/share/geda/sym/pla --symbol-library /opt/geda/share/geda/sym/rf --symbol-library /opt/geda/share/geda/sym/tube --symbol-library /opt/geda/share/geda/sym/transistor --symbol-library /opt/geda/share/geda/sym/micro --symbol-library /opt/geda/share/geda/sym/memory --symbol-library /opt/geda/share/geda/sym/bus --symbol-library /opt/geda/share/geda/sym/xilinx --symbol-library /opt/geda/share/geda/sym/st --symbol-library /opt/geda/share/geda/sym/philips --symbol-library /opt/geda/share/geda/sym/national --symbol-library /opt/geda/share/geda/sym/minicircuits --symbol-library /opt/geda/share/geda/sym/maxim --symbol-library /opt/geda/share/geda/sym/linear --symbol-library /opt/geda/share/geda/sym/lattice --symbol-library /opt/geda/share/geda/sym/irf --symbol-library /opt/geda/share/geda/sym/idt --symbol-library /opt/geda/share/geda/sym/dec --symbol-library /opt/geda/share/geda/sym/apex --symbol-library /opt/geda/share/geda/sym/amphenol --symbol-library /opt/geda/share/geda/sym/altera --symbol-library /opt/geda/share/geda/sym/allegro --symbol-library /opt/geda/share/geda/sym/asicpads --symbol-library /opt/geda/share/geda/sym/asic --symbol-library /opt/geda/share/geda/sym/switcap --symbol-library /opt/geda/share/geda/sym/spice --symbol-library /opt/geda/share/geda/sym/cascade --symbol-library /opt/geda/share/geda/sym/ecl --symbol-library /opt/geda/share/geda/sym/4000 --symbol-library /opt/geda/share/geda/sym/74 --symbol-library /opt/geda/share/geda/sym/iec417 --symbol-library /opt/geda/share/geda/sym/titleblock --symbol-library /opt/geda/share/geda/sym/switch --symbol-library /opt/geda/share/geda/sym/radio --symbol-library /opt/geda/share/geda/sym/io --symbol-library /opt/geda/share/geda/sym/net-power --symbol-library /opt/geda/share/geda/sym/diode --symbol-library /opt/geda/share/geda/sym/connector --symbol-library /opt/geda/share/geda/sym/analog --symbol-library /opt/geda/share/geda/sym/local -g guile -o add-to-load-path=/opt/geda/share/geda/scheme -o load=/opt/geda/share/geda/scheme/gnetlist.scm -o load=/opt/geda/share/geda/scheme/gnet-spice-sdb.scm -o load=/opt/geda/share/geda/scheme/gnetlist-post.scm -o guile-proc=spice-sdb -o use-spice-netnames -v -o saida.cir exemplo.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+out                                          0
+in                                           0
+v1#branch                                    0
+
+
+No. of Data Rows : 512
+
+Warning: command 'plot' is not available during batch simulation, ignored!
+    You may use Gnuplot instead.
+
+Note: Simulation executed from .control section 
