@@ -1,0 +1,44 @@
+(use-modules (gschem action)
+             (gschem window)
+             (geda page))
+
+(define (page-dir)
+  (let* ((page (active-page))
+         (file (and page (page-filename page))))
+    (if file (dirname file) ".")))
+
+(define (run-make target)
+  (system (string-append "cd '" (page-dir) "' && make " target
+                         " > " target ".log 2>&1 &")))
+
+(define-action (&make-plot #:name "make-plot"
+                           #:label "Make plot"
+                           #:menu-label "Make plot"
+                           #:icon "system-run"
+                           #:tooltip "Executa 'make plot' no diretório do esquemático")
+  (run-make "plot"))
+
+(define-action (&make-clean #:name "make-clean"
+                            #:label "Make clean"
+                            #:menu-label "Make clean"
+                            #:icon "edit-clear"
+                            #:tooltip "Executa 'make clean' no diretório do esquemático")
+  (run-make "clean"))
+
+(global-set-key "F5" &make-plot)
+(global-set-key "F6" &make-clean)
+
+;; Botões na toolbar (nova seção, antes dos 2 últimos itens da lista)
+(let ((buttons `((,&make-plot
+                  ,&make-clean)))
+      (t (list-tail toolbar (- (length toolbar) 2))))
+  (set-cdr! t (append! buttons (cdr t))))
+
+;; Menu "Simular" na barra de menus (antes do "Help")
+(define simular-menu
+  `((,&make-plot
+     ,&make-clean)))
+
+(let ((t (list-tail menubar (- (length menubar) 2))))
+  (set-cdr! t (cons (cons "_Simular" simular-menu) (cdr t))))
+
