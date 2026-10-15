@@ -5,16 +5,16 @@ cmake_language(DEFER CALL create_run_target)
 
 function(create_run_target)
     if(NOT TARGET run)
-        if(TARGET app_example)
+        if(TARGET ${PROGRAM})
             add_custom_target(run
-                COMMAND $<TARGET_FILE:app_example>
-                DEPENDS app_example
-                COMMENT "Executando o aplicativo app_example..."
+                COMMAND $<TARGET_FILE:${PROGRAM}>
+                DEPENDS ${PROGRAM}
+                COMMENT "Executando o aplicativo ${PROGRAM}..."
                 USES_TERMINAL
                 VERBATIM
             )
         else()
-            message(WARNING "Target 'app_example' nao encontrado. O target 'run' nao foi criado.")
+            message(WARNING "Target '${PROGRAM}' nao encontrado. O target 'run' nao foi criado.")
         endif()
     endif()
 endfunction()
