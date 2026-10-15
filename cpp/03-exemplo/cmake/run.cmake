@@ -7,7 +7,7 @@ function(create_run_target)
     if(NOT TARGET run)
         if(TARGET ${PROGRAM})
             add_custom_target(run
-                COMMAND $<TARGET_FILE:${PROGRAM}>
+                COMMAND $<TARGET_FILE:${PROGRAM}> exemplo.sch
                 DEPENDS ${PROGRAM}
                 COMMENT "Executando o aplicativo ${PROGRAM}..."
                 USES_TERMINAL
