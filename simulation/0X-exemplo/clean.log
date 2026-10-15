@@ -1,0 +1,1 @@
+rm -f -- "exemplo.dat" "exemplo.sp" "exemplo.sch~" plot.log
