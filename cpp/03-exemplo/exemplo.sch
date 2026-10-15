@@ -1,0 +1,102 @@
+v 20201216 2
+C 40000 40000 0 0 0 title-B.sym
+C 44500 46300 1 0 0 vsin-1.sym
+{
+T 45200 46950 5 10 1 1 0 0 1
+refdes=V1
+T 45200 47150 5 10 0 0 0 0 1
+device=vsin
+T 45200 47350 5 10 0 0 0 0 1
+footprint=none
+T 45200 46750 5 10 1 1 0 0 1
+value=sin (0 10 1k)
+}
+C 46200 48500 1 0 0 resistor-1.sym
+{
+T 46500 48900 5 10 0 0 0 0 1
+device=RESISTOR
+T 46400 48800 5 10 1 1 0 0 1
+refdes=R2
+T 46400 48300 5 10 1 1 0 0 1
+value=10k
+}
+C 46200 47600 1 0 0 resistor-1.sym
+{
+T 46500 48000 5 10 0 0 0 0 1
+device=RESISTOR
+T 46400 47900 5 10 1 1 0 0 1
+refdes=R1
+T 46500 47300 5 10 1 1 0 0 1
+value=20k
+}
+C 48400 46500 1 90 0 capacitor-1.sym
+{
+T 47700 46700 5 10 0 0 90 0 1
+device=CAPACITOR
+T 48800 47000 5 10 1 1 180 0 1
+refdes=C1
+T 47500 46700 5 10 0 0 90 0 1
+symversion=0.1
+T 47900 46700 5 10 1 1 0 0 1
+value=1u
+}
+C 44600 45400 1 0 0 ground.sym
+N 44800 46300 44800 45700 4
+N 44800 47500 44800 48600 4
+{
+T 44900 48800 5 10 1 1 180 0 1
+netname=in
+}
+N 44800 48600 46200 48600 4
+N 46200 47700 44800 47700 4
+N 47100 47700 48200 47700 4
+N 48200 47400 48200 48600 4
+N 47100 48600 48200 48600 4
+{
+T 47900 48700 5 10 1 1 0 0 1
+netname=out
+}
+N 48200 46500 48200 46000 4
+N 48200 46000 44800 46000 4
+{
+T 45300 45650 5 10 1 1 0 6 1
+netname=gnd
+}
+C 41500 48700 1 0 0 spice-directive-1.sym
+{
+T 41600 49000 5 10 0 1 0 0 1
+device=directive
+T 41600 49100 5 10 1 1 0 0 1
+refdes=A1
+T 41600 48800 5 10 0 2 0 0 1
+file=unknown
+T 41600 48800 5 10 1 1 0 0 1
+value=.tran 10us 5ms
+}
+C 41500 47600 1 0 0 spice-directive-1.sym
+{
+T 41600 47900 5 10 0 1 0 0 1
+device=directive
+T 41600 48000 5 10 1 1 0 0 1
+refdes=A2
+T 41600 47700 5 10 0 2 0 0 1
+file=unknown
+T 41500 46700 5 10 1 1 0 0 5
+value=.control
+run
+plot v(in) v(out)
+.endc
+
+}
+T 50000 40900 9 20 1 0 0 0 1
+Circuito RC - Filtro Passa-Baixas
+T 50000 40350 9 10 1 0 0 0 1
+exemplo.sch
+T 53900 40350 9 10 1 0 0 0 1
+1.0
+T 50000 40100 9 10 1 0 0 0 1
+1
+T 51500 40100 9 10 1 0 0 0 1
+1
+T 53900 40100 9 10 1 0 0 0 1
+Ivan Carlos da Silva Lopes
