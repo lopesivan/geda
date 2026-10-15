@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # === Nome do programa (definido em um único ponto) ===
-set(APP_NAME geda-test)
+set(APP_NAME app_example)
 
 # Força o pkg-config a procurar também em /opt/geda
 set(ENV{PKG_CONFIG_PATH} "/usr/lib/x86_64-linux-gnu/pkgconfig:/opt/geda/lib/pkgconfig")
