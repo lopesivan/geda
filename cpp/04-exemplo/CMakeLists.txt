@@ -19,6 +19,7 @@ find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(GEDA REQUIRED IMPORTED_TARGET libgeda)
 pkg_check_modules(GEDACAIRO REQUIRED IMPORTED_TARGET libgedacairo)
+pkg_check_modules(GUILE REQUIRED IMPORTED_TARGET guile-2.2)
 
 add_executable(${PROGRAM}
     src/main.cpp
@@ -29,6 +30,11 @@ target_include_directories(${PROGRAM} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
+target_link_libraries(${PROGRAM} PRIVATE
+    PkgConfig::GEDA
+    PkgConfig::GEDACAIRO
+    PkgConfig::GUILE
+)
 target_link_libraries(${PROGRAM} PRIVATE
     PkgConfig::GEDA
     PkgConfig::GEDACAIRO
