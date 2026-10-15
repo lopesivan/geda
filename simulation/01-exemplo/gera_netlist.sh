@@ -29,6 +29,7 @@ titulo=$(awk '
 ' "$arquivo")
 
 echo "Título: $titulo"
+echo "$titulo" >title
 
 # Gera o netlist SPICE
 #PYENV_VERSION=2.7.18 gnetlist -g spice-sdb -O sort_mode -o "$saida" "$arquivo"
