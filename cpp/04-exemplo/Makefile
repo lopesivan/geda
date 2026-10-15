@@ -16,5 +16,8 @@ build: ## 🛠️  Compila o projeto na pasta build
 run: ## 🚀 Executa a aplicação (make run ARGS="--sim exemplo.sch")
 	ARGS="$(ARGS)" $(MAKE) -C build run
 
+sim:
+	ARGS="--sim exemplo.sch" $(MAKE) -C build run
+
 clean: ## 🧹 Limpa os arquivos de build
 	rm -rf build
