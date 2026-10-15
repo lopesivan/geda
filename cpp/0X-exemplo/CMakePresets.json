@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Configuração Padrão Linux",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_PROJECT_INCLUDE": "${sourceDir}/cmake/run.cmake"
+      }
+    }
+  ]
+}
