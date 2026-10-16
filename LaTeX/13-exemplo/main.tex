@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage[american,siunitx]{circuitikz} % biblioteca
+\begin{document}
+%%% --------------------------------------------------------------------------
+\begin{circuitikz}
+\draw
+(0,0) to[R, o-o] (2,0)
+(4,0) to[vR, o-o] (6,0)
+(0,2) to[transmission line, o-o] (2,2)
+(4,2) to[closing switch, o-o] (6,2)
+(0,4) to[european current source, o-o] (2,4)
+(4,4) to[european voltage source, o-o] (6,4)
+(0,6) to[empty diode, o-o] (2,6)
+(4,6) to[full led, o-o] (6,6)
+(0,8) to[generic, o-o] (2,8)
+(4,8) to[sinusoidal voltage source, o-o] (6,8)
+;
+\end{circuitikz}
+%%% --------------------------------------------------------------------------
+
+\end{document}
