@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage[american,siunitx]{circuitikz} % biblioteca
+\begin{document}
+%%% --------------------------------------------------------------------------
+\begin{circuitikz}
+\draw
+(4,0) node[pmos] {}
+(0,4) node[op amp] {}
+(4,4) node[american or port] {}
+(0,8) node[transformer] {}
+(4,8) node[spdt] {}
+;
+\end{circuitikz}
+%%% --------------------------------------------------------------------------
+
+\end{document}
