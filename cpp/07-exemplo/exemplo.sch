@@ -81,23 +81,6 @@ file=unknown
 T 42500 45600 5 10 1 1 0 0 1
 value=.tran {tstep} {tstop} {tstart}
 }
-C 42500 44200 1 0 0 spice-directive-1.sym
-{
-T 42600 44500 5 10 0 1 0 0 1
-device=directive
-T 42600 44600 5 10 1 1 0 0 1
-refdes=A3
-T 42600 44300 5 10 0 2 0 0 1
-file=unknown
-T 42500 42900 5 10 1 1 0 0 7
-value=.control
-run
-set wr_singlescale
-set wr_vecnames
-option numdgt=16
-wrdata exemplo.dat v(in) v(out)
-.endc
-}
 T 50000 40900 9 20 1 0 0 0 1
 Circuito RC com fonte senoidal
 T 50000 40350 9 10 1 0 0 0 1
