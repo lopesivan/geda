@@ -47,3 +47,6 @@ clean:
 
 distclean: clean
 	rm -f $(BASE).fls $(BASE).fdb_latexmk $(BASE).synctex.gz
+
+show:
+	eog main.png
