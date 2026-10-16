@@ -2,194 +2,245 @@
 
 \usepackage{amsmath} % for \dfrac
 \usepackage{physics,siunitx}
-\usepackage{tikz,pgfplots}
-\usepackage[outline]{contour} % glow around text
-\contourlength{1.0pt}
+\usepackage{tikz}
 \usetikzlibrary{angles,quotes} % for pic (angle labels)
 \usetikzlibrary{arrows.meta}
-\usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc}
+%\usetikzlibrary{decorations.markings}
 \tikzset{>=latex} % for LaTeX arrow head
 \usepackage{xcolor}
-\colorlet{Rcol}{green!60!black}
+\colorlet{Ecol}{orange!90!black}
+\colorlet{Icol}{blue!50!black}
 \colorlet{Ccol}{orange!90!black}
+\colorlet{Rcol}{green!50!black}
 \colorlet{Lcol}{violet!90}
-\colorlet{Icol}{blue!60!black}
 \colorlet{myblue}{blue!70!black}
 \colorlet{myred}{red!70!black}
-\colorlet{Ecol}{orange!90!black}
 \tikzstyle{Rline}=[Rcol,thick]
 \tikzstyle{gline}=[Rcol,thick]
 \tikzstyle{bline}=[myblue,thick]
 \tikzstyle{rline}=[myred,thick]
 \tikzstyle{width}=[{Latex[length=5,width=3]}-{Latex[length=5,width=3]},thick]
-\def\xmax{5.5}
-\def\ymax{1.6}
-\def\A{1.2}
-\def\I{1.1}
-\def\om{(395/(0.94*\xmax))}
+\tikzstyle{vector}=[->,very thick,line cap=round]
+\tikzstyle{-sm}=[-{Latex[length=3,width=2]}]
+\tikzstyle{sm-}=[{Latex[length=3,width=2]}-]
 \def\tick#1#2{\draw[thick] (#1) ++ (#2:0.03*\ymax) --++ (#2-180:0.06*\ymax)}
-\newcommand\EMF{\mathcal{E}} %\varepsilon}
+\newcommand\EMF{\mathcal{E}}
+\newcommand\VR{\vb{V}\!_R}
+\newcommand\VC{\vb{V}\!_C}
+\newcommand\VL{\vb{V}\!_L}
+\newcommand\IR{\vb{I}_R}
+\newcommand\IC{\vb{I}_C}
+\newcommand\IL{\vb{I}_L}
+\def\xmin{1.8}
+\def\xmax{2.0}
+\def\ymax{1.8}
+\def\ang{35}
+
+\newcommand\rightAngle[4]{
+  \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#3}{center}}
+  \coordinate (tmpRA) at (\pgfmathresult+45:#4);
+  \draw[white,line width=0.6] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+  \draw[blue!40!black] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+}
 
 
 \begin{document}
 %%% --------------------------------------------------------------------------
 
-% AC circuit R
+% PHASOR
 \begin{tikzpicture}
+  \def\R{2.4}
+  \def\ang{40}
   \coordinate (O) at (0,0);
-  \coordinate (X) at (\xmax,0);
-  \coordinate (Y) at (0,\ymax);
+  \coordinate (X) at (1.4*\xmax,0);
+  \coordinate (Y) at (0,1.3*\ymax);
+  \coordinate (R) at (\ang:\R);
+  \coordinate (Rx) at ({\R*cos(\ang)},0);
 
   % AXIS
   \draw[->,thick]
-    (0,-\ymax) -- (Y) node[left] {{\color{myblue}$I$}, {\color{myred}$V_R$}};
+    (-0.3*\xmax,0) -- (X) node[below] {$x$};
   \draw[->,thick]
-    (O) -- (X) node[below] {$t$};
+    (0,-0.3*\ymax) -- (Y) node[left] {$y$};
 
-  % PLOT
-  \draw[rline,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\A*cos(\om*\x)}) node[above right=-3] {$V_R$};
-  \draw[bline,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\I*cos(\om*\x)}) node[below right=-3] {$I$};
+  % PHASOR
+  \draw[dashed]
+    (Rx) -- (R);
+  \draw[vector,Rcol] (O) -- (R) node[above right=-3] {$\VR$};
+  \draw[vector,Rcol!80!black] (O) node[above=2,below right=1,scale=0.9] {$\EMF_0 \cos(\omega t - \phi)$} -- (Rx); %\text{max}
+  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-4},draw=black,angle radius=15,angle eccentricity=2.1] {angle = X--O--R};
+  \draw[->] (\ang+6:0.7*\R) arc (\ang:\ang+50:0.4*\R) node[above,scale=0.9] {$\omega$};
 
 \end{tikzpicture}
 
 
 
-% AC circuit C
+% COMPLEX PHASOR
 \begin{tikzpicture}
+  \def\R{2.4}
+  \def\ang{40}
   \coordinate (O) at (0,0);
-  \coordinate (X) at (\xmax,0);
-  \coordinate (Y) at (0,\ymax);
+  \coordinate (X) at (1.4*\xmax,0);
+  \coordinate (Y) at (0,1.3*\ymax);
+  \coordinate (R) at (\ang:\R);
+  \coordinate (Rx) at ({\R*cos(\ang)},0);
 
   % AXIS
   \draw[->,thick]
-    (0,-\ymax) -- (Y) node[left] {{\color{myblue}$I$}, {\color{myred}$V_C$}};
+    (-0.3*\xmax,0) -- (X) node[right=-1] {$\Re[Z]$};
   \draw[->,thick]
-    (O) -- (X) node[below] {$t$};
+    (0,-0.3*\ymax) -- (Y) node[left] {$\Im[Z]$};
 
-  % PLOT
-  \draw[rline,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\A*cos(\om*\x)}) node[right] {$V_C$};
-  \draw[bline,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\I*cos(\om*\x+90)}) node[below=1,right] {$I$};
-
-  % PHASE DIFFERENCE
-  \draw[<-]
-    ({90/\om},-1.1*\A) --++ ({90/\om},0)
-    node[midway,below,scale=0.9] {$\Delta\phi = \pi/2$}; %{$\dfrac{\pi}{2}$}; fill=white,inner sep=1
+  % PHASOR
+  \draw[dashed] (Rx) -- (R);
+  \draw[vector,Rcol] (O) -- (R) node[left=16,above right=-2] {$Z = \abs{Z} e^{i(\omega t - \phi)}$};
+  %\draw[vector,Rcol] (O) -- (R) node[above right=-2,scale=0.8]
+  %  {$\begin{aligned}
+  %     Z &= \abs{Z} e^{i(\omega t + \phi)} \\
+  %       &= \abs{Z} \cos(\omega t + \phi) + \abs{Z} \sin(\omega t + \phi)
+  %   \end{aligned}$};
+  \node[Rcol!80!black,above=2,below right=1,scale=0.9] at (O) {$\abs{Z} \cos(\omega t - \phi)$};
+  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-4},draw=black,angle radius=15,angle eccentricity=2.1] {angle = X--O--R};
+  \draw[->] (\ang+6:0.7*\R) arc (\ang:\ang+50:0.4*\R) node[above,scale=0.9] {$\omega$};
 
 \end{tikzpicture}
 
 
-% AC circuit L
+
+% PHASOR LCR circuit
 \begin{tikzpicture}
+  \def\L{1.7}
+  \def\R{1.6}
+  \def\C{1.4}
   \coordinate (O) at (0,0);
   \coordinate (X) at (\xmax,0);
   \coordinate (Y) at (0,\ymax);
+  \coordinate (C) at (\ang-90:\C);
+  \coordinate (R) at (\ang:\R);
+  \coordinate (L) at (\ang+90:\L);
 
   % AXIS
   \draw[->,thick]
-    (0,-\ymax) -- (Y) node[left] {{\color{myblue}$I$}, {\color{myred}$V_L$}};
+    (0,-\ymax) -- (Y) node[left] {$y$};
   \draw[->,thick]
-    (O) -- (X) node[below] {$t$};
+    (-\xmin,0) -- (X) node[below] {$x$};
 
-  % PLOT
-  \draw[rline,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\A*cos(\om*\x)}) node[above=1,right] {$V_L$};
-  \draw[bline,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\I*cos(\om*\x-90)}) node[below=1,right] {$I$};
-
-  % PHASE DIFFERENCE
-  \draw[->]
-    ({180/\om},-1.1*\A) --++ ({90/\om},0)
-    node[midway,below,scale=0.9] {$\Delta\phi = \pi/2$};
+  % PHASORS
+  \rightAngle{R}{O}{C}{0.20*\R}
+  \rightAngle{L}{O}{R}{0.25*\R}
+  \draw[vector,Rcol] (O) -- (R) node[above right=-3] {$\VR$};
+  \draw[vector,Lcol] (O) -- (L) node[above left=-3] {$\VL$};
+  \draw[vector,Ccol] (O) -- (C) node[below right=-2] {$\VC$};
+  \draw[->] (\ang+6:0.7*\R) arc (\ang:\ang+50:0.4*\R) node[above,scale=0.9] {$\omega$};
+  \draw[->] (\ang+96:0.7*\R) arc (\ang+90:\ang+140:0.4*\R) node[left,scale=0.9] {$\omega$};
+  \draw[->] (\ang-84:0.7*\L) arc (\ang-90:\ang-40:0.4*\L) node[right,scale=0.9] {$\omega$};
+  \draw pic[-sm,"$\omega t$"{scale=0.9},draw=black,angle radius=16,angle eccentricity=1.5] {angle = X--O--R};
 
 \end{tikzpicture}
 
 
-% AC circuit LCR in series
+
+% PHASOR LCR series circuit
 \begin{tikzpicture}
-  \def\om{(425/(0.94*\xmax))}
-  \def\del{26}
-  \def\VR{\A*cos(\del)}
-  \def\f{0.3}
-  \def\X{\A*sin(\del)/(1-2*\f)}
+  \def\L{1.8}
+  \def\R{1.7}
+  \def\C{1.2}
+  \def\Z{sqrt(\R^2+(\L-\C)^2)}
+  \def\del{acos(\R/\Z)} %180/pi*
   \coordinate (O) at (0,0);
   \coordinate (X) at (\xmax,0);
   \coordinate (Y) at (0,\ymax);
+  \coordinate (C) at (\ang-90:\C);
+  \coordinate (R) at (\ang:\R);
+  \coordinate (L) at (\ang+90:\L);
+  \coordinate (E) at ({\ang+\del}:{\Z});
 
   % AXIS
   \draw[->,thick]
-    (0,-\ymax) -- (Y) node[left] {$V$}; %{{\color{myblue}$I$}, {\color{myred}$V_L$}};
+    (0,-\ymax) -- (Y) node[left] {$y$};
   \draw[->,thick]
-    (O) -- (X) node[below] {$t$};
+    (-\xmin,0) -- (X) node[below] {$x$};
 
-  % PLOT
-  \draw[Icol,thick,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\A*cos(\om*\x)}); % node[right=-1] {$\EMF$};
-  \node[Icol,above] at ({360/\om},\A) {$\EMF$};
-  \draw[Rcol,thick,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\VR*cos(\om*\x-\del)}) node[below=3,above right=-2] {$V_R$}; % = R\EMF/Z %\frac{R}{Z}
-  \draw[Lcol,thick,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{(1-\f)*\X*cos(\om*\x-\del+90)}) node[below right=-2] {$V_L$};
-  \draw[Ccol,thick,samples=100,smooth,variable=\x,domain=0:0.94*\xmax]
-    plot(\x,{\f*\X*cos(\om*\x-\del-90)}) node[above=2,right=-2] {$V_C$};
-
-  % PHASE DIFFERENCE
-  \draw[Icol!80!black,dashed] ({180/\om},-1.15*\A) -- ({180/\om},1.05*\A);
-  \draw[Rcol!80!black,dashed] ({(180+\del)/\om},-1.15*\A) -- ({(180+\del)/\om},{0.2*\VR});
-  \draw[Lcol!80!black,dashed] ({(270+\del)/\om},{-0.12*(1-\f)*\X}) -- ({(270+\del)/\om},{1.46*(1-\f)*\X});
-  \draw[Ccol!80!black,dashed] ({( 90+\del)/\om},{-0.26*\f*\X}) -- ({(90+\del)/\om},{1.64*\f*\X});
-  \draw[->,Rcol]
-    ({180/\om},-1.1*\A) --++ ({\del/\om},0)
-    node[midway,below,scale=0.8] {$\phi$}; %\Delta\phi =
-  \draw[->,Lcol]
-    ({180/\om},{1.1*(1-\f)*\X}) --++ ({(\del+90)/\om},0)
-    node[midway,above,scale=0.8] {$\phi + \frac{\pi}{2}$}; %\Delta\phi =
-  \draw[->,Ccol]
-    ({180/\om},{1.45*\f*\X}) --++ ({(\del-90)/\om},0)
-    node[midway,above,scale=0.9] {$\phi - \frac{\pi}{2}$};
+  % PHASORS
+  \rightAngle{R}{O}{C}{0.20*\R}
+  \rightAngle{L}{O}{R}{0.25*\R}
+  \draw[vector,Lcol] (R) -- (E) node[below=3,right=2,scale=0.9] {$\VC + \VL$};
+  \draw[vector,Rcol] (O) -- (R) node[left=3,below right=-1] {$\VR$};
+  \draw[vector,Lcol] (O) -- (L) node[above left=-3] {$\VL$};
+  \draw[vector,Ccol] (O) -- (C) node[below right=-2] {$\VC$};
+  \draw[vector,Icol] (O) -- (E) node[above left=-3] {$\vb*{\EMF}$};
+  %\draw pic[draw=white,line width=0.6,angle radius=14,angle eccentricity=1.45] {angle = X--O--E};
+  \draw pic[-sm,"$\omega t$"{scale=0.9,below=-3},draw=black,angle radius=14,angle eccentricity=1.55]
+    {angle = X--O--E};
+  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-1},draw=black,angle radius=29,angle eccentricity=1.55]
+    {angle = X--O--R};
+  \draw pic[sm-,"$\phi$"{scale=0.9},draw=black,angle radius=24,angle eccentricity=1.25]
+    {angle = R--O--E};
 
 \end{tikzpicture}
 
 
-% RESONATE
+
+% PHASOR LCR parallel circuit current
 \begin{tikzpicture}
-  \def\xmax{4.5}
-  \def\ymax{3}
-  \def\c{1.4}
-  \def\a{0.38*\ymax}
-  \def\A{0.94*\ymax}
-  \def\q{0.9}
-  \def\Q{2.1}
-  \def\t{360/(0.94*\xmax)}
+  \def\L{1.2}
+  \def\R{1.7}
+  \def\C{1.8}
+  \def\Z{sqrt(\R^2+(\L-\C)^2)}
+  \def\del{acos(\R/\Z)} %180/pi*
   \coordinate (O) at (0,0);
   \coordinate (X) at (\xmax,0);
   \coordinate (Y) at (0,\ymax);
-  \coordinate (C) at (\c,0);
+  \coordinate (C) at (\ang+90:\C);
+  \coordinate (R) at (\ang:\R);
+  \coordinate (L) at (\ang-90:\L);
+  \coordinate (E) at ({\ang+\del}:{\Z});
 
   % AXIS
-  \draw[<->,thick]
-    (Y) node[left] {$\langle{P}\rangle$} -- (0,0) -- (X) node[below] {$\omega$};
-  \draw[dashed,thin] (C) --++ (0,\A);
-  \tick{C}{90} node[below] {$\omega_0$};
+  \draw[->,thick]
+    (0,-\ymax) -- (Y) node[left] {$y$};
+  \draw[->,thick]
+    (-\xmin,0) -- (X) node[below] {$x$};
 
-  % PLOT
-  \draw[rline,samples=100,smooth,variable=\x,domain=0.05:0.94*\xmax]
-    plot(\x,{\A/( (\Q*(\x^2-\c^2)/(\x*\c))^2 + 1 )});
-  \draw[bline,samples=100,smooth,variable=\x,domain=0.05:0.94*\xmax]
-    plot(\x,{\a/( (\q*(\x^2-\c^2)/(\x*\c))^2 + 1 )});
-  \node[myred!80!black,align=left,right,scale=0.95] at (\c+0.6/\Q,0.7*\A) {small $R$\\large $Q$};
-  \node[myblue!80!black,align=left,right,scale=0.95] at (\c+1.1/\q,0.7*\a) {large $R$\\small $Q$};
+  % PHASORS
+  \rightAngle{C}{O}{R}{0.25*\R}
+  \rightAngle{R}{O}{L}{0.22*\R}
+  \draw[vector,Lcol] (R) -- (E) node[below=3,right=4,scale=0.9] {$\IC + \IL$};
+  \draw[vector,Rcol] (O) -- (R) node[left=3,below right=-1] {$\IR$};
+  \draw[vector,Lcol] (O) -- (L) node[below right=-2] {$\IL$};
+  \draw[vector,Ccol] (O) -- (C) node[above left=-3] {$\IC$};
+  \draw[vector,Icol] (O) -- (E) node[above left=-3] {$\vb{I}$};
+  \draw pic[-sm,"$\omega t$"{scale=0.9,below=-3},draw=black,angle radius=14,angle eccentricity=1.55]
+    {angle = X--O--E};
+  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-1},draw=black,angle radius=29,angle eccentricity=1.55]
+    {angle = X--O--R};
+  \draw pic[sm-,"$\phi$"{scale=0.9},draw=black,angle radius=24,angle eccentricity=1.25]
+    {angle = R--O--E};
 
-  % WIDTH
-  %\draw[<->,thick] ({\c/(2*\Q)*(-1+sqrt(1+4*\Q^2))},\A/2) -- ({\c/(2*\Q)*(1+sqrt(1+4*\Q^2))},\A/2);
-  %\draw[width,myblue!80!black]
-  %  ({\c/(2*\q)*(-1+sqrt(1+4*\q^2))},\a/2) --++ (\c/\q,0) node[midway,above] {$\Delta \omega$};
-  \draw[width,myred!80!black]
-    ({\c/(2*\Q)*(-1+sqrt(1+4*\Q^2))},\A/2) --++ (\c/\Q,0)
-    node[midway,above,scale=0.9] {\contour{white}{$\Delta \omega$}};
+\end{tikzpicture}
+
+
+
+% PHASOR LCR triangle
+\begin{tikzpicture}
+  \def\ang{20}
+  \def\L{1.2}
+  \def\R{2.0}
+  \def\C{2.0}
+  \def\Z{sqrt(\R^2+(\L-\C)^2)}
+  \def\del{acos(\R/\Z)}
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (\xmax,0);
+  \coordinate (Y) at (0,\ymax);
+  \coordinate (R) at (\ang:\R);
+  \coordinate (Z) at ({\ang+\del}:{\Z});
+
+  % PHASORS
+  \draw[vector,Lcol] (R) -- (Z) node[midway,right=1,scale=0.9] {$\vb{X}_C + \vb{X}_L$};
+  \draw[vector,Rcol] (O) -- (R) node[left=3,below right=-1] {$R$};
+  \draw[vector,Icol] (O) -- (Z) node[above left=-2] {$\vb{Z}$};
+  \draw pic[-sm,"$\phi$"{scale=0.9},draw=black,angle radius=26,angle eccentricity=1.25] {angle = R--O--Z};
 
 \end{tikzpicture}
 
