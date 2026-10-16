@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage[american,siunitx]{circuitikz} % biblioteca
+\begin{document}
+%%% --------------------------------------------------------------------------
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[transformer core, cute] at (4.543, 6.367){};
+	\node[transformer core, cute] at (6.643, 6.367){};
+	\node[transformer core, cute] at (8.717, 6.383){};
+	\node[ground] at (3.493, 5.317){};
+	\node[ground] at (3.493, 7.417){};
+	\draw (11, 6.333) to[ammeter] (11, 7.333);
+\end{tikzpicture}
+%%% --------------------------------------------------------------------------
+
+\end{document}
