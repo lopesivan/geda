@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage[american,siunitx]{circuitikz} % biblioteca
+\begin{document}
+%%% --------------------------------------------------------------------------
+\begin{circuitikz}[x=1.5cm,y=1.2cm]
+    \draw (0,0) to[battery, l=12<\volt>] (0,2) -- (0,3.5)
+                to[R,l=4<\ohm>,i_=$I_1$] (4,3.5) -- (4,2)
+          (0,0) -- (4,0) to[battery, l=24<\volt>,i>] (4,2)
+          (0,2) to[R, l=2<\ohm>, *-*,i_=$I_2$] (2,2)
+                to[R, l=3<\ohm>, -*,i<_=$I_3$] (4,2)
+          (2,0) to[R, l=2.5<\ohm>, *-,i<_=$I_4$] (2,2);
+\end{circuitikz}
+%%% --------------------------------------------------------------------------
+
+\end{document}
