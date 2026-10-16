@@ -1,8 +1,10 @@
 \documentclass{standalone}
 
-\usepackage[straightvoltages]{circuitikz}
+\usepackage[straightvoltages]{circuitikz} % biblioteca
 
 \begin{document}
+
+%% ---------------------------------------------------------------------------
 \begin{circuitikz}
     \draw (0,0) to [short] ++(0,1) node [right] {$-$}
     to [open, v^>=$E(t)$, o-o] ++(0,1) node [right] {$+$}
@@ -11,5 +13,7 @@
     to [curved capacitor, l_=$C$, capacitors/thickness=8] ++(0,-3)
     to [cute inductor, l_=$L$, mirror] ++(-4,0);
 \end{circuitikz}
+%% ---------------------------------------------------------------------------
+
 \end{document}
 
