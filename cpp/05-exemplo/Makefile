@@ -17,7 +17,7 @@ run: ## 🚀 Executa a aplicação (make run ARGS="--sim exemplo.sch")
 	ARGS="$(ARGS)" $(MAKE) -C build run
 
 sim:
-	ARGS="--sim exemplo.sch" $(MAKE) -C build run
+	PYENV_VERSION=2.7.18 build/app --sim exemplo.sch
 
 svg:
 	build/app --render saida.svg  exemplo.sch
@@ -27,5 +27,4 @@ pdf:
 	build/app --render saida.pdf  exemplo.sch
 
 clean: ## 🧹 Limpa os arquivos de build
-	rm -rf build saida.svg saida.png saida.pdf
-
+	rm -rf build saida.* exemplo.dat
