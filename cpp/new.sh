@@ -54,3 +54,9 @@ dest=$(printf "%02d-%s" "$n" "$base")
 echo cp -r "$origem" "$dest"
 cp -r "$origem" "$dest"
 echo "$dest"
+
+echo "cd $dest" | /usr/bin/xclip -selection clipboard/usr/bin/xclip -selection clipboard
+
+# git
+git ann
+git P
