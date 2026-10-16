@@ -1,0 +1,37 @@
+\documentclass{standalone}
+
+\usepackage[straightvoltages]{circuitikz}
+
+\newcommand{\voltmeter}{node[circle,draw]{{\color{black!70}\textbf{V}}}}
+\newcommand{\amperemeter}{node[circle,draw]{{\color{black!70}\textbf{A}}}}
+
+\begin{document}
+%% ---------------------------------------------------------------------------
+		\begin{circuitikz}
+		\draw [line width=1] (-1,0) --(-1,1) to[battery, l=$E$, i=$I$, invert, line width=0.5]
+			(-1,5) --(6,5)
+		to[potentiometer, l_=$R$] (6,2)
+		--(6,0)
+		--(-1,0);
+		\draw [line width=1] (6,3.5) -- (8,3.5);
+		\draw[line width = 1] (6,0) --(8,0) --(8,1.63);
+		\draw [line width=1](8,2) \voltmeter (8,3.5);
+		\draw [line width=1](8,3.5) --(8,2.37);
+
+		% Points
+		\draw (6,5) node[ right] {$A$};
+		\draw (6,0) node[above right] {$B$};
+		\draw (6,3.5) node[above right] {$C$};
+		\draw (6,5) node {$\bullet$};
+		\draw (6,0) node {$\bullet$};
+		\draw (6,3.5) node {$\bullet$};
+
+		% Flèches de tension
+		\draw[>=stealth,->, thick] (5.3,3.5) -- (5.3,4.8) node[midway,left] {$U_{AC}$};
+		\draw[>=stealth,->, thick] (5.3,0.3) -- (5.3,3.3) node[midway,left] {$U_{CB}$};
+		\draw[>=stealth,->, thick] (-1.9,0)  -- (-1.9,5)  node[midway,left] {$U$};
+	\end{circuitikz}
+
+%% ---------------------------------------------------------------------------
+\end{document}
+
