@@ -4,11 +4,11 @@
 %%% --------------------------------------------------------------------------
 \begin{circuitikz}
 \draw
-(4,0) node[pmos] {}
-(0,4) node[op amp] {}
-(4,4) node[american or port] {}
-(0,8) node[transformer] {}
-(4,8) node[spdt] {}
+(0,0) to[R, o-o] (2,0)      % resistor horizontal em y=0
+(4,0) to[vR, o-o] (6,0)     % resistor variável horizontal em y=0
+(6,0) to[L, o-o] (6,2)
+(6,2) to[ammeter] (8,2)
+(4,0) to[ammeter] (6,2)
 ;
 \end{circuitikz}
 %%% --------------------------------------------------------------------------
