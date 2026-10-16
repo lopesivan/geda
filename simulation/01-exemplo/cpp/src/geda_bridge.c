@@ -171,26 +171,88 @@ int geda_bridge_list_components(const char* filename)
 
 int geda_bridge_simulate(const char* filename)
 {
-    char* cmd;
-    int   rc;
+    GError*  error  = NULL;
+    gint     status = 0;
+    gboolean ok;
 
-    cmd = g_strdup_printf(
-        GEDA_PREFIX "/bin/gnetlist -g spice-sdb -o saida.cir '%s'",
-        filename);
-    printf("$ %s\n", cmd);
-    rc = system(cmd);
-    g_free(cmd);
-    if(rc != 0)
+    gchar* gnetlist =
+        g_build_filename(GEDA_PREFIX, "bin", "gnetlist", NULL);
+
+    gchar* gnetlist_argv[] = {gnetlist,
+                              "-g",
+                              "spice-sdb",
+                              "-o",
+                              "saida.cir",
+                              (gchar*)filename,
+                              NULL};
+
+    printf(
+        "$ %s -g spice-sdb -o saida.cir %s\n", gnetlist, filename);
+    fflush(stdout);
+
+    ok = g_spawn_sync(NULL,
+                      gnetlist_argv,
+                      NULL,
+                      G_SPAWN_DEFAULT,
+                      NULL,
+                      NULL,
+                      NULL,
+                      NULL,
+                      &status,
+                      &error);
+
+    g_free(gnetlist);
+
+    if(!ok)
     {
-        fprintf(stderr, "gnetlist falhou (%d)\n", rc);
+        fprintf(stderr,
+                "Erro ao executar gnetlist: %s\n",
+                error->message);
+        g_clear_error(&error);
         return 1;
     }
 
-    printf("$ ngspice -b -o saida.log saida.cir\n");
-    rc = system("ngspice -b -o saida.log saida.cir");
-    if(rc != 0)
+    if(!g_spawn_check_wait_status(status, &error))
     {
-        fprintf(stderr, "ngspice falhou (%d)\n", rc);
+        fprintf(stderr, "gnetlist falhou: %s\n", error->message);
+        g_clear_error(&error);
+        return 1;
+    }
+
+    gchar* ngspice_argv[] = {(gchar*)NGSPICE_EXECUTABLE,
+                             "-b",
+                             "-o",
+                             "saida.log",
+                             "saida.cir",
+                             NULL};
+
+    printf("$ %s -b -o saida.log saida.cir\n", NGSPICE_EXECUTABLE);
+    fflush(stdout);
+
+    ok = g_spawn_sync(NULL,
+                      ngspice_argv,
+                      NULL,
+                      G_SPAWN_DEFAULT,
+                      NULL,
+                      NULL,
+                      NULL,
+                      NULL,
+                      &status,
+                      &error);
+
+    if(!ok)
+    {
+        fprintf(stderr,
+                "Erro ao executar ngspice: %s\n",
+                error->message);
+        g_clear_error(&error);
+        return 1;
+    }
+
+    if(!g_spawn_check_wait_status(status, &error))
+    {
+        fprintf(stderr, "ngspice falhou: %s\n", error->message);
+        g_clear_error(&error);
         return 1;
     }
 
