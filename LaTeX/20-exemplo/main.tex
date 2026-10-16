@@ -1,247 +1,317 @@
 \documentclass{standalone}
 
-\usepackage{amsmath} % for \dfrac
-\usepackage{physics,siunitx}
+\usepackage{amsmath}
 \usepackage{tikz}
-\usetikzlibrary{angles,quotes} % for pic (angle labels)
-\usetikzlibrary{arrows.meta}
-\usetikzlibrary{calc}
+\usepackage{physics}
+\usepackage[outline]{contour} % glow around text
+%\usetikzlibrary{intersections}
 %\usetikzlibrary{decorations.markings}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{bending} % for arrow head angle
+\contourlength{1.0pt}
+\usetikzlibrary{3d}
+
 \tikzset{>=latex} % for LaTeX arrow head
 \usepackage{xcolor}
-\colorlet{Ecol}{orange!90!black}
-\colorlet{Icol}{blue!50!black}
-\colorlet{Ccol}{orange!90!black}
-\colorlet{Rcol}{green!50!black}
-\colorlet{Lcol}{violet!90}
-\colorlet{myblue}{blue!70!black}
-\colorlet{myred}{red!70!black}
-\tikzstyle{Rline}=[Rcol,thick]
-\tikzstyle{gline}=[Rcol,thick]
-\tikzstyle{bline}=[myblue,thick]
-\tikzstyle{rline}=[myred,thick]
-\tikzstyle{width}=[{Latex[length=5,width=3]}-{Latex[length=5,width=3]},thick]
-\tikzstyle{vector}=[->,very thick,line cap=round]
-\tikzstyle{-sm}=[-{Latex[length=3,width=2]}]
-\tikzstyle{sm-}=[{Latex[length=3,width=2]}-]
-\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.03*\ymax) --++ (#2-180:0.06*\ymax)}
-\newcommand\EMF{\mathcal{E}}
-\newcommand\VR{\vb{V}\!_R}
-\newcommand\VC{\vb{V}\!_C}
-\newcommand\VL{\vb{V}\!_L}
-\newcommand\IR{\vb{I}_R}
-\newcommand\IC{\vb{I}_C}
-\newcommand\IL{\vb{I}_L}
-\def\xmin{1.8}
-\def\xmax{2.0}
-\def\ymax{1.8}
-\def\ang{35}
-
-\newcommand\rightAngle[4]{
-  \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#3}{center}}
-  \coordinate (tmpRA) at (\pgfmathresult+45:#4);
-  \draw[white,line width=0.6] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
-  \draw[blue!40!black] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
-}
+\colorlet{myblue}{blue!65!black}
+\colorlet{mydarkblue}{blue!50!black}
+\colorlet{myred}{red!65!black}
+\colorlet{mydarkred}{red!40!black}
+\colorlet{veccol}{green!70!black}
+\colorlet{vcol}{green!70!black}
+\colorlet{xcol}{blue!85!black}
+%\colorlet{projcol}{xcol!60}
+%\colorlet{unitcol}{xcol!60!black!85}
+%\colorlet{myred}{red!90!black}
+%\colorlet{mypurple}{blue!50!red!80!black!80}
+\tikzstyle{vector}=[->,very thick,xcol,line cap=round]
+\tikzstyle{xline}=[myblue,very thick]
+\tikzstyle{yzp}=[canvas is zy plane at x=0]
+\tikzstyle{xzp}=[canvas is xz plane at y=0]
+\tikzstyle{xyp}=[canvas is xy plane at z=0]
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.12) --++ (#2-180:0.24)}
+\def\N{100}
 
 
 \begin{document}
 %%% --------------------------------------------------------------------------
 
-% PHASOR
+
+% COMPLEX
 \begin{tikzpicture}
-  \def\R{2.4}
-  \def\ang{40}
+  \def\xmax{2.0}
+  \def\ymax{1.6}
+  \def\R{1.9}
+  \def\ang{35}
   \coordinate (O) at (0,0);
-  \coordinate (X) at (1.4*\xmax,0);
-  \coordinate (Y) at (0,1.3*\ymax);
   \coordinate (R) at (\ang:\R);
-  \coordinate (Rx) at ({\R*cos(\ang)},0);
-
-  % AXIS
-  \draw[->,thick]
-    (-0.3*\xmax,0) -- (X) node[below] {$x$};
-  \draw[->,thick]
-    (0,-0.3*\ymax) -- (Y) node[left] {$y$};
-
-  % PHASOR
-  \draw[dashed]
-    (Rx) -- (R);
-  \draw[vector,Rcol] (O) -- (R) node[above right=-3] {$\VR$};
-  \draw[vector,Rcol!80!black] (O) node[above=2,below right=1,scale=0.9] {$\EMF_0 \cos(\omega t - \phi)$} -- (Rx); %\text{max}
-  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-4},draw=black,angle radius=15,angle eccentricity=2.1] {angle = X--O--R};
-  \draw[->] (\ang+6:0.7*\R) arc (\ang:\ang+50:0.4*\R) node[above,scale=0.9] {$\omega$};
-
-\end{tikzpicture}
-
-
-
-% COMPLEX PHASOR
-\begin{tikzpicture}
-  \def\R{2.4}
-  \def\ang{40}
-  \coordinate (O) at (0,0);
-  \coordinate (X) at (1.4*\xmax,0);
-  \coordinate (Y) at (0,1.3*\ymax);
-  \coordinate (R) at (\ang:\R);
-  \coordinate (Rx) at ({\R*cos(\ang)},0);
-
-  % AXIS
-  \draw[->,thick]
-    (-0.3*\xmax,0) -- (X) node[right=-1] {$\Re[Z]$};
-  \draw[->,thick]
-    (0,-0.3*\ymax) -- (Y) node[left] {$\Im[Z]$};
-
-  % PHASOR
-  \draw[dashed] (Rx) -- (R);
-  \draw[vector,Rcol] (O) -- (R) node[left=16,above right=-2] {$Z = \abs{Z} e^{i(\omega t - \phi)}$};
-  %\draw[vector,Rcol] (O) -- (R) node[above right=-2,scale=0.8]
-  %  {$\begin{aligned}
-  %     Z &= \abs{Z} e^{i(\omega t + \phi)} \\
-  %       &= \abs{Z} \cos(\omega t + \phi) + \abs{Z} \sin(\omega t + \phi)
-  %   \end{aligned}$};
-  \node[Rcol!80!black,above=2,below right=1,scale=0.9] at (O) {$\abs{Z} \cos(\omega t - \phi)$};
-  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-4},draw=black,angle radius=15,angle eccentricity=2.1] {angle = X--O--R};
-  \draw[->] (\ang+6:0.7*\R) arc (\ang:\ang+50:0.4*\R) node[above,scale=0.9] {$\omega$};
-
-\end{tikzpicture}
-
-
-
-% PHASOR LCR circuit
-\begin{tikzpicture}
-  \def\L{1.7}
-  \def\R{1.6}
-  \def\C{1.4}
-  \coordinate (O) at (0,0);
-  \coordinate (X) at (\xmax,0);
-  \coordinate (Y) at (0,\ymax);
-  \coordinate (C) at (\ang-90:\C);
-  \coordinate (R) at (\ang:\R);
-  \coordinate (L) at (\ang+90:\L);
-
-  % AXIS
-  \draw[->,thick]
-    (0,-\ymax) -- (Y) node[left] {$y$};
-  \draw[->,thick]
-    (-\xmin,0) -- (X) node[below] {$x$};
-
-  % PHASORS
-  \rightAngle{R}{O}{C}{0.20*\R}
-  \rightAngle{L}{O}{R}{0.25*\R}
-  \draw[vector,Rcol] (O) -- (R) node[above right=-3] {$\VR$};
-  \draw[vector,Lcol] (O) -- (L) node[above left=-3] {$\VL$};
-  \draw[vector,Ccol] (O) -- (C) node[below right=-2] {$\VC$};
-  \draw[->] (\ang+6:0.7*\R) arc (\ang:\ang+50:0.4*\R) node[above,scale=0.9] {$\omega$};
-  \draw[->] (\ang+96:0.7*\R) arc (\ang+90:\ang+140:0.4*\R) node[left,scale=0.9] {$\omega$};
-  \draw[->] (\ang-84:0.7*\L) arc (\ang-90:\ang-40:0.4*\L) node[right,scale=0.9] {$\omega$};
-  \draw pic[-sm,"$\omega t$"{scale=0.9},draw=black,angle radius=16,angle eccentricity=1.5] {angle = X--O--R};
-
-\end{tikzpicture}
-
-
-
-% PHASOR LCR series circuit
-\begin{tikzpicture}
-  \def\L{1.8}
-  \def\R{1.7}
-  \def\C{1.2}
-  \def\Z{sqrt(\R^2+(\L-\C)^2)}
-  \def\del{acos(\R/\Z)} %180/pi*
-  \coordinate (O) at (0,0);
-  \coordinate (X) at (\xmax,0);
-  \coordinate (Y) at (0,\ymax);
-  \coordinate (C) at (\ang-90:\C);
-  \coordinate (R) at (\ang:\R);
-  \coordinate (L) at (\ang+90:\L);
-  \coordinate (E) at ({\ang+\del}:{\Z});
-
-  % AXIS
-  \draw[->,thick]
-    (0,-\ymax) -- (Y) node[left] {$y$};
-  \draw[->,thick]
-    (-\xmin,0) -- (X) node[below] {$x$};
-
-  % PHASORS
-  \rightAngle{R}{O}{C}{0.20*\R}
-  \rightAngle{L}{O}{R}{0.25*\R}
-  \draw[vector,Lcol] (R) -- (E) node[below=3,right=2,scale=0.9] {$\VC + \VL$};
-  \draw[vector,Rcol] (O) -- (R) node[left=3,below right=-1] {$\VR$};
-  \draw[vector,Lcol] (O) -- (L) node[above left=-3] {$\VL$};
-  \draw[vector,Ccol] (O) -- (C) node[below right=-2] {$\VC$};
-  \draw[vector,Icol] (O) -- (E) node[above left=-3] {$\vb*{\EMF}$};
-  %\draw pic[draw=white,line width=0.6,angle radius=14,angle eccentricity=1.45] {angle = X--O--E};
-  \draw pic[-sm,"$\omega t$"{scale=0.9,below=-3},draw=black,angle radius=14,angle eccentricity=1.55]
-    {angle = X--O--E};
-  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-1},draw=black,angle radius=29,angle eccentricity=1.55]
+  \coordinate (-R) at (-\ang:\R);
+  \coordinate (X) at ({\R*cos(\ang)},0);
+  \coordinate (Y) at (0,{\R*sin(\ang)});
+  \coordinate (-Y) at (0,{-\R*sin(\ang)});
+  \node[fill=mydarkblue,circle,inner sep=0.8] (R') at (R) {};
+  \node[fill=mydarkred,circle,inner sep=0.8] (-R') at (-R) {};
+  \node[mydarkblue,above right=-2] at (R') {$z=x+iy=re^{i\theta}$};
+  \node[mydarkred,below right=-1] at (-R') {$\overline{z}=x-iy=re^{-i\theta}$};
+  \draw[dashed,mydarkblue]
+    (Y) -- (R') --++ (0,{0.1-\R*sin(\ang)});
+  \draw[dashed,mydarkred]
+    (-Y) -- (-R') --++ (0,{\R*sin(\ang)-0.45});
+  \draw[->,line width=0.9] (-0.65*\xmax,0) -- (\xmax+0.05,0) node[right] {Re};
+  \draw[->,line width=0.9] (0,-\ymax) -- (0,\ymax+0.05) node[left] {Im};
+  \draw[vector] (O) -- (R') node[pos=0.55,above left=-2] {$r$};
+  \draw[vector,myred] (O) -- (-R') node[pos=0.55,below left=-2] {$r$};
+  \draw pic[->,"$\theta$",mydarkblue,draw=mydarkblue,angle radius=23,angle eccentricity=1.24]
     {angle = X--O--R};
-  \draw pic[sm-,"$\phi$"{scale=0.9},draw=black,angle radius=24,angle eccentricity=1.25]
-    {angle = R--O--E};
-
+  \draw pic[<-,"$-\theta$"{right=-1},mydarkred,draw=mydarkred,angle radius=20,angle eccentricity=1]
+    {angle = -R--O--X};
+  %\tick{X}{90} node[scale=0.9,left=6,below right=-2] {$x = r\cos\theta$};
+  \tick{X}{90} node[scale=1,below=-1] {$x$};
+  \tick{Y}{ 0} node[mydarkblue,scale=1,left] {$y$}; %r\sin\theta =
+  \tick{-Y}{ 0} node[mydarkred,scale=1,left] {$-y$};
 \end{tikzpicture}
 
 
-
-% PHASOR LCR parallel circuit current
+% COMPLEX numbers
 \begin{tikzpicture}
-  \def\L{1.2}
-  \def\R{1.7}
-  \def\C{1.8}
-  \def\Z{sqrt(\R^2+(\L-\C)^2)}
-  \def\del{acos(\R/\Z)} %180/pi*
+  \def\xmax{1.7}
+  \def\ymax{1.6}
+  \def\re{0.7*\xmax}
+  \def\im{0.7*\ymax}
   \coordinate (O) at (0,0);
-  \coordinate (X) at (\xmax,0);
-  \coordinate (Y) at (0,\ymax);
-  \coordinate (C) at (\ang+90:\C);
+  \draw[dashed,mydarkblue]
+    (-\re,\im) -| (\re,-\im) -| cycle;
+  \draw[->,line width=0.9] (-\xmax,0) -- (\xmax+0.1,0) node[right] {Re};
+  \draw[->,line width=0.9] (0,-\ymax) -- (0,\ymax+0.1) node[left] {Im};
+  \tick{\re,0}{90} node[mydarkblue,scale=1,below=-1] {\contour{white}{$1$}};
+  \tick{-\re,0}{90} node[mydarkblue,scale=1,below=-1] {\contour{white}{$-1$}};
+  \tick{0,\im}{ 0} node[mydarkblue,scale=1,left] {\contour{white}{$i$}}; %r\sin\theta =
+  \tick{0,-\im}{ 0} node[mydarkblue,scale=1,left] {\contour{white}{$-i$}};
+  \fill[mydarkblue]
+    (   0, \im) circle(0.05)
+    (   0,-\im) circle(0.05)
+    ( \re,   0) circle(0.05)
+    (-\re,  0) circle(0.05)
+    ( \re, \im) circle(0.05)
+      node[mydarkblue,scale=1,above right=-2] {\strut$1+i$}
+    ( \re,-\im) circle(0.05)
+      node[mydarkblue,scale=1,below right=-1] {\strut$1-i$}
+    (-\re, \im) circle(0.05)
+      node[mydarkblue,scale=1,above left=-2] {\strut$-1+i$}
+    (-\re,-\im) circle(0.05)
+      node[mydarkblue,scale=1,below left=-1] {\strut$-1-i$};
+\end{tikzpicture}
+
+
+% COMPLEX OSCILLATOR
+\begin{tikzpicture}
+  \def\xmax{2.2}
+  \def\ymax{2.2}
+  \def\R{1.8}
+  \def\ang{35}
+  \coordinate (O) at (0,0);
   \coordinate (R) at (\ang:\R);
-  \coordinate (L) at (\ang-90:\L);
-  \coordinate (E) at ({\ang+\del}:{\Z});
-
-  % AXIS
-  \draw[->,thick]
-    (0,-\ymax) -- (Y) node[left] {$y$};
-  \draw[->,thick]
-    (-\xmin,0) -- (X) node[below] {$x$};
-
-  % PHASORS
-  \rightAngle{C}{O}{R}{0.25*\R}
-  \rightAngle{R}{O}{L}{0.22*\R}
-  \draw[vector,Lcol] (R) -- (E) node[below=3,right=4,scale=0.9] {$\IC + \IL$};
-  \draw[vector,Rcol] (O) -- (R) node[left=3,below right=-1] {$\IR$};
-  \draw[vector,Lcol] (O) -- (L) node[below right=-2] {$\IL$};
-  \draw[vector,Ccol] (O) -- (C) node[above left=-3] {$\IC$};
-  \draw[vector,Icol] (O) -- (E) node[above left=-3] {$\vb{I}$};
-  \draw pic[-sm,"$\omega t$"{scale=0.9,below=-3},draw=black,angle radius=14,angle eccentricity=1.55]
-    {angle = X--O--E};
-  \draw pic[-sm,"$\omega t - \phi$"{scale=0.9,below=-1},draw=black,angle radius=29,angle eccentricity=1.55]
+  \coordinate (X) at ({\R*cos(\ang)},0);
+  \coordinate (Y) at (0,{\R*sin(\ang)});
+  \draw[xline] (O) circle (\R); %0.995*\R
+  \node[fill=myred,circle,inner sep=1] (R') at (R) {};
+  \node[mydarkblue,above right=0] at (R') {$z(t)=Ae^{i\omega t}$};
+  \draw[dashed,mydarkblue]
+    (Y) -- (R') --++ (0,{0.1-\R*sin(\ang)});
+  \draw[->,line width=0.9] (-\xmax,0) -- (\xmax+0.05,0) node[right] {Re};
+  \draw[->,line width=0.9] (0,-\ymax) -- (0,\ymax+0.05) node[left] {Im};
+  \draw[vector] (O) -- (R') node[pos=0.55,above left=-2] {$A$};
+  \draw pic[->,"$\omega t$",mydarkblue,draw=mydarkblue,angle radius=22,angle eccentricity=1.4]
     {angle = X--O--R};
-  \draw pic[sm-,"$\phi$"{scale=0.9},draw=black,angle radius=24,angle eccentricity=1.25]
-    {angle = R--O--E};
+  \tick{0,\R+0.015}{0}; %node[scale=0.9,left=2] {\contour{white}{$R$}};
+  \tick{\R+0.015,0}{90}; %node[scale=0.9,right=1,below=0] {\contour{white}{$R$}};
+  \tick{0,-\R-0.015}{0};
+  \tick{-\R-0.015,0}{90};
+  \tick{X}{90} node[scale=0.9,left=14,below=-1] {$A\cos(\omega t)$}; %{\contour{white}{$A\cos(\omega t)$}};
+  \tick{Y}{ 0} node[scale=0.9,below=1,left=-2] {$A\sin(\omega t)$}; % {\contour{white}{$A\sin(\omega t)$}};
+\end{tikzpicture}
+
+
+% COMPLEX OSCILLATOR 3D
+\def\xang{-13}
+\def\zang{45}
+\begin{tikzpicture}[x=(\xang:0.9), y=(90:0.9), z=(\zang:1.1)]
+  \message{^^JSynthesis 3D}
+  \def\xmax{8.8}         % max x axis
+  \def\ymin{-1.5}        % min y axis
+  \def\ymax{1.6}         % max y axis
+  \def\zmax{1.6}         % max z axis
+  \def\xf{1.17*\xmax}    % x position frequency axis
+  \def\A{(0.70*\ymax)}   % amplitude
+  \def\T{(0.335*\xmax)}  % period
+  \def\w{\zmax/11.2}     % spacing components
+  \def\ang{47}           % angle
+  \def\s{\ang/360*\T}    % time component
+  \def\x{\A*cos(\ang)}   % real component
+  \def\y{\A*sin(\ang)}   % imaginary component
+
+  % COMPLEX PLANE
+  \begin{scope}[shift={(-1.6*\zmax,0,0)}]
+    \draw[black,fill=white,opacity=0.3,yzp]
+      (-1.25*\zmax,-1.25*\ymax) rectangle (1.4*\zmax,1.25*\ymax);
+    \draw[->,thick] (0,\ymin,0) -- (0,\ymax+0.02,0)
+      node[pos=1,left=0,yzp] {Im};
+    \draw[->,thick] (0,0,-\zmax) -- (0,0,\zmax+0.02)
+      node[right=1,below=0,yzp] {Re} coordinate (X);
+    %\node[scale=1,yzp] at (0,-\ymax,0) {Complex plane};
+    \draw[xline,yzp] (0,0) circle(0.991*\A) coordinate (O);
+    \fill[myred,yzp] (\ang:{\A}) circle(0.07) coordinate(P);
+    \node[mydarkblue,above=3,right=-5,yzp,scale=0.8] at (P) {$z(t)=Ae^{i\omega t}$};
+    \draw[vector,thick,yzp] (0,0) -- (\ang:{\A-0.03}) coordinate (R);
+    \draw pic[-{>[flex'=1]},draw=mydarkblue,angle radius=14,angle eccentricity=1,
+              "$\omega t$"{above=0,right=-0.5,yslant=0.69,scale=0.8},mydarkblue,yzp]
+      {angle = X--O--R};
+    \tick{0,0,{\A}}{90};
+    \tick{0,0,{-\A}}{90};
+    \tick{0,{\A},0}{\zang};
+    \tick{0,{-\A},0}{\zang};
+  \end{scope}
+
+  % IMAGINARY
+  \begin{scope}[shift={(0,0,1.9*\zmax)}]
+    \draw[black,fill=white,opacity=0.3,xyp]
+      (-0.5*\ymax,-1.2*\ymax) rectangle (1.10*\xmax,1.25*\ymax);
+    \draw[->,thick] (-0.3*\ymax,0,0) -- (\xmax,0,0)
+      node[below right=-2,xyp] {$t$ [s]};
+    \draw[->,thick] (0,\ymin,0) -- (0,\ymax,0)
+      node[left,xyp] {Im};
+    \draw[xline,samples=\N,smooth,variable=\t,domain=-0.05*\T:0.95*\xmax]
+      plot(\t,{\A*sin(360/\T*\t)},0);
+    %\node[below=0,xyp] at (0.4*\xmax,-\ymax,0) {Imaginary component};
+    \fill[myred,xyp] ({\s},{\y}) circle(0.07) coordinate(I);
+    \draw[vector,thick,xyp] ({\s},0) --++ (0,{\y-0.03});
+    \tick{0,{\A},0}{180};
+    \tick{0,{-\A},0}{180};
+    \tick{{\s},0,0}{90} node[right=0,below=-1,xyp] {$\omega t$};
+    \tick{{\T},0,0}{90} node[right=0,below,xyp] {\contour{white}{$T$}};
+    \tick{{2*\T},0,0}{90} node[right=0,below,xyp] {\contour{white}{$2T$}};
+    \node[mydarkblue,below=0,xyp] at (0.4*\xmax,1.15*\ymax,0) {$y(t)=A\sin(\omega t)$};
+  \end{scope}
+
+  % REAL
+  \begin{scope}[shift={(0,-1.8*\zmax,0)}]
+    \draw[black,fill=white,opacity=0.3,xzp]
+      (-0.5*\ymax,-1.4*\ymax) rectangle (1.10*\xmax,1.25*\ymax);
+    \draw[->,thick] (-0.3*\ymax,0,0) -- (\xmax,0,0)
+      node[below right=-1,xzp] {$t$ [s]};
+    \draw[->,thick] (0,0,-\zmax) -- (0,0,\zmax)
+      node[left=-1,xzp] {Re};
+    \draw[xline,samples=\N,smooth,variable=\t,domain=-0.05*\T:0.95*\xmax]
+      plot(\t,0,{\A*cos(360/\T*\t)});
+    %\node[below=0,xzp] at (0.4*\xmax,-\ymax,0) {Real component};
+    \fill[myred,xzp] ({\s},{\x}) circle(0.07) coordinate(R);
+    \draw[vector,thick,xzp] ({\s},0) --++ (0,{\x-0.03});
+    \tick{0,0,{\A}}{180};
+    \tick{0,0,{-\A}}{180};
+    \tick{{\s},0,0}{\zang} node[below=-1,xzp] {$\omega t$};
+    \tick{{\T},0,0}{\zang} node[below,xzp] {$T$};
+    \tick{{2*\T},0,0}{\zang} node[below,xzp] {$2T$};
+    \node[mydarkblue,above=0,xzp] at (0.3*\xmax,-\ymax,0) {$x(t)=A\cos(\omega t)$};
+  \end{scope}
+
+  % COMPONENTS
+  \draw[myred!80!black,dashed]
+    (P) -- ({\s},{\y},{\x})
+    (I) -- ({\s},{\y},{\x+0.05})
+    ({\s},{\y-0.06},{\x}) -- (R);
+  \draw[->,black,thick] (-0.1*\ymax,0,0) -- (\xmax,0,0) node[below right=-2] {$t$ [s]};
+  \draw[->,black,thick] (0,\ymin,0) -- (0,\ymax+0.02,0) node[above] {Im};
+  \draw[->,black,thick] (0,0,-\zmax) -- (0,0,\zmax+0.02) node[right=1,below=3] {Re};
+  \foreach \i [evaluate={\tmin=max(-0.05*\T,(\i-0.05)*\T); \tmax=min(0.95*\xmax,(\i+1)*\T);}] in {0,...,2}{
+    %\draw[white,line width=1.2] (\tmin,0,0) -- (\tmax,0,0);
+    \draw[thick] (\tmin,0,0) -- (\tmax,0,0);
+    \draw[xline,samples=0.4*\N,smooth,variable=\t]
+      plot[domain=\tmin:\tmax](\t,{\A*sin(360/\T*\t)},{\A*cos(360/\T*\t)});
+  }
+  \draw[thick] (0,0,{0.9*\A}) -- (0,0,{\A});
+  \fill[myred] ({\s},{\y},{\x}) circle(0.07) coordinate(Z);
+  \draw[vector,thick] ({\s},0,0) --++ (0,{\y-0.03},{\x-0.03});
+  \draw[xline,samples=0.3*\N,smooth,variable=\t,domain=\s+0.03:\s+0.4*\T,line cap=round]
+    plot(\t,{\A*sin(360/\T*\t)},{\A*cos(360/\T*\t)});
+  \tick{{\T},0,0}{90};
+  \tick{{2*\T},0,0}{90};
+  \tick{0,0,{\A}}{90};
+  \tick{0,0,{-\A}}{90};
+  \tick{0,{\A},0}{\zang};
+  \tick{0,{-\A},0}{\zang};
+  \draw[myred!80!black,dashed]
+    ({\s},{\y-0.06},{\x}) --++ (0,-0.2*\ymax,0);
 
 \end{tikzpicture}
 
 
 
-% PHASOR LCR triangle
+% VECTOR ROTATION
+\def\xmax{2.7}
+\def\ymax{2.7}
+\def\R{2.3}
+\def\ang{28}
+\def\dang{35}
 \begin{tikzpicture}
-  \def\ang{20}
-  \def\L{1.2}
-  \def\R{2.0}
-  \def\C{2.0}
-  \def\Z{sqrt(\R^2+(\L-\C)^2)}
-  \def\del{acos(\R/\Z)}
   \coordinate (O) at (0,0);
-  \coordinate (X) at (\xmax,0);
-  \coordinate (Y) at (0,\ymax);
   \coordinate (R) at (\ang:\R);
-  \coordinate (Z) at ({\ang+\del}:{\Z});
+  \coordinate (Q) at (\ang+\dang:\R);
+  \coordinate (X) at ({\R*cos(\ang)},0);
+  \coordinate (Y) at (0,{\R*sin(\ang)});
+  \coordinate (X') at ({\R*cos(\ang+\dang)},0);
+  \coordinate (Y') at (0,{\R*sin(\ang+\dang)});
+  %\draw[myblue] (O) circle (0.995*\R);
+  \draw[myblue] (-10:\R) arc (-10:100:\R);
+  \node[fill=myred,circle,inner sep=0.8] at (R) {};
+  \node[fill=myred,circle,inner sep=0.8] at (Q) {};
+  \node[mydarkblue,above right=-2] at (R) {$\vb{r}=(x,y)$};
+  \node[mydarkblue,above right=-2] at (Q) {$\vb{r}'=(x',y')$};
+  \draw[dashed,mydarkblue]
+    (Y) -- (R) --++ (0,{0.1-\R*sin(\ang)});
+  \draw[dashed,mydarkblue]
+    (Y') -- (Q) --++ (0,{0.1-\R*sin(\ang+\dang)});
+  \draw[->,line width=0.9] (-0.1*\xmax,0) -- (\xmax+0.05,0) node[right] {$x$};
+  \draw[->,line width=0.9] (0,-0.1*\ymax) -- (0,\ymax+0.05) node[left] {$y$};
+  \draw[vector] (O) -- (R);
+  \draw[vector] (O) -- (Q);
+  \draw pic[->,"$\phi$",mydarkblue,draw=mydarkblue,angle radius=20,angle eccentricity=1.35]
+    {angle = R--O--Q};
+  \tick{0,\R+0.015}{0};
+  \tick{\R+0.015,0}{90};
+  \tick{X}{90} node[scale=0.9,left=0,below=-1] {$x$};
+  \tick{Y}{ 0} node[scale=0.9,below=1,left=-2] {$y$};
+  \tick{X'}{90} node[scale=0.9,left=0,below=-4] {$x'$};
+  \tick{Y'}{ 0} node[scale=0.9,below=1,left=-2] {$y'$};
+\end{tikzpicture}
 
-  % PHASORS
-  \draw[vector,Lcol] (R) -- (Z) node[midway,right=1,scale=0.9] {$\vb{X}_C + \vb{X}_L$};
-  \draw[vector,Rcol] (O) -- (R) node[left=3,below right=-1] {$R$};
-  \draw[vector,Icol] (O) -- (Z) node[above left=-2] {$\vb{Z}$};
-  \draw pic[-sm,"$\phi$"{scale=0.9},draw=black,angle radius=26,angle eccentricity=1.25] {angle = R--O--Z};
 
+% COMPLEX ROTATION
+\begin{tikzpicture}
+  \coordinate (O) at (0,0);
+  \coordinate (R) at (\ang:\R);
+  \coordinate (Q) at (\ang+\dang:\R);
+  \coordinate (X) at ({\R*cos(\ang)},0);
+  \coordinate (Y) at (0,{\R*sin(\ang)});
+  %\draw[myblue] (O) circle (0.995*\R);
+  \draw[myblue] (-10:\R) arc (-10:100:\R);
+  \node[fill=myred,circle,inner sep=0.8] at (R) {};
+  \node[fill=myred,circle,inner sep=0.8] at (Q) {};
+  \node[mydarkblue,above right=0] at (R) {$z=re^{i\theta}$};
+  \node[mydarkblue,left=2,above right=0] at (Q) {$ze^{i\phi}=re^{i(\theta+\phi)}$};
+  \draw[dashed,mydarkblue]
+    (Y) -- (R) --++ (0,{0.1-\R*sin(\ang)});
+  \draw[->,line width=0.9] (-0.1*\xmax,0) -- (\xmax+0.05,0) node[right] {Re};
+  \draw[->,line width=0.9] (0,-0.1*\ymax) -- (0,\ymax+0.05) node[left] {Im};
+  \draw[vector] (O) -- (R) node[pos=0.65,above left=-3] {$r$};
+  \draw[vector] (O) -- (Q) node[pos=0.65,above left=-3] {$r$};
+  \draw pic[->,"$\theta$",mydarkblue,draw=mydarkblue,angle radius=24,angle eccentricity=1.25]
+    {angle = X--O--R};
+  \draw pic[->,"$\phi$",mydarkblue,draw=mydarkblue,angle radius=20,angle eccentricity=1.35]
+    {angle = R--O--Q};
+  \tick{0,\R+0.015}{0};
+  \tick{\R+0.015,0}{90};
+  \tick{X}{90} node[scale=0.9,left=14,below=-1] {$r\cos\theta$};
+  \tick{Y}{ 0} node[scale=0.9,below=1,left=-2] {$r\sin\theta$};
 \end{tikzpicture}
 
 %%% --------------------------------------------------------------------------
