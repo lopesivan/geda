@@ -16,7 +16,8 @@
 #include <string>
 #include <vector>
 
-namespace {
+namespace
+{
 
 std::vector<double> g_time;
 
@@ -36,7 +37,8 @@ int send_char(char* text, int, void*)
 int controlled_exit(int status, bool, bool, int, void*)
 {
     if(status != 0)
-        std::cerr << "ngspice terminou com status " << status << '\n';
+        std::cerr << "ngspice terminou com status " << status
+                  << '\n';
 
     return 0;
 }
@@ -87,7 +89,8 @@ std::vector<double> get_vector(const std::string& name)
 }
 
 // Carrega o netlist linha a linha, descartando .control ... .endc
-// (comandos como "plot" abririam janelas e não servem em modo embutido).
+// (comandos como "plot" abririam janelas e não servem em modo
+// embutido).
 void load_netlist(const std::string& path)
 {
     std::ifstream in(path);
@@ -109,13 +112,17 @@ void load_netlist(const std::string& path)
         std::string low = line;
 
         low.erase(low.begin(),
-                  std::find_if(low.begin(), low.end(), [](unsigned char c) {
-                      return !std::isspace(c);
-                  }));
+                  std::find_if(low.begin(),
+                               low.end(),
+                               [](unsigned char c)
+                               { return !std::isspace(c); }));
 
-        std::transform(low.begin(), low.end(), low.begin(), [](unsigned char c) {
-            return static_cast<char>(std::tolower(c));
-        });
+        std::transform(
+            low.begin(),
+            low.end(),
+            low.begin(),
+            [](unsigned char c)
+            { return static_cast<char>(std::tolower(c)); });
 
         if(low.rfind(".control", 0) == 0)
         {
@@ -141,14 +148,16 @@ void load_netlist(const std::string& path)
     ptrs.push_back(nullptr);
 
     if(ngSpice_Circ(ptrs.data()) != 0)
-        throw std::runtime_error("Falha carregando netlist " + path);
+        throw std::runtime_error("Falha carregando netlist " +
+                                 path);
 }
 
 // ------------------------------------------------------------
 // RMS usando integração no tempo
 // ------------------------------------------------------------
 
-double rms(std::span<const double> time, std::span<const double> signal)
+double rms(std::span<const double> time,
+           std::span<const double> signal)
 {
     if(time.size() != signal.size() || time.size() < 2)
         throw std::runtime_error("Vetores incompativeis");
@@ -189,8 +198,7 @@ double peak(std::span<const double> signal)
 // e só depois o erro é lançado.
 // ------------------------------------------------------------
 
-template <class F>
-bool guarded(lua_State* L, F&& f)
+template <class F> bool guarded(lua_State* L, F&& f)
 {
     try
     {
@@ -210,10 +218,12 @@ int lua_rms(lua_State* L)
 
     double value = 0.0;
 
-    if(!guarded(L, [&] {
-           const auto signal = get_vector(name);
-           value = rms(g_time, signal);
-       }))
+    if(!guarded(L,
+                [&]
+                {
+                    const auto signal = get_vector(name);
+                    value             = rms(g_time, signal);
+                }))
     {
         return lua_error(L);
     }
@@ -229,10 +239,12 @@ int lua_peak(lua_State* L)
 
     double value = 0.0;
 
-    if(!guarded(L, [&] {
-           const auto signal = get_vector(name);
-           value = peak(signal);
-       }))
+    if(!guarded(L,
+                [&]
+                {
+                    const auto signal = get_vector(name);
+                    value             = peak(signal);
+                }))
     {
         return lua_error(L);
     }
@@ -264,11 +276,12 @@ int lua_vec(lua_State* L)
 
 using LuaState = std::unique_ptr<lua_State, decltype(&lua_close)>;
 
-} // namespace
+}  // namespace
 
 // ------------------------------------------------------------
 
-int spice_lua_analyze(const std::string& netlist, const std::string& script)
+int spice_lua_analyze(const std::string& netlist,
+                      const std::string& script)
 {
     try
     {
@@ -280,7 +293,8 @@ int spice_lua_analyze(const std::string& netlist, const std::string& script)
 
         g_time = get_vector("time");
 
-        std::cout << "Simulacao ok: " << g_time.size() << " pontos\n";
+        std::cout << "Simulacao ok: " << g_time.size()
+                  << " pontos\n";
 
         LuaState L(luaL_newstate(), &lua_close);
 
