@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage[american,siunitx]{circuitikz} % biblioteca
+\begin{document}
+%%% --------------------------------------------------------------------------
+\begin{circuitikz}
+
+\draw (0,0)  to[ammeter, l=2<\ampere>]        (2,0);
+\draw (0,2)  to[ammeter, i_=2<\milli\ampere>] (2,2);
+\draw (0,4)  to[ammeter, l_=2<\milli\ampere>] (2,4);
+
+\end{circuitikz}
+%%% --------------------------------------------------------------------------
+
+\end{document}
