@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galeria de exemplos TikZ</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .contador {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 24px;
+  }
+
+  .filtro {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #222;
+    color: #e0e0e0;
+    font-size: 16px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    padding: 0;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform .15s, border-color .15s;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: #777;
+  }
+
+  .card:focus-visible, .fechar:focus-visible {
+    outline: 3px solid #75baff;
+    outline-offset: 3px;
+  }
+
+  .card img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #fff;
+  }
+
+  .nome {
+    display: block;
+    padding: 10px 12px;
+    font-family: ui-monospace, monospace;
+    font-size: 14px;
+    color: #bbb;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .vazio {
+    text-align: center;
+    color: #aaa;
+    padding: 30px;
+  }
+
+  .modal {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    padding: 60px 20px;
+    border: 0;
+    background: rgba(0, 0, 0, .94);
+    color: #fff;
+  }
+
+  .modal[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal::backdrop {
+    background: rgba(0, 0, 0, .8);
+  }
+
+  .modal img {
+    max-width: 100%;
+    max-height: calc(100dvh - 140px);
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .fechar {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    padding: 4px 12px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+  }
+
+  .legenda {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    right: 20px;
+    max-height: 50px;
+    overflow: auto;
+    text-align: center;
+    overflow-wrap: anywhere;
+    font-family: ui-monospace, monospace;
+    color: #ccc;
+  }
+</style>
+</head>
+<body>
+<h1>Galeria de exemplos TikZ</h1>
+<p class="contador" id="contador" aria-live="polite"></p>
+<input
+  class="filtro"
+  id="filtro"
+  type="search"
+  aria-label="Filtrar imagens pelo nome ou pasta"
+  placeholder="Filtrar por nome ou pasta…"
+>
+<div class="grid" id="grid">
+  <button class="card" type="button" data-nome="01-circuito/main.png" title="01-circuito/main.png">
+    <img src="01-circuito/main.png" alt="01-circuito/main.png" loading="lazy">
+    <span class="nome">01-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="01-exemplo/main.png" title="01-exemplo/main.png">
+    <img src="01-exemplo/main.png" alt="01-exemplo/main.png" loading="lazy">
+    <span class="nome">01-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="02-circuito/main.png" title="02-circuito/main.png">
+    <img src="02-circuito/main.png" alt="02-circuito/main.png" loading="lazy">
+    <span class="nome">02-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="02-exemplo/main.png" title="02-exemplo/main.png">
+    <img src="02-exemplo/main.png" alt="02-exemplo/main.png" loading="lazy">
+    <span class="nome">02-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="03-circuito/main.png" title="03-circuito/main.png">
+    <img src="03-circuito/main.png" alt="03-circuito/main.png" loading="lazy">
+    <span class="nome">03-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="03-exemplo/main.png" title="03-exemplo/main.png">
+    <img src="03-exemplo/main.png" alt="03-exemplo/main.png" loading="lazy">
+    <span class="nome">03-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="04-circuito/main.png" title="04-circuito/main.png">
+    <img src="04-circuito/main.png" alt="04-circuito/main.png" loading="lazy">
+    <span class="nome">04-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="04-exemplo/main.png" title="04-exemplo/main.png">
+    <img src="04-exemplo/main.png" alt="04-exemplo/main.png" loading="lazy">
+    <span class="nome">04-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="05-circuito/main.png" title="05-circuito/main.png">
+    <img src="05-circuito/main.png" alt="05-circuito/main.png" loading="lazy">
+    <span class="nome">05-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="05-exemplo/main.png" title="05-exemplo/main.png">
+    <img src="05-exemplo/main.png" alt="05-exemplo/main.png" loading="lazy">
+    <span class="nome">05-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="06-circuito/main.png" title="06-circuito/main.png">
+    <img src="06-circuito/main.png" alt="06-circuito/main.png" loading="lazy">
+    <span class="nome">06-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="06-exemplo/main.png" title="06-exemplo/main.png">
+    <img src="06-exemplo/main.png" alt="06-exemplo/main.png" loading="lazy">
+    <span class="nome">06-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="07-circuito/main.png" title="07-circuito/main.png">
+    <img src="07-circuito/main.png" alt="07-circuito/main.png" loading="lazy">
+    <span class="nome">07-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="07-exemplo/main.png" title="07-exemplo/main.png">
+    <img src="07-exemplo/main.png" alt="07-exemplo/main.png" loading="lazy">
+    <span class="nome">07-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="08-circuito/main.png" title="08-circuito/main.png">
+    <img src="08-circuito/main.png" alt="08-circuito/main.png" loading="lazy">
+    <span class="nome">08-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="08-exemplo/main.png" title="08-exemplo/main.png">
+    <img src="08-exemplo/main.png" alt="08-exemplo/main.png" loading="lazy">
+    <span class="nome">08-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="09-circuito/main.png" title="09-circuito/main.png">
+    <img src="09-circuito/main.png" alt="09-circuito/main.png" loading="lazy">
+    <span class="nome">09-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="09-exemplo/main.png" title="09-exemplo/main.png">
+    <img src="09-exemplo/main.png" alt="09-exemplo/main.png" loading="lazy">
+    <span class="nome">09-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="0x-exemplo/main.png" title="0X-exemplo/main.png">
+    <img src="0X-exemplo/main.png" alt="0X-exemplo/main.png" loading="lazy">
+    <span class="nome">0X-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="10-circuito/main.png" title="10-circuito/main.png">
+    <img src="10-circuito/main.png" alt="10-circuito/main.png" loading="lazy">
+    <span class="nome">10-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="10-exemplo/main.png" title="10-exemplo/main.png">
+    <img src="10-exemplo/main.png" alt="10-exemplo/main.png" loading="lazy">
+    <span class="nome">10-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="11-circuito/main.png" title="11-circuito/main.png">
+    <img src="11-circuito/main.png" alt="11-circuito/main.png" loading="lazy">
+    <span class="nome">11-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="11-exemplo/main.png" title="11-exemplo/main.png">
+    <img src="11-exemplo/main.png" alt="11-exemplo/main.png" loading="lazy">
+    <span class="nome">11-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="12-circuito/main.png" title="12-circuito/main.png">
+    <img src="12-circuito/main.png" alt="12-circuito/main.png" loading="lazy">
+    <span class="nome">12-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="12-exemplo/main.png" title="12-exemplo/main.png">
+    <img src="12-exemplo/main.png" alt="12-exemplo/main.png" loading="lazy">
+    <span class="nome">12-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="13-circuito/main.png" title="13-circuito/main.png">
+    <img src="13-circuito/main.png" alt="13-circuito/main.png" loading="lazy">
+    <span class="nome">13-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="13-exemplo/main.png" title="13-exemplo/main.png">
+    <img src="13-exemplo/main.png" alt="13-exemplo/main.png" loading="lazy">
+    <span class="nome">13-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="14-circuito/main.png" title="14-circuito/main.png">
+    <img src="14-circuito/main.png" alt="14-circuito/main.png" loading="lazy">
+    <span class="nome">14-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="14-exemplo/main.png" title="14-exemplo/main.png">
+    <img src="14-exemplo/main.png" alt="14-exemplo/main.png" loading="lazy">
+    <span class="nome">14-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="15-circuito/main.png" title="15-circuito/main.png">
+    <img src="15-circuito/main.png" alt="15-circuito/main.png" loading="lazy">
+    <span class="nome">15-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="15-exemplo/main.png" title="15-exemplo/main.png">
+    <img src="15-exemplo/main.png" alt="15-exemplo/main.png" loading="lazy">
+    <span class="nome">15-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="16-circuito/main.png" title="16-circuito/main.png">
+    <img src="16-circuito/main.png" alt="16-circuito/main.png" loading="lazy">
+    <span class="nome">16-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="16-exemplo/main.png" title="16-exemplo/main.png">
+    <img src="16-exemplo/main.png" alt="16-exemplo/main.png" loading="lazy">
+    <span class="nome">16-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="17-circuito/main.png" title="17-circuito/main.png">
+    <img src="17-circuito/main.png" alt="17-circuito/main.png" loading="lazy">
+    <span class="nome">17-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="17-exemplo/main.png" title="17-exemplo/main.png">
+    <img src="17-exemplo/main.png" alt="17-exemplo/main.png" loading="lazy">
+    <span class="nome">17-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="18-circuito/main.png" title="18-circuito/main.png">
+    <img src="18-circuito/main.png" alt="18-circuito/main.png" loading="lazy">
+    <span class="nome">18-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="18-exemplo/main.png" title="18-exemplo/main.png">
+    <img src="18-exemplo/main.png" alt="18-exemplo/main.png" loading="lazy">
+    <span class="nome">18-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="19-circuito/main.png" title="19-circuito/main.png">
+    <img src="19-circuito/main.png" alt="19-circuito/main.png" loading="lazy">
+    <span class="nome">19-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="19-exemplo/main.png" title="19-exemplo/main.png">
+    <img src="19-exemplo/main.png" alt="19-exemplo/main.png" loading="lazy">
+    <span class="nome">19-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="20-circuito/main.png" title="20-circuito/main.png">
+    <img src="20-circuito/main.png" alt="20-circuito/main.png" loading="lazy">
+    <span class="nome">20-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="20-exemplo/main.png" title="20-exemplo/main.png">
+    <img src="20-exemplo/main.png" alt="20-exemplo/main.png" loading="lazy">
+    <span class="nome">20-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="21-circuito/main.png" title="21-circuito/main.png">
+    <img src="21-circuito/main.png" alt="21-circuito/main.png" loading="lazy">
+    <span class="nome">21-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="21-exemplo/main.png" title="21-exemplo/main.png">
+    <img src="21-exemplo/main.png" alt="21-exemplo/main.png" loading="lazy">
+    <span class="nome">21-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="22-circuito/main.png" title="22-circuito/main.png">
+    <img src="22-circuito/main.png" alt="22-circuito/main.png" loading="lazy">
+    <span class="nome">22-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="22-exemplo/main.png" title="22-exemplo/main.png">
+    <img src="22-exemplo/main.png" alt="22-exemplo/main.png" loading="lazy">
+    <span class="nome">22-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="23-circuito/main.png" title="23-circuito/main.png">
+    <img src="23-circuito/main.png" alt="23-circuito/main.png" loading="lazy">
+    <span class="nome">23-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="23-exemplo/main.png" title="23-exemplo/main.png">
+    <img src="23-exemplo/main.png" alt="23-exemplo/main.png" loading="lazy">
+    <span class="nome">23-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="24-circuito/main.png" title="24-circuito/main.png">
+    <img src="24-circuito/main.png" alt="24-circuito/main.png" loading="lazy">
+    <span class="nome">24-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="24-exemplo/main.png" title="24-exemplo/main.png">
+    <img src="24-exemplo/main.png" alt="24-exemplo/main.png" loading="lazy">
+    <span class="nome">24-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="25-circuito/main.png" title="25-circuito/main.png">
+    <img src="25-circuito/main.png" alt="25-circuito/main.png" loading="lazy">
+    <span class="nome">25-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="25-exemplo/main.png" title="25-exemplo/main.png">
+    <img src="25-exemplo/main.png" alt="25-exemplo/main.png" loading="lazy">
+    <span class="nome">25-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="26-circuito/main.png" title="26-circuito/main.png">
+    <img src="26-circuito/main.png" alt="26-circuito/main.png" loading="lazy">
+    <span class="nome">26-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="26-exemplo/main.png" title="26-exemplo/main.png">
+    <img src="26-exemplo/main.png" alt="26-exemplo/main.png" loading="lazy">
+    <span class="nome">26-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="27-circuito/main.png" title="27-circuito/main.png">
+    <img src="27-circuito/main.png" alt="27-circuito/main.png" loading="lazy">
+    <span class="nome">27-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="27-exemplo/main.png" title="27-exemplo/main.png">
+    <img src="27-exemplo/main.png" alt="27-exemplo/main.png" loading="lazy">
+    <span class="nome">27-exemplo/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="28-circuito/main.png" title="28-circuito/main.png">
+    <img src="28-circuito/main.png" alt="28-circuito/main.png" loading="lazy">
+    <span class="nome">28-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="29-circuito/main.png" title="29-circuito/main.png">
+    <img src="29-circuito/main.png" alt="29-circuito/main.png" loading="lazy">
+    <span class="nome">29-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="30-circuito/main.png" title="30-circuito/main.png">
+    <img src="30-circuito/main.png" alt="30-circuito/main.png" loading="lazy">
+    <span class="nome">30-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="31-circuito/main.png" title="31-circuito/main.png">
+    <img src="31-circuito/main.png" alt="31-circuito/main.png" loading="lazy">
+    <span class="nome">31-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="32-circuito/main.png" title="32-circuito/main.png">
+    <img src="32-circuito/main.png" alt="32-circuito/main.png" loading="lazy">
+    <span class="nome">32-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="33-circuito/main.png" title="33-circuito/main.png">
+    <img src="33-circuito/main.png" alt="33-circuito/main.png" loading="lazy">
+    <span class="nome">33-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="34-circuito/main.png" title="34-circuito/main.png">
+    <img src="34-circuito/main.png" alt="34-circuito/main.png" loading="lazy">
+    <span class="nome">34-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="35-circuito/main.png" title="35-circuito/main.png">
+    <img src="35-circuito/main.png" alt="35-circuito/main.png" loading="lazy">
+    <span class="nome">35-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="36-circuito/main.png" title="36-circuito/main.png">
+    <img src="36-circuito/main.png" alt="36-circuito/main.png" loading="lazy">
+    <span class="nome">36-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="37-circuito/main.png" title="37-circuito/main.png">
+    <img src="37-circuito/main.png" alt="37-circuito/main.png" loading="lazy">
+    <span class="nome">37-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="38-circuito/main.png" title="38-circuito/main.png">
+    <img src="38-circuito/main.png" alt="38-circuito/main.png" loading="lazy">
+    <span class="nome">38-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="39-circuito/main.png" title="39-circuito/main.png">
+    <img src="39-circuito/main.png" alt="39-circuito/main.png" loading="lazy">
+    <span class="nome">39-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="40-circuito/main.png" title="40-circuito/main.png">
+    <img src="40-circuito/main.png" alt="40-circuito/main.png" loading="lazy">
+    <span class="nome">40-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="41-circuito/main.png" title="41-circuito/main.png">
+    <img src="41-circuito/main.png" alt="41-circuito/main.png" loading="lazy">
+    <span class="nome">41-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="42-circuito/main.png" title="42-circuito/main.png">
+    <img src="42-circuito/main.png" alt="42-circuito/main.png" loading="lazy">
+    <span class="nome">42-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="43-circuito/main.png" title="43-circuito/main.png">
+    <img src="43-circuito/main.png" alt="43-circuito/main.png" loading="lazy">
+    <span class="nome">43-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="44-circuito/main.png" title="44-circuito/main.png">
+    <img src="44-circuito/main.png" alt="44-circuito/main.png" loading="lazy">
+    <span class="nome">44-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="45-circuito/main.png" title="45-circuito/main.png">
+    <img src="45-circuito/main.png" alt="45-circuito/main.png" loading="lazy">
+    <span class="nome">45-circuito/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fft/addressing-problem/addressing-problem.png" title="Tikz-Graphics/Algorithms/FFT/addressing-problem/addressing-problem.png">
+    <img src="Tikz-Graphics/Algorithms/FFT/addressing-problem/addressing-problem.png" alt="Tikz-Graphics/Algorithms/FFT/addressing-problem/addressing-problem.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FFT/addressing-problem/addressing-problem.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fft/addressing-technique/addressing-technique.png" title="Tikz-Graphics/Algorithms/FFT/addressing-technique/addressing-technique.png">
+    <img src="Tikz-Graphics/Algorithms/FFT/addressing-technique/addressing-technique.png" alt="Tikz-Graphics/Algorithms/FFT/addressing-technique/addressing-technique.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FFT/addressing-technique/addressing-technique.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fft/recursive-tree/recursive-tree.png" title="Tikz-Graphics/Algorithms/FFT/recursive-tree/recursive-tree.png">
+    <img src="Tikz-Graphics/Algorithms/FFT/recursive-tree/recursive-tree.png" alt="Tikz-Graphics/Algorithms/FFT/recursive-tree/recursive-tree.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FFT/recursive-tree/recursive-tree.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fft/recursive-tree-binary/recursive-tree-binary.png" title="Tikz-Graphics/Algorithms/FFT/recursive-tree-binary/recursive-tree-binary.png">
+    <img src="Tikz-Graphics/Algorithms/FFT/recursive-tree-binary/recursive-tree-binary.png" alt="Tikz-Graphics/Algorithms/FFT/recursive-tree-binary/recursive-tree-binary.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FFT/recursive-tree-binary/recursive-tree-binary.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fsm/ndfsr/ndfsr.png" title="Tikz-Graphics/Algorithms/FSM/NDFSR/NDFSR.png">
+    <img src="Tikz-Graphics/Algorithms/FSM/NDFSR/NDFSR.png" alt="Tikz-Graphics/Algorithms/FSM/NDFSR/NDFSR.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FSM/NDFSR/NDFSR.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fsm/count_to_25_cents/count_to_25_cents.png" title="Tikz-Graphics/Algorithms/FSM/count_to_25_cents/count_to_25_cents.png">
+    <img src="Tikz-Graphics/Algorithms/FSM/count_to_25_cents/count_to_25_cents.png" alt="Tikz-Graphics/Algorithms/FSM/count_to_25_cents/count_to_25_cents.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FSM/count_to_25_cents/count_to_25_cents.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fsm/mealy_10010/mealy_10010.png" title="Tikz-Graphics/Algorithms/FSM/mealy_10010/mealy_10010.png">
+    <img src="Tikz-Graphics/Algorithms/FSM/mealy_10010/mealy_10010.png" alt="Tikz-Graphics/Algorithms/FSM/mealy_10010/mealy_10010.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FSM/mealy_10010/mealy_10010.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fsm/moore_10010/moore_10010.png" title="Tikz-Graphics/Algorithms/FSM/moore_10010/moore_10010.png">
+    <img src="Tikz-Graphics/Algorithms/FSM/moore_10010/moore_10010.png" alt="Tikz-Graphics/Algorithms/FSM/moore_10010/moore_10010.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FSM/moore_10010/moore_10010.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/algorithms/fsm/moore_10010_schematic/moore_10010_schematic.png" title="Tikz-Graphics/Algorithms/FSM/moore_10010_schematic/moore_10010_schematic.png">
+    <img src="Tikz-Graphics/Algorithms/FSM/moore_10010_schematic/moore_10010_schematic.png" alt="Tikz-Graphics/Algorithms/FSM/moore_10010_schematic/moore_10010_schematic.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Algorithms/FSM/moore_10010_schematic/moore_10010_schematic.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/astrophysics/hjd/hjd.png" title="Tikz-Graphics/Astrophysics/HJD/HJD.png">
+    <img src="Tikz-Graphics/Astrophysics/HJD/HJD.png" alt="Tikz-Graphics/Astrophysics/HJD/HJD.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Astrophysics/HJD/HJD.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/atmospheric-physics/apparent-wind/apparent-wind.png" title="Tikz-Graphics/Atmospheric-Physics/Apparent-Wind/Apparent-Wind.png">
+    <img src="Tikz-Graphics/Atmospheric-Physics/Apparent-Wind/Apparent-Wind.png" alt="Tikz-Graphics/Atmospheric-Physics/Apparent-Wind/Apparent-Wind.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Atmospheric-Physics/Apparent-Wind/Apparent-Wind.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/cpu-architecture/adds_i/adds_i.png" title="Tikz-Graphics/CPU-Architecture/adds_i/adds_i.png">
+    <img src="Tikz-Graphics/CPU-Architecture/adds_i/adds_i.png" alt="Tikz-Graphics/CPU-Architecture/adds_i/adds_i.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/CPU-Architecture/adds_i/adds_i.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/cpu-architecture/adds_r/adds_r.png" title="Tikz-Graphics/CPU-Architecture/adds_r/adds_r.png">
+    <img src="Tikz-Graphics/CPU-Architecture/adds_r/adds_r.png" alt="Tikz-Graphics/CPU-Architecture/adds_r/adds_r.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/CPU-Architecture/adds_r/adds_r.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/cpu-architecture/bl/bl.png" title="Tikz-Graphics/CPU-Architecture/bl/bl.png">
+    <img src="Tikz-Graphics/CPU-Architecture/bl/bl.png" alt="Tikz-Graphics/CPU-Architecture/bl/bl.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/CPU-Architecture/bl/bl.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/cpu-architecture/control_unit/control_unit.png" title="Tikz-Graphics/CPU-Architecture/control_unit/control_unit.png">
+    <img src="Tikz-Graphics/CPU-Architecture/control_unit/control_unit.png" alt="Tikz-Graphics/CPU-Architecture/control_unit/control_unit.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/CPU-Architecture/control_unit/control_unit.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/cpu-architecture/datapath/datapath.png" title="Tikz-Graphics/CPU-Architecture/datapath/datapath.png">
+    <img src="Tikz-Graphics/CPU-Architecture/datapath/datapath.png" alt="Tikz-Graphics/CPU-Architecture/datapath/datapath.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/CPU-Architecture/datapath/datapath.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/cpu-architecture/fsm-schematic/fsm-schematic.png" title="Tikz-Graphics/CPU-Architecture/fsm-schematic/fsm-schematic.png">
+    <img src="Tikz-Graphics/CPU-Architecture/fsm-schematic/fsm-schematic.png" alt="Tikz-Graphics/CPU-Architecture/fsm-schematic/fsm-schematic.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/CPU-Architecture/fsm-schematic/fsm-schematic.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/cpu-architecture/ldr/ldr.png" title="Tikz-Graphics/CPU-Architecture/ldr/ldr.png">
+    <img src="Tikz-Graphics/CPU-Architecture/ldr/ldr.png" alt="Tikz-Graphics/CPU-Architecture/ldr/ldr.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/CPU-Architecture/ldr/ldr.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/cylindrical-coordinates/cylindrical_1/cylindrical_1.png" title="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_1/Cylindrical_1.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_1/Cylindrical_1.png" alt="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_1/Cylindrical_1.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_1/Cylindrical_1.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/cylindrical-coordinates/cylindrical_volume/cylindrical_volume.png" title="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_Volume/Cylindrical_Volume.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_Volume/Cylindrical_Volume.png" alt="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_Volume/Cylindrical_Volume.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Cylindrical_Volume/Cylindrical_Volume.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/cylindrical-coordinates/polar_1/polar_1.png" title="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Polar_1/Polar_1.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Polar_1/Polar_1.png" alt="Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Polar_1/Polar_1.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Cylindrical-Coordinates/Polar_1/Polar_1.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/main-coordinate-systems/main-coordinate-systems.png" title="Tikz-Graphics/Coordinate-Systems/Main-Coordinate-Systems/Main-Coordinate-Systems.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Main-Coordinate-Systems/Main-Coordinate-Systems.png" alt="Tikz-Graphics/Coordinate-Systems/Main-Coordinate-Systems/Main-Coordinate-Systems.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Main-Coordinate-Systems/Main-Coordinate-Systems.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/spherical-coordinates/spherical_1/spherical_1.png" title="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_1/Spherical_1.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_1/Spherical_1.png" alt="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_1/Spherical_1.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_1/Spherical_1.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/spherical-coordinates/spherical_2/spherical_2.png" title="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_2/Spherical_2.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_2/Spherical_2.png" alt="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_2/Spherical_2.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_2/Spherical_2.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/spherical-coordinates/spherical_3/spherical_3.png" title="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_3/Spherical_3.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_3/Spherical_3.png" alt="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_3/Spherical_3.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_3/Spherical_3.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/coordinate-systems/spherical-coordinates/spherical_volume/spherical_volume.png" title="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_Volume/Spherical_Volume.png">
+    <img src="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_Volume/Spherical_Volume.png" alt="Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_Volume/Spherical_Volume.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Coordinate-Systems/Spherical-Coordinates/Spherical_Volume/Spherical_Volume.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/distributed-systems/logcabin/consensus_state/consensus_state.png" title="Tikz-Graphics/Distributed-Systems/LogCabin/consensus_state/consensus_state.png">
+    <img src="Tikz-Graphics/Distributed-Systems/LogCabin/consensus_state/consensus_state.png" alt="Tikz-Graphics/Distributed-Systems/LogCabin/consensus_state/consensus_state.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Distributed-Systems/LogCabin/consensus_state/consensus_state.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/distributed-systems/logcabin/optimized_raft_pipeline/optimized_raft_pipeline.png" title="Tikz-Graphics/Distributed-Systems/LogCabin/optimized_raft_pipeline/optimized_raft_pipeline.png">
+    <img src="Tikz-Graphics/Distributed-Systems/LogCabin/optimized_raft_pipeline/optimized_raft_pipeline.png" alt="Tikz-Graphics/Distributed-Systems/LogCabin/optimized_raft_pipeline/optimized_raft_pipeline.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Distributed-Systems/LogCabin/optimized_raft_pipeline/optimized_raft_pipeline.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/distributed-systems/logcabin/replicated_state_machine/replicated_state_machine.png" title="Tikz-Graphics/Distributed-Systems/LogCabin/replicated_state_machine/replicated_state_machine.png">
+    <img src="Tikz-Graphics/Distributed-Systems/LogCabin/replicated_state_machine/replicated_state_machine.png" alt="Tikz-Graphics/Distributed-Systems/LogCabin/replicated_state_machine/replicated_state_machine.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Distributed-Systems/LogCabin/replicated_state_machine/replicated_state_machine.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/distributed-systems/logcabin/unoptimized_raft_pipeline/unoptimized_raft_pipeline.png" title="Tikz-Graphics/Distributed-Systems/LogCabin/unoptimized_raft_pipeline/unoptimized_raft_pipeline.png">
+    <img src="Tikz-Graphics/Distributed-Systems/LogCabin/unoptimized_raft_pipeline/unoptimized_raft_pipeline.png" alt="Tikz-Graphics/Distributed-Systems/LogCabin/unoptimized_raft_pipeline/unoptimized_raft_pipeline.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Distributed-Systems/LogCabin/unoptimized_raft_pipeline/unoptimized_raft_pipeline.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electromagnetism/biot-savart/biot-savart.png" title="Tikz-Graphics/Electromagnetism/Biot-Savart/Biot-Savart.png">
+    <img src="Tikz-Graphics/Electromagnetism/Biot-Savart/Biot-Savart.png" alt="Tikz-Graphics/Electromagnetism/Biot-Savart/Biot-Savart.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electromagnetism/Biot-Savart/Biot-Savart.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electromagnetism/circular-loop/circular-loop.png" title="Tikz-Graphics/Electromagnetism/Circular-Loop/Circular-Loop.png">
+    <img src="Tikz-Graphics/Electromagnetism/Circular-Loop/Circular-Loop.png" alt="Tikz-Graphics/Electromagnetism/Circular-Loop/Circular-Loop.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electromagnetism/Circular-Loop/Circular-Loop.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electromagnetism/helmholtz_coils/helmholtz_coils.png" title="Tikz-Graphics/Electromagnetism/Helmholtz_Coils/Helmholtz_Coils.png">
+    <img src="Tikz-Graphics/Electromagnetism/Helmholtz_Coils/Helmholtz_Coils.png" alt="Tikz-Graphics/Electromagnetism/Helmholtz_Coils/Helmholtz_Coils.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electromagnetism/Helmholtz_Coils/Helmholtz_Coils.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electromagnetism/solenoid/solenoid.png" title="Tikz-Graphics/Electromagnetism/Solenoid/Solenoid.png">
+    <img src="Tikz-Graphics/Electromagnetism/Solenoid/Solenoid.png" alt="Tikz-Graphics/Electromagnetism/Solenoid/Solenoid.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electromagnetism/Solenoid/Solenoid.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/amplifier/amplifier.png" title="Tikz-Graphics/Electronics/Amplifier/Amplifier.png">
+    <img src="Tikz-Graphics/Electronics/Amplifier/Amplifier.png" alt="Tikz-Graphics/Electronics/Amplifier/Amplifier.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Amplifier/Amplifier.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/circuit-with-resistors/circuit-with-resistors.png" title="Tikz-Graphics/Electronics/Circuit-with-Resistors/Circuit-with-Resistors.png">
+    <img src="Tikz-Graphics/Electronics/Circuit-with-Resistors/Circuit-with-Resistors.png" alt="Tikz-Graphics/Electronics/Circuit-with-Resistors/Circuit-with-Resistors.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Circuit-with-Resistors/Circuit-with-Resistors.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/fir_with_adder_tree/fir_with_adder_tree.png" title="Tikz-Graphics/Electronics/FIR_with_Adder_Tree/FIR_with_Adder_Tree.png">
+    <img src="Tikz-Graphics/Electronics/FIR_with_Adder_Tree/FIR_with_Adder_Tree.png" alt="Tikz-Graphics/Electronics/FIR_with_Adder_Tree/FIR_with_Adder_Tree.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/FIR_with_Adder_Tree/FIR_with_Adder_Tree.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/fir_with_adder_tree_pipelined/fir_with_adder_tree_pipelined.png" title="Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Pipelined/FIR_with_Adder_Tree_Pipelined.png">
+    <img src="Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Pipelined/FIR_with_Adder_Tree_Pipelined.png" alt="Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Pipelined/FIR_with_Adder_Tree_Pipelined.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Pipelined/FIR_with_Adder_Tree_Pipelined.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/fir_with_adder_tree_wave/fir_with_adder_tree_wave.png" title="Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Wave/FIR_with_Adder_Tree_Wave.png">
+    <img src="Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Wave/FIR_with_Adder_Tree_Wave.png" alt="Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Wave/FIR_with_Adder_Tree_Wave.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/FIR_with_Adder_Tree_Wave/FIR_with_Adder_Tree_Wave.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/full-wave-rectification–diode-bridge/full-wave-rectification–diode-bridge.png" title="Tikz-Graphics/Electronics/Full-Wave-Rectification–Diode-Bridge/Full-Wave-Rectification–Diode-Bridge.png">
+    <img src="Tikz-Graphics/Electronics/Full-Wave-Rectification%E2%80%93Diode-Bridge/Full-Wave-Rectification%E2%80%93Diode-Bridge.png" alt="Tikz-Graphics/Electronics/Full-Wave-Rectification–Diode-Bridge/Full-Wave-Rectification–Diode-Bridge.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Full-Wave-Rectification–Diode-Bridge/Full-Wave-Rectification–Diode-Bridge.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/full-wave-rectification–two-diodes-and-transformer/full-wave-rectification–two-diodes-and-transformer.png" title="Tikz-Graphics/Electronics/Full-Wave-Rectification–Two-Diodes-and-Transformer/Full-Wave-Rectification–Two-Diodes-and-Transformer.png">
+    <img src="Tikz-Graphics/Electronics/Full-Wave-Rectification%E2%80%93Two-Diodes-and-Transformer/Full-Wave-Rectification%E2%80%93Two-Diodes-and-Transformer.png" alt="Tikz-Graphics/Electronics/Full-Wave-Rectification–Two-Diodes-and-Transformer/Full-Wave-Rectification–Two-Diodes-and-Transformer.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Full-Wave-Rectification–Two-Diodes-and-Transformer/Full-Wave-Rectification–Two-Diodes-and-Transformer.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/half-wave-rectification/half-wave-rectification.png" title="Tikz-Graphics/Electronics/Half-Wave-Rectification/Half-Wave-Rectification.png">
+    <img src="Tikz-Graphics/Electronics/Half-Wave-Rectification/Half-Wave-Rectification.png" alt="Tikz-Graphics/Electronics/Half-Wave-Rectification/Half-Wave-Rectification.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Half-Wave-Rectification/Half-Wave-Rectification.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/ideal-diode-characteristic/ideal-diode-characteristic.png" title="Tikz-Graphics/Electronics/Ideal-Diode-Characteristic/Ideal-Diode-Characteristic.png">
+    <img src="Tikz-Graphics/Electronics/Ideal-Diode-Characteristic/Ideal-Diode-Characteristic.png" alt="Tikz-Graphics/Electronics/Ideal-Diode-Characteristic/Ideal-Diode-Characteristic.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Ideal-Diode-Characteristic/Ideal-Diode-Characteristic.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/inverting-op-amp/inverting-op-amp.png" title="Tikz-Graphics/Electronics/Inverting-Op-Amp/Inverting-Op-Amp.png">
+    <img src="Tikz-Graphics/Electronics/Inverting-Op-Amp/Inverting-Op-Amp.png" alt="Tikz-Graphics/Electronics/Inverting-Op-Amp/Inverting-Op-Amp.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Inverting-Op-Amp/Inverting-Op-Amp.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/inverting-op-amp–negative-feedback/inverting-op-amp–negative-feedback.png" title="Tikz-Graphics/Electronics/Inverting-Op-Amp–Negative-Feedback/Inverting-Op-Amp–Negative-Feedback.png">
+    <img src="Tikz-Graphics/Electronics/Inverting-Op-Amp%E2%80%93Negative-Feedback/Inverting-Op-Amp%E2%80%93Negative-Feedback.png" alt="Tikz-Graphics/Electronics/Inverting-Op-Amp–Negative-Feedback/Inverting-Op-Amp–Negative-Feedback.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Inverting-Op-Amp–Negative-Feedback/Inverting-Op-Amp–Negative-Feedback.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/jfet/jfet.png" title="Tikz-Graphics/Electronics/JFET/JFET.png">
+    <img src="Tikz-Graphics/Electronics/JFET/JFET.png" alt="Tikz-Graphics/Electronics/JFET/JFET.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/JFET/JFET.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/jfet-ac_equivalent/jfet-ac_equivalent.png" title="Tikz-Graphics/Electronics/JFET-AC_Equivalent/JFET-AC_Equivalent.png">
+    <img src="Tikz-Graphics/Electronics/JFET-AC_Equivalent/JFET-AC_Equivalent.png" alt="Tikz-Graphics/Electronics/JFET-AC_Equivalent/JFET-AC_Equivalent.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/JFET-AC_Equivalent/JFET-AC_Equivalent.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/led-diodes-circuit/led-diodes-circuit.png" title="Tikz-Graphics/Electronics/LED-Diodes-Circuit/LED-Diodes-Circuit.png">
+    <img src="Tikz-Graphics/Electronics/LED-Diodes-Circuit/LED-Diodes-Circuit.png" alt="Tikz-Graphics/Electronics/LED-Diodes-Circuit/LED-Diodes-Circuit.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/LED-Diodes-Circuit/LED-Diodes-Circuit.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/monostable-multivibrator/monostable-multivibrator.png" title="Tikz-Graphics/Electronics/Monostable-Multivibrator/Monostable-Multivibrator.png">
+    <img src="Tikz-Graphics/Electronics/Monostable-Multivibrator/Monostable-Multivibrator.png" alt="Tikz-Graphics/Electronics/Monostable-Multivibrator/Monostable-Multivibrator.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Monostable-Multivibrator/Monostable-Multivibrator.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/multistable-multivibrator/multistable-multivibrator.png" title="Tikz-Graphics/Electronics/Multistable-Multivibrator/Multistable-Multivibrator.png">
+    <img src="Tikz-Graphics/Electronics/Multistable-Multivibrator/Multistable-Multivibrator.png" alt="Tikz-Graphics/Electronics/Multistable-Multivibrator/Multistable-Multivibrator.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Multistable-Multivibrator/Multistable-Multivibrator.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/non-inverting-op-amp/non-inverting-op-amp.png" title="Tikz-Graphics/Electronics/Non-Inverting-Op-Amp/Non-Inverting-Op-Amp.png">
+    <img src="Tikz-Graphics/Electronics/Non-Inverting-Op-Amp/Non-Inverting-Op-Amp.png" alt="Tikz-Graphics/Electronics/Non-Inverting-Op-Amp/Non-Inverting-Op-Amp.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Non-Inverting-Op-Amp/Non-Inverting-Op-Amp.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/non-inverting-op-amp–negative-feedback/non-inverting-op-amp–negative-feedback.png" title="Tikz-Graphics/Electronics/Non-Inverting-Op-Amp–Negative-Feedback/Non-Inverting-Op-Amp–Negative-Feedback.png">
+    <img src="Tikz-Graphics/Electronics/Non-Inverting-Op-Amp%E2%80%93Negative-Feedback/Non-Inverting-Op-Amp%E2%80%93Negative-Feedback.png" alt="Tikz-Graphics/Electronics/Non-Inverting-Op-Amp–Negative-Feedback/Non-Inverting-Op-Amp–Negative-Feedback.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Non-Inverting-Op-Amp–Negative-Feedback/Non-Inverting-Op-Amp–Negative-Feedback.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/photoelectric_effect/photoelectric_effect.png" title="Tikz-Graphics/Electronics/Photoelectric_Effect/Photoelectric_Effect.png">
+    <img src="Tikz-Graphics/Electronics/Photoelectric_Effect/Photoelectric_Effect.png" alt="Tikz-Graphics/Electronics/Photoelectric_Effect/Photoelectric_Effect.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Photoelectric_Effect/Photoelectric_Effect.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/rlc-circuit/rlc-circuit.png" title="Tikz-Graphics/Electronics/RLC-Circuit/RLC-Circuit.png">
+    <img src="Tikz-Graphics/Electronics/RLC-Circuit/RLC-Circuit.png" alt="Tikz-Graphics/Electronics/RLC-Circuit/RLC-Circuit.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/RLC-Circuit/RLC-Circuit.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/semiconductor-contact-diode/semiconductor-contact-diode.png" title="Tikz-Graphics/Electronics/Semiconductor-Contact-Diode/Semiconductor-Contact-Diode.png">
+    <img src="Tikz-Graphics/Electronics/Semiconductor-Contact-Diode/Semiconductor-Contact-Diode.png" alt="Tikz-Graphics/Electronics/Semiconductor-Contact-Diode/Semiconductor-Contact-Diode.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Semiconductor-Contact-Diode/Semiconductor-Contact-Diode.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/simple-diode-circuit/simple-diode-circuit.png" title="Tikz-Graphics/Electronics/Simple-Diode-Circuit/Simple-Diode-Circuit.png">
+    <img src="Tikz-Graphics/Electronics/Simple-Diode-Circuit/Simple-Diode-Circuit.png" alt="Tikz-Graphics/Electronics/Simple-Diode-Circuit/Simple-Diode-Circuit.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Simple-Diode-Circuit/Simple-Diode-Circuit.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/transformer/transformer.png" title="Tikz-Graphics/Electronics/Transformer/Transformer.png">
+    <img src="Tikz-Graphics/Electronics/Transformer/Transformer.png" alt="Tikz-Graphics/Electronics/Transformer/Transformer.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Transformer/Transformer.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/transformer-circuit/transformer-circuit.png" title="Tikz-Graphics/Electronics/Transformer-Circuit/Transformer-Circuit.png">
+    <img src="Tikz-Graphics/Electronics/Transformer-Circuit/Transformer-Circuit.png" alt="Tikz-Graphics/Electronics/Transformer-Circuit/Transformer-Circuit.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Transformer-Circuit/Transformer-Circuit.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/transformer_windings1/transformer_windings1.png" title="Tikz-Graphics/Electronics/Transformer_Windings1/Transformer_Windings1.png">
+    <img src="Tikz-Graphics/Electronics/Transformer_Windings1/Transformer_Windings1.png" alt="Tikz-Graphics/Electronics/Transformer_Windings1/Transformer_Windings1.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Transformer_Windings1/Transformer_Windings1.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/transformer_windings2/transformer_windings2.png" title="Tikz-Graphics/Electronics/Transformer_Windings2/Transformer_Windings2.png">
+    <img src="Tikz-Graphics/Electronics/Transformer_Windings2/Transformer_Windings2.png" alt="Tikz-Graphics/Electronics/Transformer_Windings2/Transformer_Windings2.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Transformer_Windings2/Transformer_Windings2.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/transposed_fir/transposed_fir.png" title="Tikz-Graphics/Electronics/Transposed_FIR/Transposed_FIR.png">
+    <img src="Tikz-Graphics/Electronics/Transposed_FIR/Transposed_FIR.png" alt="Tikz-Graphics/Electronics/Transposed_FIR/Transposed_FIR.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Transposed_FIR/Transposed_FIR.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/transposed_wave/transposed_wave.png" title="Tikz-Graphics/Electronics/Transposed_Wave/Transposed_Wave.png">
+    <img src="Tikz-Graphics/Electronics/Transposed_Wave/Transposed_Wave.png" alt="Tikz-Graphics/Electronics/Transposed_Wave/Transposed_Wave.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Transposed_Wave/Transposed_Wave.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/voltage-divider/voltage-divider.png" title="Tikz-Graphics/Electronics/Voltage-Divider/Voltage-Divider.png">
+    <img src="Tikz-Graphics/Electronics/Voltage-Divider/Voltage-Divider.png" alt="Tikz-Graphics/Electronics/Voltage-Divider/Voltage-Divider.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Voltage-Divider/Voltage-Divider.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/voltage-divider-with-load/voltage-divider-with-load.png" title="Tikz-Graphics/Electronics/Voltage-Divider-with-Load/Voltage-Divider-with-Load.png">
+    <img src="Tikz-Graphics/Electronics/Voltage-Divider-with-Load/Voltage-Divider-with-Load.png" alt="Tikz-Graphics/Electronics/Voltage-Divider-with-Load/Voltage-Divider-with-Load.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Voltage-Divider-with-Load/Voltage-Divider-with-Load.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/electronics/voltage-follower-op-amp/voltage-follower-op-amp.png" title="Tikz-Graphics/Electronics/Voltage-Follower-Op-Amp/Voltage-Follower-Op-Amp.png">
+    <img src="Tikz-Graphics/Electronics/Voltage-Follower-Op-Amp/Voltage-Follower-Op-Amp.png" alt="Tikz-Graphics/Electronics/Voltage-Follower-Op-Amp/Voltage-Follower-Op-Amp.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Electronics/Voltage-Follower-Op-Amp/Voltage-Follower-Op-Amp.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/geometry/3d-plane/3d-plane.png" title="Tikz-Graphics/Geometry/3D-Plane/3D-Plane.png">
+    <img src="Tikz-Graphics/Geometry/3D-Plane/3D-Plane.png" alt="Tikz-Graphics/Geometry/3D-Plane/3D-Plane.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Geometry/3D-Plane/3D-Plane.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/geometry/line-distance/line-distance.png" title="Tikz-Graphics/Geometry/Line-Distance/Line-Distance.png">
+    <img src="Tikz-Graphics/Geometry/Line-Distance/Line-Distance.png" alt="Tikz-Graphics/Geometry/Line-Distance/Line-Distance.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Geometry/Line-Distance/Line-Distance.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/geometry/line-point-distance/line-point-distance.png" title="Tikz-Graphics/Geometry/Line-Point-Distance/Line-Point-Distance.png">
+    <img src="Tikz-Graphics/Geometry/Line-Point-Distance/Line-Point-Distance.png" alt="Tikz-Graphics/Geometry/Line-Point-Distance/Line-Point-Distance.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Geometry/Line-Point-Distance/Line-Point-Distance.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/geometry/relative-angles/relative-angles.png" title="Tikz-Graphics/Geometry/Relative-Angles/Relative-Angles.png">
+    <img src="Tikz-Graphics/Geometry/Relative-Angles/Relative-Angles.png" alt="Tikz-Graphics/Geometry/Relative-Angles/Relative-Angles.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Geometry/Relative-Angles/Relative-Angles.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/effective_potential/effective_potential.png" title="Tikz-Graphics/Graphs/Effective_Potential/Effective_Potential.png">
+    <img src="Tikz-Graphics/Graphs/Effective_Potential/Effective_Potential.png" alt="Tikz-Graphics/Graphs/Effective_Potential/Effective_Potential.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/Effective_Potential/Effective_Potential.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/graph-and-table/graph-and-table.png" title="Tikz-Graphics/Graphs/Graph-and-Table/Graph-and-Table.png">
+    <img src="Tikz-Graphics/Graphs/Graph-and-Table/Graph-and-Table.png" alt="Tikz-Graphics/Graphs/Graph-and-Table/Graph-and-Table.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/Graph-and-Table/Graph-and-Table.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/graph-from-diffential-equations/graph-from-diffential-equations.png" title="Tikz-Graphics/Graphs/Graph-from-Diffential-Equations/Graph-from-Diffential-Equations.png">
+    <img src="Tikz-Graphics/Graphs/Graph-from-Diffential-Equations/Graph-from-Diffential-Equations.png" alt="Tikz-Graphics/Graphs/Graph-from-Diffential-Equations/Graph-from-Diffential-Equations.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/Graph-from-Diffential-Equations/Graph-from-Diffential-Equations.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/lines-dv/lines-dv.png" title="Tikz-Graphics/Graphs/Lines-DV/Lines-DV.png">
+    <img src="Tikz-Graphics/Graphs/Lines-DV/Lines-DV.png" alt="Tikz-Graphics/Graphs/Lines-DV/Lines-DV.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/Lines-DV/Lines-DV.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/peak_width/peak_width.png" title="Tikz-Graphics/Graphs/Peak_Width/Peak_Width.png">
+    <img src="Tikz-Graphics/Graphs/Peak_Width/Peak_Width.png" alt="Tikz-Graphics/Graphs/Peak_Width/Peak_Width.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/Peak_Width/Peak_Width.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/region/region.png" title="Tikz-Graphics/Graphs/Region/Region.png">
+    <img src="Tikz-Graphics/Graphs/Region/Region.png" alt="Tikz-Graphics/Graphs/Region/Region.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/Region/Region.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/ressonance/ressonance.png" title="Tikz-Graphics/Graphs/Ressonance/Ressonance.png">
+    <img src="Tikz-Graphics/Graphs/Ressonance/Ressonance.png" alt="Tikz-Graphics/Graphs/Ressonance/Ressonance.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/Ressonance/Ressonance.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/line-distance/line-distance.png" title="Tikz-Graphics/Graphs/line-distance/line-distance.png">
+    <img src="Tikz-Graphics/Graphs/line-distance/line-distance.png" alt="Tikz-Graphics/Graphs/line-distance/line-distance.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/line-distance/line-distance.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/graphs/line-to-point-distance/line-to-point-distance.png" title="Tikz-Graphics/Graphs/line-to-point-distance/line-to-point-distance.png">
+    <img src="Tikz-Graphics/Graphs/line-to-point-distance/line-to-point-distance.png" alt="Tikz-Graphics/Graphs/line-to-point-distance/line-to-point-distance.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Graphs/line-to-point-distance/line-to-point-distance.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/acceleration_1/acceleration_1.png" title="Tikz-Graphics/Mechanics/Acceleration_1/Acceleration_1.png">
+    <img src="Tikz-Graphics/Mechanics/Acceleration_1/Acceleration_1.png" alt="Tikz-Graphics/Mechanics/Acceleration_1/Acceleration_1.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Acceleration_1/Acceleration_1.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/earth-moon-interaction/earth-moon-interaction.png" title="Tikz-Graphics/Mechanics/Earth-Moon-Interaction/Earth-Moon-Interaction.png">
+    <img src="Tikz-Graphics/Mechanics/Earth-Moon-Interaction/Earth-Moon-Interaction.png" alt="Tikz-Graphics/Mechanics/Earth-Moon-Interaction/Earth-Moon-Interaction.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Earth-Moon-Interaction/Earth-Moon-Interaction.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/elliptical-orbit/elliptical-orbit.png" title="Tikz-Graphics/Mechanics/Elliptical-Orbit/Elliptical-Orbit.png">
+    <img src="Tikz-Graphics/Mechanics/Elliptical-Orbit/Elliptical-Orbit.png" alt="Tikz-Graphics/Mechanics/Elliptical-Orbit/Elliptical-Orbit.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Elliptical-Orbit/Elliptical-Orbit.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/gravitational-energy-from-many-masses/gravitational-energy-from-many-masses.png" title="Tikz-Graphics/Mechanics/Gravitational-Energy-from-many-Masses/Gravitational-Energy-from-many-Masses.png">
+    <img src="Tikz-Graphics/Mechanics/Gravitational-Energy-from-many-Masses/Gravitational-Energy-from-many-Masses.png" alt="Tikz-Graphics/Mechanics/Gravitational-Energy-from-many-Masses/Gravitational-Energy-from-many-Masses.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Gravitational-Energy-from-many-Masses/Gravitational-Energy-from-many-Masses.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/hyperbolic-orbit/hyperbolic-orbit.png" title="Tikz-Graphics/Mechanics/Hyperbolic-Orbit/Hyperbolic-Orbit.png">
+    <img src="Tikz-Graphics/Mechanics/Hyperbolic-Orbit/Hyperbolic-Orbit.png" alt="Tikz-Graphics/Mechanics/Hyperbolic-Orbit/Hyperbolic-Orbit.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Hyperbolic-Orbit/Hyperbolic-Orbit.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/kepler_second_law/kepler_second_law.png" title="Tikz-Graphics/Mechanics/Kepler_Second_Law/Kepler_Second_Law.png">
+    <img src="Tikz-Graphics/Mechanics/Kepler_Second_Law/Kepler_Second_Law.png" alt="Tikz-Graphics/Mechanics/Kepler_Second_Law/Kepler_Second_Law.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Kepler_Second_Law/Kepler_Second_Law.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/mass-surface/mass-surface.png" title="Tikz-Graphics/Mechanics/Mass-Surface/Mass-Surface.png">
+    <img src="Tikz-Graphics/Mechanics/Mass-Surface/Mass-Surface.png" alt="Tikz-Graphics/Mechanics/Mass-Surface/Mass-Surface.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Mass-Surface/Mass-Surface.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/non-inertial-for_1/non-inertial-for_1.png" title="Tikz-Graphics/Mechanics/Non-Inertial-FOR_1/Non-Inertial-FOR_1.png">
+    <img src="Tikz-Graphics/Mechanics/Non-Inertial-FOR_1/Non-Inertial-FOR_1.png" alt="Tikz-Graphics/Mechanics/Non-Inertial-FOR_1/Non-Inertial-FOR_1.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Non-Inertial-FOR_1/Non-Inertial-FOR_1.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/non-inertial-for_2/non-inertial-for_2.png" title="Tikz-Graphics/Mechanics/Non-Inertial-FOR_2/Non-Inertial-FOR_2.png">
+    <img src="Tikz-Graphics/Mechanics/Non-Inertial-FOR_2/Non-Inertial-FOR_2.png" alt="Tikz-Graphics/Mechanics/Non-Inertial-FOR_2/Non-Inertial-FOR_2.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Non-Inertial-FOR_2/Non-Inertial-FOR_2.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/oscillation/force-on-rod/force-on-rod.png" title="Tikz-Graphics/Mechanics/Oscillation/Force-on-Rod/Force-on-Rod.png">
+    <img src="Tikz-Graphics/Mechanics/Oscillation/Force-on-Rod/Force-on-Rod.png" alt="Tikz-Graphics/Mechanics/Oscillation/Force-on-Rod/Force-on-Rod.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Oscillation/Force-on-Rod/Force-on-Rod.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/oscillation/oscillation-graph/oscillation-graph.png" title="Tikz-Graphics/Mechanics/Oscillation/Oscillation-Graph/Oscillation-Graph.png">
+    <img src="Tikz-Graphics/Mechanics/Oscillation/Oscillation-Graph/Oscillation-Graph.png" alt="Tikz-Graphics/Mechanics/Oscillation/Oscillation-Graph/Oscillation-Graph.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Oscillation/Oscillation-Graph/Oscillation-Graph.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/oscillation/ressonance/ressonance.png" title="Tikz-Graphics/Mechanics/Oscillation/Ressonance/Ressonance.png">
+    <img src="Tikz-Graphics/Mechanics/Oscillation/Ressonance/Ressonance.png" alt="Tikz-Graphics/Mechanics/Oscillation/Ressonance/Ressonance.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Oscillation/Ressonance/Ressonance.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/mechanics/oscillation/rod-oscillation/rod-oscillation.png" title="Tikz-Graphics/Mechanics/Oscillation/Rod-Oscillation/Rod-Oscillation.png">
+    <img src="Tikz-Graphics/Mechanics/Oscillation/Rod-Oscillation/Rod-Oscillation.png" alt="Tikz-Graphics/Mechanics/Oscillation/Rod-Oscillation/Rod-Oscillation.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Mechanics/Oscillation/Rod-Oscillation/Rod-Oscillation.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/diffraction/diffraction.png" title="Tikz-Graphics/Optics/Diffraction/Diffraction.png">
+    <img src="Tikz-Graphics/Optics/Diffraction/Diffraction.png" alt="Tikz-Graphics/Optics/Diffraction/Diffraction.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Diffraction/Diffraction.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/emw-propagation/emw-propagation.png" title="Tikz-Graphics/Optics/EMW-Propagation/EMW-Propagation.png">
+    <img src="Tikz-Graphics/Optics/EMW-Propagation/EMW-Propagation.png" alt="Tikz-Graphics/Optics/EMW-Propagation/EMW-Propagation.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/EMW-Propagation/EMW-Propagation.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/interference/interference-pattern/interference-pattern.png" title="Tikz-Graphics/Optics/Interference/Interference-Pattern/Interference-Pattern.png">
+    <img src="Tikz-Graphics/Optics/Interference/Interference-Pattern/Interference-Pattern.png" alt="Tikz-Graphics/Optics/Interference/Interference-Pattern/Interference-Pattern.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Interference/Interference-Pattern/Interference-Pattern.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/interference/interferometer/interferometer.png" title="Tikz-Graphics/Optics/Interference/Interferometer/Interferometer.png">
+    <img src="Tikz-Graphics/Optics/Interference/Interferometer/Interferometer.png" alt="Tikz-Graphics/Optics/Interference/Interferometer/Interferometer.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Interference/Interferometer/Interferometer.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/lens/lens-colors/lens-colors.png" title="Tikz-Graphics/Optics/Lens/Lens-Colors/Lens-Colors.png">
+    <img src="Tikz-Graphics/Optics/Lens/Lens-Colors/Lens-Colors.png" alt="Tikz-Graphics/Optics/Lens/Lens-Colors/Lens-Colors.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Lens/Lens-Colors/Lens-Colors.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/lens/lens-errors/lens-errors.png" title="Tikz-Graphics/Optics/Lens/Lens-Errors/Lens-Errors.png">
+    <img src="Tikz-Graphics/Optics/Lens/Lens-Errors/Lens-Errors.png" alt="Tikz-Graphics/Optics/Lens/Lens-Errors/Lens-Errors.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Lens/Lens-Errors/Lens-Errors.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/birefringence/birefringence.png" title="Tikz-Graphics/Optics/Polarization/Birefringence/Birefringence.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Birefringence/Birefringence.png" alt="Tikz-Graphics/Optics/Polarization/Birefringence/Birefringence.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Birefringence/Birefringence.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/brewster-angle/brewster-angle.png" title="Tikz-Graphics/Optics/Polarization/Brewster-Angle/Brewster-Angle.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Brewster-Angle/Brewster-Angle.png" alt="Tikz-Graphics/Optics/Polarization/Brewster-Angle/Brewster-Angle.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Brewster-Angle/Brewster-Angle.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/cyclic-polarization/cyclic-polarization.png" title="Tikz-Graphics/Optics/Polarization/Cyclic-Polarization/Cyclic-Polarization.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Cyclic-Polarization/Cyclic-Polarization.png" alt="Tikz-Graphics/Optics/Polarization/Cyclic-Polarization/Cyclic-Polarization.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Cyclic-Polarization/Cyclic-Polarization.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/elliptical-polarization/elliptical-polarization.png" title="Tikz-Graphics/Optics/Polarization/Elliptical-Polarization/Elliptical-Polarization.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Elliptical-Polarization/Elliptical-Polarization.png" alt="Tikz-Graphics/Optics/Polarization/Elliptical-Polarization/Elliptical-Polarization.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Elliptical-Polarization/Elliptical-Polarization.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/finding-brewster-angle/finding-brewster-angle.png" title="Tikz-Graphics/Optics/Polarization/Finding-Brewster-Angle/Finding-Brewster-Angle.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Finding-Brewster-Angle/Finding-Brewster-Angle.png" alt="Tikz-Graphics/Optics/Polarization/Finding-Brewster-Angle/Finding-Brewster-Angle.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Finding-Brewster-Angle/Finding-Brewster-Angle.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/linearly-polarized/linearly-polarized.png" title="Tikz-Graphics/Optics/Polarization/Linearly-Polarized/Linearly-Polarized.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Linearly-Polarized/Linearly-Polarized.png" alt="Tikz-Graphics/Optics/Polarization/Linearly-Polarized/Linearly-Polarized.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Linearly-Polarized/Linearly-Polarized.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/malus-law/malus-law.png" title="Tikz-Graphics/Optics/Polarization/Malus-Law/Malus-Law.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Malus-Law/Malus-Law.png" alt="Tikz-Graphics/Optics/Polarization/Malus-Law/Malus-Law.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Malus-Law/Malus-Law.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/phase-delay-plate-pdp/phase-delay-plate-pdp.png" title="Tikz-Graphics/Optics/Polarization/Phase-Delay-Plate-PDP/Phase-Delay-Plate-PDP.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Phase-Delay-Plate-PDP/Phase-Delay-Plate-PDP.png" alt="Tikz-Graphics/Optics/Polarization/Phase-Delay-Plate-PDP/Phase-Delay-Plate-PDP.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Phase-Delay-Plate-PDP/Phase-Delay-Plate-PDP.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/polarizer-analyzer/polarizer-analyzer.png" title="Tikz-Graphics/Optics/Polarization/Polarizer-Analyzer/Polarizer-Analyzer.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Polarizer-Analyzer/Polarizer-Analyzer.png" alt="Tikz-Graphics/Optics/Polarization/Polarizer-Analyzer/Polarizer-Analyzer.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Polarizer-Analyzer/Polarizer-Analyzer.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/polarization/unpolarized/unpolarized.png" title="Tikz-Graphics/Optics/Polarization/Unpolarized/Unpolarized.png">
+    <img src="Tikz-Graphics/Optics/Polarization/Unpolarized/Unpolarized.png" alt="Tikz-Graphics/Optics/Polarization/Unpolarized/Unpolarized.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Polarization/Unpolarized/Unpolarized.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/prism/prism1/prism1.png" title="Tikz-Graphics/Optics/Prism/Prism1/Prism1.png">
+    <img src="Tikz-Graphics/Optics/Prism/Prism1/Prism1.png" alt="Tikz-Graphics/Optics/Prism/Prism1/Prism1.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Prism/Prism1/Prism1.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/prism/prism2/prism2.png" title="Tikz-Graphics/Optics/Prism/Prism2/Prism2.png">
+    <img src="Tikz-Graphics/Optics/Prism/Prism2/Prism2.png" alt="Tikz-Graphics/Optics/Prism/Prism2/Prism2.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Prism/Prism2/Prism2.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/prism/prism3/prism3.png" title="Tikz-Graphics/Optics/Prism/Prism3/Prism3.png">
+    <img src="Tikz-Graphics/Optics/Prism/Prism3/Prism3.png" alt="Tikz-Graphics/Optics/Prism/Prism3/Prism3.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Prism/Prism3/Prism3.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/refraction/reflection-refraction/reflection-refraction.png" title="Tikz-Graphics/Optics/Refraction/Reflection-Refraction/Reflection-Refraction.png">
+    <img src="Tikz-Graphics/Optics/Refraction/Reflection-Refraction/Reflection-Refraction.png" alt="Tikz-Graphics/Optics/Refraction/Reflection-Refraction/Reflection-Refraction.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Refraction/Reflection-Refraction/Reflection-Refraction.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/refraction/refractive-index/refractive-index.png" title="Tikz-Graphics/Optics/Refraction/Refractive-Index/Refractive-Index.png">
+    <img src="Tikz-Graphics/Optics/Refraction/Refractive-Index/Refractive-Index.png" alt="Tikz-Graphics/Optics/Refraction/Refractive-Index/Refractive-Index.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Refraction/Refractive-Index/Refractive-Index.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/optics/spectroscope/spectroscope.png" title="Tikz-Graphics/Optics/Spectroscope/Spectroscope.png">
+    <img src="Tikz-Graphics/Optics/Spectroscope/Spectroscope.png" alt="Tikz-Graphics/Optics/Spectroscope/Spectroscope.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Optics/Spectroscope/Spectroscope.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/thermodynamics/experimental-layout/experimental-layout.png" title="Tikz-Graphics/Thermodynamics/Experimental-Layout/Experimental-Layout.png">
+    <img src="Tikz-Graphics/Thermodynamics/Experimental-Layout/Experimental-Layout.png" alt="Tikz-Graphics/Thermodynamics/Experimental-Layout/Experimental-Layout.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Thermodynamics/Experimental-Layout/Experimental-Layout.png</span>
+  </button>
+  <button class="card" type="button" data-nome="tikz-graphics/thermodynamics/otto-cycle/otto-cycle.png" title="Tikz-Graphics/Thermodynamics/Otto-Cycle/Otto-Cycle.png">
+    <img src="Tikz-Graphics/Thermodynamics/Otto-Cycle/Otto-Cycle.png" alt="Tikz-Graphics/Thermodynamics/Otto-Cycle/Otto-Cycle.png" loading="lazy">
+    <span class="nome">Tikz-Graphics/Thermodynamics/Otto-Cycle/Otto-Cycle.png</span>
+  </button>
+  <button class="card" type="button" data-nome="rc-01/main.png" title="rc-01/main.png">
+    <img src="rc-01/main.png" alt="rc-01/main.png" loading="lazy">
+    <span class="nome">rc-01/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="rc-02/main.png" title="rc-02/main.png">
+    <img src="rc-02/main.png" alt="rc-02/main.png" loading="lazy">
+    <span class="nome">rc-02/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="rc-03/main.png" title="rc-03/main.png">
+    <img src="rc-03/main.png" alt="rc-03/main.png" loading="lazy">
+    <span class="nome">rc-03/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="rc-04/main.png" title="rc-04/main.png">
+    <img src="rc-04/main.png" alt="rc-04/main.png" loading="lazy">
+    <span class="nome">rc-04/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="rc-05/main.png" title="rc-05/main.png">
+    <img src="rc-05/main.png" alt="rc-05/main.png" loading="lazy">
+    <span class="nome">rc-05/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="rc-06/main.png" title="rc-06/main.png">
+    <img src="rc-06/main.png" alt="rc-06/main.png" loading="lazy">
+    <span class="nome">rc-06/main.png</span>
+  </button>
+  <button class="card" type="button" data-nome="rc-07/main.png" title="rc-07/main.png">
+    <img src="rc-07/main.png" alt="rc-07/main.png" loading="lazy">
+    <span class="nome">rc-07/main.png</span>
+  </button>
+</div>
+
+<p class="vazio" id="vazio" hidden>Nenhuma imagem encontrada.</p>
+
+<dialog class="modal" id="modal" aria-label="Imagem ampliada">
+  <button class="fechar" id="fechar" type="button" aria-label="Fechar">&times;</button>
+  <img id="modalImg" alt="">
+  <div class="legenda" id="modalLegenda"></div>
+</dialog>
+
+<script>
+const filtro = document.getElementById('filtro');
+const cards = [...document.querySelectorAll('.card')];
+const contador = document.getElementById('contador');
+const vazio = document.getElementById('vazio');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalLegenda = document.getElementById('modalLegenda');
+
+function atualizarFiltro() {
+  const busca = filtro.value.toLowerCase().trim();
+  let visiveis = 0;
+
+  cards.forEach(card => {
+    const mostrar = card.dataset.nome.includes(busca);
+    card.hidden = !mostrar;
+    if (mostrar) visiveis++;
+  });
+
+  contador.textContent = `${visiveis} de ${cards.length} imagens`;
+  vazio.hidden = visiveis > 0;
+}
+
+function abrirModal(src, nome) {
+  modalImg.src = src;
+  modalImg.alt = nome;
+  modalLegenda.textContent = nome;
+  modal.showModal();
+}
+
+function fecharModal() {
+  modal.close();
+}
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    const img = card.querySelector('img');
+    abrirModal(img.src, img.alt);
+  });
+});
+
+filtro.addEventListener('input', atualizarFiltro);
+document.getElementById('fechar').addEventListener('click', fecharModal);
+
+// Fecha ao clicar no espaço ao redor da imagem.
+// A tecla Escape é tratada automaticamente pelo dialog.
+modal.addEventListener('click', event => {
+  if (event.target === modal) fecharModal();
+});
+
+modal.addEventListener('close', () => {
+  modalImg.removeAttribute('src');
+});
+
+atualizarFiltro();
+</script>
+</body>
+</html>

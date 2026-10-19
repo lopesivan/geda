@@ -1,0 +1,17 @@
+# Makefile raiz - orquestra os builds em todas as subpastas
+
+# Descobre todas as subpastas que contêm um Makefile gerado
+SUBDIRS := $(patsubst %/Makefile,%,$(wildcard */*/Makefile))
+
+.PHONY: all pdf png svg eps clean distclean help
+
+all pdf png svg eps clean distclean:
+	@for d in $(SUBDIRS); do \
+		echo "== $$d =="; \
+		$(MAKE) -C $$d $@ || exit 1; \
+	done
+
+help:
+	@echo "Alvos: all pdf png svg eps clean distclean"
+	@echo "Subpastas detectadas:"
+	@for d in $(SUBDIRS); do echo "  $$d"; done
