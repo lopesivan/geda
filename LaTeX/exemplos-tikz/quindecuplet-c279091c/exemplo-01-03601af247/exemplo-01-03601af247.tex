@@ -1,0 +1,97 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz-3dplot}
+\begin{document}
+
+%  Constants
+\newcommand*{\rtop}{3}% Radius of top level
+\newcommand*{\rmid}{5}%  Radius of middle level
+\newcommand*{\rbot}{3}% Radius of bottom level
+\newcommand*{\h}{4}%  Height difference between levels
+
+%  Particle Ball
+\newcommand\particle[1]{% 
+     \begin{tikzpicture}
+          \filldraw[shading=ball,ball color=white!100!black] (0,0) circle(0.4);
+          \node at (0,0) {#1};
+     \end{tikzpicture}  
+}
+
+\begin{tikzpicture}[scale=0.9]
+%  Coordinate System of the Quarks
+     \draw[->] ({-\rmid-4},0,0) --({-\rmid-2},0,0) node[below] {Charge};
+     \draw[->] ({-\rmid-4},0,0) -- ({-\rmid-4},0,-2) node[above right] {Strangeness};
+     \draw[->] ({-\rmid-4},0,0) -- ({-\rmid-4},2,0) node[right] {Charm};
+
+
+%  Coordinates
+%  Top Level
+     \coordinate (cs) at ({\rtop*cos(90)},\h,{-\rtop*sin(90)});
+     \coordinate (cu) at ({\rtop*cos(225)},\h,{-\rtop*sin(225)});
+     \coordinate (cd) at ({\rtop*cos(315)},\h,{-\rtop*sin(315)});
+
+
+%  Middle Level
+     \coordinate (ud) at ({\rmid*cos(0)},0,{-\rmid*sin(0)});
+     \coordinate (us) at ({\rmid*cos(60)},0,{-\rmid*sin(60)});
+     \coordinate (ds) at ({\rmid*cos(120)},0,{-\rmid*sin(120)});
+     \coordinate (du) at ({\rmid*cos(180)},0,{-\rmid*sin(180)});
+     \coordinate (su) at ({\rmid*cos(240)},0,{-\rmid*sin(240)});
+     \coordinate (sd) at ({\rmid*cos(300)},0,{-\rmid*sin(300)});
+     \coordinate (uudd2ss) at (-0.8,0,0);
+     \coordinate (uudd) at (0,0,0);
+     \coordinate (uuddss) at (0.8,0,0);
+
+%  Bottom Level
+     \coordinate (sc) at ({\rbot*cos(270)},-\h,{-\rbot*sin(270)});
+     \coordinate (uc) at ({\rbot*cos(45)},-\h,{-\rbot*sin(45)});
+     \coordinate (dc) at ({\rbot*cos(135)},-\h,{-\rbot*sin(135)});
+
+
+%  Highlight Levels
+     \fill[lightgray] (cd) -- (cs) -- (cu) -- (cd) -- cycle;
+     \fill[lightgray] (ud) -- (us) -- (ds) -- (du) -- (su) -- (sd) -- (ud) -- cycle;
+     \fill[lightgray] (sc) -- (uc) -- (dc)  -- (sc) -- cycle;
+
+%  Particles and Lines
+%  Level Lines
+     \draw (cd) -- (cs) -- (cu) -- (cd);
+     \draw (ud) -- (us); \draw[dashed] (us) -- (ds) -- (du); \draw (du) -- (su) -- (sd) -- (ud);
+     \draw (sc) -- (uc); \draw[dashed] (uc) -- (dc)  -- (sc);
+
+%  Need the eta prime:
+     \node at (uuddss) {\particle {$\eta^{\prime}$}};
+
+%  Between Levels
+     \draw (cd) -- (sd); \draw (cd) -- (ud);
+     \draw (cs) -- (us); \draw[dashed] (cs) -- (ds);
+     \draw (cu) -- (du); \draw (cu) -- (su);
+
+     \draw (sc) -- (uc); \draw[dashed] (uc) -- (dc)  -- (sc);
+     \draw (sc) -- (sd); \draw (sc) -- (su);
+     \draw (uc) -- (ud); \draw[dashed] (uc) -- (us);
+     \draw[dashed] (dc) -- (ds); \draw[dashed] (dc) -- (du);
+
+%  Top Level
+     \node at (cs) {\particle {$D_s^0$}};
+     \node at (cu) {\particle {$D^0$}};
+     \node at (cd) {\particle {$D^+$}};
+
+%  Middle Level
+     \node at (ud) {\particle {$\pi^+$}};
+     \node at (us) {\particle {$K^+$}};
+     \node at (ds) {\particle {$K^0$}};
+     \node at (du) {\particle {$\pi^-$}};
+     \node at (su) {\particle {$K^-$}};
+     \node at (sd) {\particle {$\overline{K}^0$}};
+     \node at (uudd2ss) {\particle {$\eta$}};
+     \node at (uudd) {\particle {$\pi^0$}};
+
+%  Bottom Level
+     \node at (sc) {\particle {$D_s^-$}};
+     \node at (uc) {\particle {$\overline{D}^0$}};
+     \node at (dc) {\particle {$D^-$}};
+
+%  Title
+   \node[scale=2] at (-3,{\h+3},0) (title) {Pseudoscalar Quindecuplet for udsc quarks};
+\end{tikzpicture}
+\end{document}

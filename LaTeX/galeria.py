@@ -1,3 +1,4 @@
+
 from pathlib import Path
 from html import escape
 from urllib.parse import quote
@@ -11,12 +12,19 @@ for makefile in sorted(raiz.rglob("Makefile")):
     if not makefile.is_file():
         continue
 
-    # Inclui os PNGs que estão na mesma pasta do Makefile.
-    for imagem in sorted(makefile.parent.iterdir()):
-        if imagem.is_file() and imagem.suffix.lower() == ".png":
-            nome = imagem.relative_to(raiz).as_posix()
-            caminho = quote(nome, safe="/")
-            itens.append((nome, caminho))
+    # Inclui PNGs e PDFs da mesma pasta do Makefile.
+    for arquivo in sorted(makefile.parent.iterdir()):
+        if not arquivo.is_file():
+            continue
+
+        extensao = arquivo.suffix.lower()
+        if extensao not in {".png", ".pdf"}:
+            continue
+
+        nome = arquivo.relative_to(raiz).as_posix()
+        caminho = quote(nome, safe="/")
+        tipo = extensao[1:]
+        itens.append((nome, caminho, tipo))
 
 html = """<!DOCTYPE html>
 <html lang="pt-BR">
@@ -84,18 +92,50 @@ html = """<!DOCTYPE html>
     border-color: #777;
   }
 
+  .card[hidden] { display: none; }
+
   .card:focus-visible, .fechar:focus-visible {
     outline: 3px solid #75baff;
     outline-offset: 3px;
   }
 
-  .card img {
-    display: block;
+  .preview {
+    position: relative;
     width: 100%;
     height: 200px;
-    object-fit: contain;
+    overflow: hidden;
     background: #fff;
   }
+
+  .preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .preview iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
+  }
+
+  .tipo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .tipo.pdf { background: #b71c1c; }
+  .tipo.png { background: #1565c0; }
 
   .nome {
     display: block;
@@ -114,6 +154,8 @@ html = """<!DOCTYPE html>
     padding: 30px;
   }
 
+  .vazio[hidden] { display: none; }
+
   .modal {
     width: 100vw;
     max-width: 100vw;
@@ -128,8 +170,10 @@ html = """<!DOCTYPE html>
 
   .modal[open] {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 12px;
   }
 
   .modal::backdrop {
@@ -138,9 +182,17 @@ html = """<!DOCTYPE html>
 
   .modal img {
     max-width: 100%;
-    max-height: calc(100dvh - 140px);
+    max-height: calc(100dvh - 160px);
     object-fit: contain;
     border-radius: 8px;
+  }
+
+  .modal iframe {
+    width: min(100%, 1100px);
+    height: calc(100dvh - 170px);
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
   }
 
   .fechar {
@@ -155,11 +207,16 @@ html = """<!DOCTYPE html>
     cursor: pointer;
   }
 
+  .abrir {
+    color: #75baff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .abrir:hover { text-decoration: underline; }
+
   .legenda {
-    position: absolute;
-    bottom: 16px;
-    left: 20px;
-    right: 20px;
+    max-width: 100%;
     max-height: 50px;
     overflow: auto;
     text-align: center;
@@ -172,35 +229,52 @@ html = """<!DOCTYPE html>
 <body>
 <h1>Galeria de exemplos TikZ</h1>
 <p class="contador" id="contador" aria-live="polite"></p>
+
 <input
   class="filtro"
   id="filtro"
   type="search"
-  aria-label="Filtrar imagens pelo nome ou pasta"
-  placeholder="Filtrar por nome ou pasta…"
+  aria-label="Filtrar arquivos pelo nome, pasta ou extensão"
+  placeholder="Filtrar por nome, pasta, PNG ou PDF…"
 >
+
 <div class="grid" id="grid">
 """
 
-for nome, caminho in itens:
+for nome, caminho, tipo in itens:
     nome_html = escape(nome, quote=True)
     caminho_html = escape(caminho, quote=True)
     filtro_html = escape(nome.lower(), quote=True)
 
-    html += f"""  <button class="card" type="button" data-nome="{filtro_html}" title="{nome_html}">
-    <img src="{caminho_html}" alt="{nome_html}" loading="lazy">
+    if tipo == "png":
+        preview = f'<img src="{caminho_html}" alt="{nome_html}" loading="lazy">'
+    else:
+        preview = f'<iframe src="{caminho_html}#page=1&toolbar=0&navpanes=0" title="{nome_html}" loading="lazy" tabindex="-1"></iframe>'
+
+    html += f"""  <button class="card" type="button"
+    data-nome="{filtro_html}"
+    data-src="{caminho_html}"
+    data-tipo="{tipo}"
+    title="{nome_html}">
+    <div class="preview">
+      {preview}
+      <span class="tipo {tipo}">{tipo.upper()}</span>
+    </div>
     <span class="nome">{nome_html}</span>
   </button>
 """
 
 html += """</div>
 
-<p class="vazio" id="vazio" hidden>Nenhuma imagem encontrada.</p>
+<p class="vazio" id="vazio" hidden>Nenhum arquivo encontrado.</p>
 
-<dialog class="modal" id="modal" aria-label="Imagem ampliada">
+<dialog class="modal" id="modal" aria-label="Visualização ampliada">
   <button class="fechar" id="fechar" type="button" aria-label="Fechar">&times;</button>
-  <img id="modalImg" alt="">
+  <div id="modalConteudo"></div>
   <div class="legenda" id="modalLegenda"></div>
+  <a class="abrir" id="abrirArquivo" href="#" target="_blank" rel="noopener">
+    Abrir arquivo em nova aba ↗
+  </a>
 </dialog>
 
 <script>
@@ -209,27 +283,50 @@ const cards = [...document.querySelectorAll('.card')];
 const contador = document.getElementById('contador');
 const vazio = document.getElementById('vazio');
 const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modalImg');
+const modalConteudo = document.getElementById('modalConteudo');
 const modalLegenda = document.getElementById('modalLegenda');
+const abrirArquivo = document.getElementById('abrirArquivo');
 
 function atualizarFiltro() {
   const busca = filtro.value.toLowerCase().trim();
   let visiveis = 0;
+  let pngs = 0;
+  let pdfs = 0;
 
   cards.forEach(card => {
     const mostrar = card.dataset.nome.includes(busca);
     card.hidden = !mostrar;
-    if (mostrar) visiveis++;
+
+    if (mostrar) {
+      visiveis++;
+      if (card.dataset.tipo === 'png') pngs++;
+      if (card.dataset.tipo === 'pdf') pdfs++;
+    }
   });
 
-  contador.textContent = `${visiveis} de ${cards.length} imagens`;
+  contador.textContent = `${visiveis} de ${cards.length} arquivos | ${pngs} PNG | ${pdfs} PDF`;
   vazio.hidden = visiveis > 0;
 }
 
-function abrirModal(src, nome) {
-  modalImg.src = src;
-  modalImg.alt = nome;
+function abrirModal(src, nome, tipo) {
+  modalConteudo.replaceChildren();
+
+  if (tipo === 'pdf') {
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.title = nome;
+    iframe.style.width = 'min(90vw, 1100px)';
+    iframe.style.height = 'calc(100dvh - 170px)';
+    modalConteudo.appendChild(iframe);
+  } else {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = nome;
+    modalConteudo.appendChild(img);
+  }
+
   modalLegenda.textContent = nome;
+  abrirArquivo.href = src;
   modal.showModal();
 }
 
@@ -239,22 +336,23 @@ function fecharModal() {
 
 cards.forEach(card => {
   card.addEventListener('click', () => {
-    const img = card.querySelector('img');
-    abrirModal(img.src, img.alt);
+    abrirModal(
+      card.dataset.src,
+      card.title,
+      card.dataset.tipo
+    );
   });
 });
 
 filtro.addEventListener('input', atualizarFiltro);
 document.getElementById('fechar').addEventListener('click', fecharModal);
 
-// Fecha ao clicar no espaço ao redor da imagem.
-// A tecla Escape é tratada automaticamente pelo dialog.
 modal.addEventListener('click', event => {
   if (event.target === modal) fecharModal();
 });
 
 modal.addEventListener('close', () => {
-  modalImg.removeAttribute('src');
+  modalConteudo.replaceChildren();
 });
 
 atualizarFiltro();
@@ -266,4 +364,9 @@ atualizarFiltro();
 destino = raiz / "galeria.html"
 destino.write_text(html, encoding="utf-8")
 
-print(f"✅ {destino} gerado com {len(itens)} imagens")
+pngs = sum(tipo == "png" for _, _, tipo in itens)
+pdfs = sum(tipo == "pdf" for _, _, tipo in itens)
+
+print(f"✅ {destino} gerado com {len(itens)} arquivos")
+print(f"   PNG: {pngs}")
+print(f"   PDF: {pdfs}")

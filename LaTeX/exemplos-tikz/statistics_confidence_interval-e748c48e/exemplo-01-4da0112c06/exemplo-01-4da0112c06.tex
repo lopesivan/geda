@@ -1,0 +1,18 @@
+
+\documentclass[border=3pt,tikz]{standalone}
+% random number generator normal ~ N(mu,sigma)
+% using Box-Muller transform: u1,u2 ~ U(0,1) -> z ~ N(0,1)
+\usepackage{pgf}
+\pgfmathdeclarefunction{normrand}{2}{%
+  \pgfmathparse{#1 + #2*sqrt(-2*ln(rnd))*cos(2*pi*rnd*180/pi)}%
+}
+\pgfmathsetseed{12345} % for reproducibility
+\pgfkeys{/pgf/number format/.cd,fixed,precision=2} % print formating
+\begin{document}
+\begin{tikzpicture}
+  \foreach \i [evaluate={\x=normrand(2,5);}] in {1, ..., 10}{
+    \fill[blue] (\x,0) circle(2pt)
+      node[above=1pt,scale=0.7] {\pgfmathprintnumber{\x}};
+  }
+\end{tikzpicture}
+\end{document}

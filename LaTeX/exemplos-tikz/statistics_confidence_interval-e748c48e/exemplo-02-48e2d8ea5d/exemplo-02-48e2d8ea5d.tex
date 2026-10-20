@@ -1,0 +1,115 @@
+% Author: Izaak Neutelings (August 2026)
+% Inspired by:
+%   https://en.wikipedia.org/wiki/Confidence_interval
+%   https://en.wikipedia.org/wiki/File:Normal_distribution_50%25_CI_illustration.svg
+%   https://www.youtube.com/watch?v=-WVJ1o7y954 (DataMListic)
+\documentclass[border=3pt,tikz]{standalone}
+\usetikzlibrary{arrows.meta} % for arrow head size
+
+% random number generator normal ~ N(mu,sigma)
+% using Box-Muller transform: u1,u2 ~ U(0,1) -> z ~ N(0,1)
+\usepackage{pgf}
+\pgfmathdeclarefunction{normrand}{2}{%
+  \pgfmathparse{#1 + #2*sqrt(-2*ln(rnd))*cos(2*pi*rnd*180/pi)}%
+}
+
+% COLORS
+\colorlet{colCI}{blue!90!black}
+\colorlet{colCIMissed}{red}
+\colorlet{colTrue}{orange!95!black}
+\colorlet{colData}{blue!60!red!80!black}
+
+% STYLES
+\tikzset{
+  >={Latex[length=2,width=2]}, % for LaTeX arrow head
+  CI/.style={colCI,line width=0.70},
+  CIMissed/.style={CI,colCIMissed},
+  true/.style={colTrue,line width=0.85},
+}
+
+\begin{document}
+
+% CONFIDENCE INTERVAL
+\foreach \Nsamples in {25,50}{%
+\begin{tikzpicture}
+  
+  % SETTINGS
+  %\def\Nsamples{25}    % number of samples/experiments
+  \def\Npoints{20}     % number of data points per sample
+  \def\zstar{1.959964} % z critical value for 95%
+  \def\xmu{0}          % mean of normal used to generate x
+  \def\xsigma{1.8}     % std. dev. of normal used to generate x
+  \def\hGauss{2.3}     % peak height
+  \def\hCI{0.3}        % height of each interval
+  \def\yoffset{0.09}   % y offset of data points
+  \def\hbarCI{0.08}    % barsize of the interval
+  \pgfmathsetmacro\xmin{\xmu-3.0*\xsigma}
+  \pgfmathsetmacro\xmax{\xmu+3.1*\xsigma}
+  \pgfmathsetmacro\ymin{-(\Nsamples+0.2)*\hCI}
+  \pgfmathsetmacro\ymax{1.2*\hGauss}
+  %\pgfmathsetseed{1959964} % seed for reproducibility
+  \pgfmathsetseed{12345} % seed for reproducibility
+  
+  % GAUSSIAN CURVE above the sample rows
+  \clip (\xmin,\ymin) rectangle (\xmax,\ymax); % prevent outliers
+  \draw[-{Latex[length=3,width=3]},thick,black]
+    (\xmin,0) -- (\xmax,0); % axis
+  \draw[true,smooth,samples=100,domain={\xmin}:{\xmax-0.1*\xsigma}]
+    plot (\x,{\hGauss*exp(-(\x-\xmu)^2/(2*\xsigma*\xsigma))});
+  
+  % TRUE MEAN LINE
+  \draw[true,dashed,line width=0.7]
+    (\xmu,\ymax) node[below=5pt,left=1pt] {true mean $\mu$}
+    -- (\xmu,\ymin);
+  %\draw[true,dashed,line width=0.2] % std. dev.
+  %  (\xmu-\xsigma,0) --++ (0,0.7*\hGauss)
+  %  (\xmu+\xsigma,0) --++ (0,0.7*\hGauss);
+  
+  % DATA samples & intervals
+  \foreach \i [evaluate={\y=-\i*\hCI; \yData=\y+\yoffset}] in {1,...,\Nsamples}{
+    \message{^^JExperiment {\i/\Nsamples} with \Npoints points}
+    
+    % NUMBER & AXIS
+    \node[above right=0pt,scale=0.6,black!70] at (\xmin,\y) {\i};
+    \draw[->,line width=0.2,black!40] (\xmin,\y) -- (\xmax,\y);
+    
+    % DRAW data points
+    \def\sumx{0}  % sum(x) to compute mean
+    \def\sumsq{0} % sum(x^2) to compute standard error
+    \foreach \j [evaluate={\x=normrand(\xmu,\xsigma);}] in {1,...,\Npoints}{
+      \pgfmathparse{\sumx+\x}
+      \xdef\sumx{\pgfmathresult}
+      \pgfmathparse{\sumsq+\x*\x}
+      \xdef\sumsq{\pgfmathresult}
+      \fill[colData] (\x,\yData) circle (0.09*\hCI);
+    }
+    
+    % COMPUTE mean and 95% confidence intervaL
+    \pgfmathsetmacro{\mean}{\sumx/\Npoints}
+    \pgfmathsetmacro{\svar}{max((\sumsq-\Npoints*\mean*\mean)/(\Npoints-1),0)}
+    \pgfmathsetmacro{\stderr}{sqrt(\svar/\Npoints)}
+    \pgfmathsetmacro{\cilow}{\mean - \zstar*\stderr}
+    \pgfmathsetmacro{\cihigh}{\mean + \zstar*\stderr}
+    \message{^^J  sumx=\sumx, sumsq=\sumsq, mean=\mean, stderr=\stderr, 95\% CI [\cilow,\cihigh]}
+    
+    % CHECK if CI misses the true mean
+    \pgfmathsetmacro{\missesTrue}{(\cihigh<\xmu || \cilow>\xmu) ? 1 : 0}
+    \ifnum \missesTrue = 1 % CI misses true mean
+      \def\CIstyle{CIMissed}
+    \else % CI covers true mean
+      \def\CIstyle{CI}
+    \fi
+    
+    % DRAW 95% confidence interval
+    \pgfmathsetmacro{\yCI}{\yData+\yoffset}
+    \draw[\CIstyle]
+      (\cilow,\yCI) -- (\cihigh,\yCI) % horizontal line
+      (\cilow,\yCI-\hbarCI/2) -- (\cilow,\yCI+\hbarCI/2) % bar at end
+      (\cihigh,\yCI-\hbarCI/2) -- (\cihigh,\yCI+\hbarCI/2);
+    \fill[\CIstyle] (\mean,\yCI) circle (0.4*\hbarCI);
+    
+  }
+  
+\end{tikzpicture}}% close loop
+
+\end{document}

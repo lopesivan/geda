@@ -1,0 +1,52 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{circuitikz}
+\newcommand{\voltmeter}{node[circle,draw]{{\color{black!70}\textbf{V}}}}
+\newcommand{\amperemeter}{node[circle,draw]{{\color{black!70}\textbf{A}}}}
+\tikzset{
+	pics/interruptor/.style={
+		code={
+			\draw (0,0) -- (1,0);
+			\draw (2,0) -- (3,0);
+			\draw (1,0) -- (1.8,0.5);
+			\fill (1,0) circle (2pt);
+			\fill (2,0) circle (2pt);}}}
+\begin{document}
+	\begin{circuitikz}
+		\draw [line width=1] (-1,-2) to[battery, l=$E$,  invert, line width=0.5] (-1,5);
+		\draw [line width=1] (-1,5)
+		--(4,5)
+		to[potentiometer,line width=0.7] (4,2)
+		--(4,-2)
+		--(-1,-2);
+		\draw [line width=1] (4,3.5)
+		--(4.6,3.5);
+		\draw [line width=1] (5,3.5)
+		\amperemeter (5.5,3.5);
+		\draw [line width=1]  (5.4,3.5)
+		-- (8,3.5);
+		\draw[line width = 1] (4,-2)
+		--(8,-2)
+		--(8,1.63);
+		\draw [line width=1](8,2)
+		\voltmeter (8,3.5);
+		\draw [line width=1](8,3.5)
+		--(8,2.37);
+		\draw [line width=1] (6,-2)
+		to [resistor, l_=$R'$,i=$I'$, line width=0.7] (6,3)
+		--(6,3.5);
+		
+		\draw (4,5) node[ right] {$A$};
+		\draw (4,-2) node[above right] {$B$};
+		\draw (4,3.5) node[above right] {$C$};
+		\draw (4,5) node {$\bullet$};
+		\draw (4,-2) node {$\bullet$};
+		\draw (4,3.5) node {$\bullet$};
+		\draw (6,-2) node {$\bullet$};
+		\draw (6,3.5) node {$\bullet$};
+		
+		\draw[>=stealth,->, thick] (3.6,3.5) -- (3.6,4.8) node[midway,left] {$U_{AC}$};
+		\draw[>=stealth,->, thick] (5.5,-1.5) -- (5.5,3) node[midway,left] {$U'$};
+		\draw[>=stealth,->, thick] (-1.9,-2) -- (-1.9,5) node[midway,left] {$U$};
+		\draw[>=stealth,->, thick] (3.6,-1.8) -- (3.6,3.3) node[midway,left] {$U_{CB}$};
+	\end{circuitikz}
+\end{document}

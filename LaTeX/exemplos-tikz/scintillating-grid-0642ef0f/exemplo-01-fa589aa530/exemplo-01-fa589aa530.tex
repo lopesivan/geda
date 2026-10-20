@@ -1,0 +1,14 @@
+\documentclass[tikz,border=10pt]{standalone}
+\begin{document}
+\begin{tikzpicture}
+%% perception of black dots in the white circles
+  \filldraw[black] (0,0) rectangle(12,9);
+  \foreach \a in {1,...,7}
+    \draw[line width=3mm,gray] (\a*1.5,0)--(\a*1.5,9);
+  \foreach \b in {1,...,5}
+    \draw[line width=3mm,gray] (0,\b*1.5)--(12,\b*1.5);
+  \foreach \a in {1,...,7}
+    \foreach \b in {1,...,5}
+      \fill[white] (\a*1.5,\b*1.5) circle(0.2121);
+\end{tikzpicture}
+\end{document}

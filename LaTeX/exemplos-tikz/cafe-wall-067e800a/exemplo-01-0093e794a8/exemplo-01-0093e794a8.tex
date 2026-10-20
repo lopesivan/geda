@@ -1,0 +1,13 @@
+\documentclass[tikz,border=10pt]{standalone}
+\newcommand{\cafestrip}[1][]{%
+  \foreach \a in {1,...,6}
+    {\draw[gray,very thick,fill=black,#1] (2*\a-1,0) rectangle(2*\a,1)  ;
+     \draw[gray,very thick,fill=white,#1] (2*\a,0)   rectangle(2*\a+1,1);}
+}
+\begin{document}
+\begin{tikzpicture}
+%% the horizontal lines appear to slope
+  \foreach \b/\c in {1/0,2/3,3/0,4/-3,5/0,6/3}
+    \cafestrip[xshift=\c mm,yshift=\b cm];
+\end{tikzpicture}
+\end{document}

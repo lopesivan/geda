@@ -1,0 +1,49 @@
+\documentclass[tikz,border=10pt]{standalone}
+% By Jan Suchanek 2022. CC-BY-2.5
+% Phase oriented project management.
+% Following: Schliersmann, Christiane and Heinz Ulrich Thiel:
+% Organisationsentwicklung. Prinzipien und Strategien von
+% Veränderungsprozessen. 5th edition, Springer, 2018, page 50.
+\usepackage{tikz}
+\begin{document}
+     \def\radi{4cm}\relax  % overall radius
+     \def\radii{1cm}\relax % radius of nodes
+     \begin{tikzpicture}[rotate=90, every node/.style={font=\sffamily}]
+         \draw (0:\radi) node {
+             \parbox{1.5\radii}{\centering
+                 analyze situation
+             }
+         } circle (\radii) ;
+         \draw (-60:\radi) node {
+             \parbox{1.5\radii}{\centering
+                 clarify goals
+             }
+         } circle (\radii) ;
+         \draw (-120:\radi) node {
+             \parbox{1.5\radii}{\centering
+                 work breakdown
+             }
+         } circle (\radii) ;
+         \draw (-180:\radi) node {
+             \parbox{1.5\radii}{\centering
+                 planning
+             }
+         } circle (\radii) ;
+         \draw (-240:\radi) node {
+             \parbox{1.5\radii}{\centering
+                 implement \& control
+             }
+         } circle (\radii) ;
+         \draw (-300:\radi) node {
+             \parbox{1.5\radii}{\centering
+                 evaluate \& transfer
+             }
+         } circle (\radii) ;
+         \foreach \i in {0,60,...,360}
+             {
+                 \draw[<-,thick] (\i+20:\radi) arc (\i+20:\i+40:\radi);
+                 \foreach \ii in {0,60,...,360}
+                     \draw  (\i:\radi-\radii) -- (\ii:\radi-\radii);
+             }
+     \end{tikzpicture}
+\end{document}

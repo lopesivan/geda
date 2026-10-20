@@ -1,0 +1,182 @@
+% Author: Izaak Neutelings (March 2024)
+% Description: Lead-lead collisions
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{listofitems} % to create arrays with \readlist
+\usepackage{ifthen} % for \whiledo
+%\usetikzlibrary{arrows.meta} % for arrow size
+
+% COLORS
+\colorlet{myred}{red!75!black}
+\colorlet{myblue}{blue!70!black}
+
+% STYLES
+\tikzset{
+  >=latex, % for LaTeX arrow head
+  ball/.style={ultra thin,draw=black,fill=\getcol{#1},
+               circle,inner sep=1pt,minimum size=15pt,scale=0.8},
+  ball/.default=1,
+}
+\def\getcol#1{\ifodd#1 blue!20 \else red!20 \fi}
+\def\drawgrid#1{
+  \pgfmathsetmacro\xmax{ceil(#1)+0.6}
+  \pgfmathsetmacro\xmin{0.3-\xmax}
+  \draw[black!20] (\xmin,\xmin) grid (\xmax,\xmax);
+  \draw[thick,->] (\xmin,0) -- (\xmax,0);
+  \draw[thick,->] (0,\xmin) -- (0,\xmax);
+  \draw[black!20] (0,0) circle(#1);
+}
+
+\begin{document}
+
+
+% NUCLEUS - random radius & angle
+\def\R{2.0}
+\def\Nlay{5} % number of rings/layers
+\def\N{100}
+\begin{tikzpicture}
+  \drawgrid{\R}
+  
+  % NUCLEUS
+  \foreach \i [evaluate={
+    \r=\R*sqrt((rand+1)/2); % ball radius
+    \a=180*rand % ball angle
+  }] in {1,...,\N}{
+    \node[ball=\i] at (\a:\r) {\i};
+  }
+  
+\end{tikzpicture}
+
+
+% NUCLEUS - uniform rings
+\begin{tikzpicture}
+  \message{^^JNucleus with uniform rings}
+  \drawgrid{\R}
+  
+  % NUCLEUS
+  \foreach \lay [evaluate={
+    \r=\R*\lay/\Nlay; % ring radius
+    \Nring=int(round(2*\lay*\N/(\Nlay*(\Nlay+1)))) % number of balls per ring
+  }] in {\Nlay,...,1}{
+    \message{^^J N=\N, Nlay=\Nlay, Nring=\Nring, r=\r}
+    \foreach \i [evaluate={
+      \a=360*(\i/\Nring); % ball angle
+    }] in {1,...,\Nring}{
+      \node[ball=\i] at (\a:\r) {\i};
+    }
+  }
+  
+\end{tikzpicture}
+
+
+% NUCLEUS - uniform rings + random offset
+\begin{tikzpicture}
+  \message{^^JNucleus with uniform rings + random offset}
+  %\def\R{1.8}
+  \drawgrid{\R}
+  
+  % NUCLEUS
+  \foreach \lay [evaluate={
+    \r=\R*(\lay-0.1)/\Nlay; % ring radius
+    \aR=3*rand; % angular offset
+    \Nring=int(round(2*\lay*\N/(\Nlay*(\Nlay+1)))) % number of balls per ring
+  }] in {\Nlay,...,1}{
+    \message{^^J N=\N, Nlay=\Nlay, Nring=\Nring, r=\r}
+    \foreach \i [evaluate={
+      \aB=\aR+360*(\i/\Nring)+2*rand/\Nring; % ball angle plus random offset
+      \rB=\r+0.04*rand % ball radius plus random radial offset
+    }] in {1,...,\Nring}{
+      \node[ball=\i] at (\aB:\rB) {\i};
+      %\fill[red] ({\aR+360*(\i/\Nring)}:\r) circle(0.5pt);
+    }
+  }
+  
+\end{tikzpicture}
+
+
+% NUCLEUS - shuffle balls
+\def\shufflelist#1{
+  %\message{^^JShuffle list}
+  \pgfmathsetmacro\tmplist{random(1,#1)} % first random item
+  \readlist*\shuffledlist\tmplist % convert to array
+  \newboolean{unique}
+  \whiledo{\shuffledlistlen<#1}{ % try until list is of length \N=#1
+    \pgfmathsetmacro\rx{random(1,#1)} % generate new random item
+    \setboolean{unique}{true}
+    \foreachitem \x \in \shuffledlist{ % loop over previous elements
+      \ifnum \x=\rx % look if new number in list
+        \setboolean{unique}{false} % already in list
+        \breakforeach
+      \fi
+    }
+    \ifthenelse{\boolean{unique}}{ % found unique item !
+      \xdef\tmplist{\tmplist,\rx} % add new unique item
+      \readlist*\shuffledlist\tmplist % convert to array
+    }{}
+  }
+}
+\begin{tikzpicture}[xscale=1]
+  \message{^^JNucleus with shuffling balls}
+  %\def\R{1.8}
+  \drawgrid{\R}
+  \pgfmathsetseed{1234567890}
+  
+  % NUCLEUS
+  \foreach \lay [evaluate={
+    \r=\R*(\lay-0.1)/\Nlay; % ring radius
+    \aR=3*rand; % angular offset
+    \Nring=int(round(2*\lay*\N/(\Nlay*(\Nlay+1)))) % number of balls per ring
+  }] in {\Nlay,...,1}{
+    \message{^^J N=\N, Nlay=\Nlay, Nring=\Nring, r=\r}
+    \shufflelist{\Nring} % get shuffled list of sequence 1,...,\Nring
+    \foreach \i [evaluate={
+      \is=int(\shuffledlist[\i]); % shuffled index
+      \aB=\aR+360*(\is/\Nring)+2*rand/\Nring; % ball angle plus random offset
+      \rB=\r+0.04*rand % ball radius plus random radial offset
+    }] in {1,...,\Nring}{
+      \message{^^J is=\is, i=\i, a=\aB}
+      \node[ball=\i] at (\aB:\rB) {\i};
+      %\fill[red] ({\aR+360*(\i/\Nring)}:\r) circle(0.5pt);
+    }
+  }
+  \node[ball=\i] at (0,0) {0}; % cover hole
+  
+\end{tikzpicture}
+
+
+% NUCLEUS - 3D effect
+\begin{tikzpicture}[xscale=1]
+  \message{^^JNucleus with 3D effect}
+  %\def\R{1.8}
+  \drawgrid{\R}
+  \pgfmathsetseed{1234567890}
+  
+  % NUCLEUS
+  \pgfmathsetmacro\C{min(1/(4*\R),0.11)} % put balls at edges closer in to create 3D ball effect
+  \pgfmathsetmacro\D{1-4*\C*\R} % discriminant
+  \message{^^J R=\R, C=\C, D=1-4cR=\D (must be >0)}
+  \pgfmathsetmacro\Rs{2*\R/(1+sqrt(\D)} % scaled total radius
+  \foreach \lay [evaluate={
+    \r=\Rs*(\lay-0.1)/\Nlay; % ring radius
+    \rC=\r-\C*\r*\r; % reduce outer radii to create 3D effect
+    \aR=3*rand; % angular offset
+    \Nring=int(round(2*\rC*\N/(\Rs*(\Nlay+1)*(1-\C*\Rs*(2*\Nlay+1)/(3*\Nlay))))) % number of balls on this ring
+  }] in {\Nlay,...,1}{
+    \message{^^J N=\N, Nlay=\Nlay, Nring=\Nring, r=\r}
+    \shufflelist{\Nring} % get shuffled list of sequence 1,...,\Nring
+    \foreach \i [evaluate={
+      \is=int(\shuffledlist[\i]); % shuffled index
+      \aB=\aR+360*(\is/\Nring)+2*rand/\Nring; % ball angle plus random offset
+      \rB=\rC+0.05*rand % ball radius plus random radial offset
+    }] in {1,...,\Nring}{
+      \message{^^J is=\is, i=\i, a=\aB}
+      \node[ball=\i] at (\aB:\rB) {\i};
+      %\fill[red] ({\aR+360*(\i/\Nring)}:\r) circle(0.5pt);
+    }
+  }
+  \node[ball=\i] at (0,0) {0}; % cover hole
+  
+\end{tikzpicture}
+
+
+\end{document}

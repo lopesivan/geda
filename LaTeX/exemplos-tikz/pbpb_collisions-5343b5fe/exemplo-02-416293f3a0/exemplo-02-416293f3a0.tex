@@ -1,0 +1,153 @@
+% Author: Izaak Neutelings (March 2024)
+% Description: Lead-lead collisions
+% Inspiration: https://arxiv.org/abs/2010.07855
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage{listofitems} % to create arrays with \readlist
+\usepackage{ifthen} % for \whiledo
+\usepackage{siunitx} % for \SI
+\usetikzlibrary{decorations.pathmorphing} % for snake, coil, zigzag
+
+% COLORS
+\colorlet{protoncol}{red!68!black!80}
+\colorlet{neutroncol}{green!68!black!80}
+\colorlet{photoncol}{yellow!85!orange!95!black}
+
+% STYLES
+\tikzset{
+  >=latex, % for LaTeX arrow head
+  vector/.style={->,thick,green!60!black},
+  photon/.style={->,line width=0.7,line cap=round,photoncol,decorate,decoration={
+    snake,amplitude=.4mm,segment length=2.2mm,post length=1.5mm}
+  },
+  ball/.style={
+    circle,draw=none,ball color=#1,postaction={
+    fill=#1,fill opacity=0.8,draw=#1!40!black,line width=0.04}
+  },
+  ball/.default=protroncol,
+  pics/nucleus/.style={%
+    code={%
+      \fill[protoncol] (0,0) circle(0.86*\R); % background to fill any holes
+      \pgfmathsetmacro\Rball{0.18*\R} % ball radius
+      \pgfmathsetmacro\Rcorr{\R-\Rball} % subtract ball radius
+      \pgfmathsetmacro\C{min(1/(4*\Rcorr),0.24)} % put balls at edges closer in to create 3D ball effect
+      \pgfmathsetmacro\D{1-4*\C*\Rcorr} % discriminant
+      \pgfmathsetmacro\Rs{2*(\Rcorr)/(1+sqrt(\D)} % scaled total radius
+      \message{^^J R=\R, R=\Rcorr, Rs=\Rs, C=\C, D=1-4cR=\D (must be >0)}
+      \foreach \lay [evaluate={
+        \r=\Rs*(\lay-0.05)/\Nlay; % ring radius
+        \rC=\r-\C*\r*\r; % reduce outer radii to create 3D effect
+        \aR=3*rand; % random angular offset
+        \Nring=int(round(2*\rC*\N/(\Rs*(\Nlay+1)*(1-\C*\Rs*(2*\Nlay+1)/(3*\Nlay))))) % number of balls on this ring
+      }] in {\Nlay,...,1}{
+        \message{^^J N=\N, Nlay=\Nlay, Nring=\Nring, r=\r}
+        \shufflelist{\Nring} % get shuffled list of sequence 1,...,\Nring
+        \foreach \i [evaluate={
+          \p=(rand+1)/2<0.39?1:0; % 0: neutron, 1: proton
+          \is=int(\shuffledlist[\i]); % shuffled index
+          \aB=\aR+360*(\is/\Nring)+2*rand/\Nring; % ball angle plus random offset
+          \rB=\rC+0.04*rand % ball radius plus random radial offset
+        }] in {1,...,\Nring}{
+          %\message{^^J is=\is, i=\i, a=\aB, p=\p}
+          \fill[ball=\ifodd\p protoncol\else neutroncol\fi]
+            (\aB:\rB) circle(\Rball);
+        }
+      }
+      \fill[ball=protoncol] (0,0) circle(\Rball);
+      \foreach \ang in {0,60,90,120,180,-60,-90,-120}{
+        \coordinate (-\ang) at (\ang:\R+1.3*\Rball);
+      }
+    }
+  }
+}
+\def\shufflelist#1{ % get shuffled list of sequence 1,...,#1
+  %\message{^^JShuffle list}
+  \pgfmathsetmacro\tmplist{random(1,#1)} % first random item
+  \readlist*\shuffledlist\tmplist % convert to array
+  \newboolean{unique}
+  \whiledo{\shuffledlistlen<#1}{ % try until list is of length = #1
+    \pgfmathsetmacro\rx{random(1,#1)} % generate new random item
+    \setboolean{unique}{true}
+    \foreachitem \x \in \shuffledlist{ % loop over previous elements
+      \ifnum \x=\rx % look if new number in list
+        \setboolean{unique}{false} % already in list
+        \breakforeach % stop looking and try again in next iteration
+      \fi
+    }
+    \ifthenelse{\boolean{unique}}{ % found unique item !
+      \xdef\tmplist{\tmplist,\rx} % add new unique item
+      \readlist*\shuffledlist\tmplist % convert to array
+    }{}
+  }
+}
+
+\begin{document}
+
+
+% Pb nucleus
+\def\N{85} % number of nucleons
+\def\R{1.0} % nucleus radius
+\def\Nlay{5} % number of rings/layers
+\begin{tikzpicture}
+  \message{^^J Pb nucleus}
+  
+  % NUCLEUS
+  \pic {nucleus};
+  
+\end{tikzpicture}
+
+
+% Pb-Pb collision
+\def\xs{0.25} % horizontally scale
+\def\Rp{0.92} % length photon
+\def\D{3.7} % horizontal distance between nuclei
+\pgfmathsetmacro\H{2.30*\R} % vertical distance between nuclei
+\pgfmathsetmacro\v{0.25*\D} % length vector
+\begin{tikzpicture}
+  \message{^^J PbPb collision}
+  
+  % NUCLEUS
+  \pic[xscale=\xs] (L) at (-\D/2, \H/2) {nucleus};
+  \pic[xscale=\xs] (R) at ( \D/2,-\H/2) {nucleus};
+  
+  % VELOCITY VECTORS
+  \draw[vector] (L-0)++(2pt,0) --++ (\v,0) node[above=2pt] {$v\approx c$};
+  \draw[vector] (R-180)++(-2pt,0) --++ (-\v,0) node[above=2pt] {$v\approx c$};
+  
+  % PHOTONS
+  \foreach \ang in {60,90,120,-60,-90,-120}{
+    \draw[photon] (L-\ang) --++ (\ang:\Rp);
+    \draw[photon] (R-\ang) --++ (\ang:\Rp);
+  }
+  
+\end{tikzpicture}
+
+
+% Pb-Pb collision with impact parameter
+\begin{tikzpicture}
+  \message{^^J PbPb collision with impact parameter}
+  
+  % NUCLEUS
+  \pic[xscale=\xs] (L) at (-\D/2, \H/2) {nucleus};
+  \pic[xscale=\xs] (R) at ( \D/2,-\H/2) {nucleus};
+  
+  % VELOCITY VECTORS
+  \draw[vector] (L-0)++(2pt,0) --++ (\v,0); %node[above=2pt] {$v\approx c$};
+  \draw[vector] (R-180)++(-2pt,0) --++ (-\v,0); %node[above=2pt] {$v\approx c$};
+  
+  % PHOTONS
+  \foreach \ang in {60,90,120,-60,-90,-120}{
+    \draw[photon] (L-\ang) --++ (\ang:\Rp);
+    \draw[photon] (R-\ang) --++ (\ang:\Rp);
+  }
+  
+  % MEASURES
+  \draw[<->,thick]
+    (R-0)++(0.3*\R,0) --++ (0,\R) node[midway,right] {$R\sim\SI{7}{fm}$};
+  \draw[<->,thick]
+    (0,-\H/2) -- (0,\H/2) node[midway,right] {$b$};
+  \node at (0.3*\D,0.7*\H) {$b > 2R$};
+  
+\end{tikzpicture}
+
+
+\end{document}

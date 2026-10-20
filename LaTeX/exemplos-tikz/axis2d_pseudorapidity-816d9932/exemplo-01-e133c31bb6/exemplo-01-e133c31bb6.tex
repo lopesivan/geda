@@ -1,0 +1,13 @@
+
+\documentclass[border=3pt,tikz]{standalone}
+\tikzset{>=latex} % for LaTeX arrow head
+\begin{document}
+\begin{tikzpicture}[scale=3]
+  \foreach \t/\e in {90/0,60/0.55,45/0.88,30/1.32,10/2.43,0/+\infty}{
+    \pgfkeys{/pgf/number format/precision=2}
+    \draw[->,thick] % eta lines
+      (0,0) -- (\t:1.2) node[anchor=180+\t,black] {$\eta=\e$}
+      node[black,pos=0.72,fill=white,scale=0.8,inner sep=2] {$\theta=\t^\circ$};
+  }
+\end{tikzpicture}
+\end{document}

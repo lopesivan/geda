@@ -1,0 +1,19 @@
+\documentclass{standalone}
+
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand\rightAngle[4]{
+  \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#1}{center}}
+  \coordinate (tmpRA) at ($(#2)+(\pgfmathresult+45:#4)$);
+  \draw[blue!80!black,thick] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+}
+\begin{document}
+\begin{tikzpicture}[scale=3]
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (2,0);
+  \coordinate (Y) at (0,2);
+  \draw[thick] (X) -- (O) -- (Y);
+  \rightAngle{X}{O}{Y}{0.6}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,55 @@
+% Papyrus paper style frame border
+% Author: Fabian Ostermann (github.com/OysterSandwich)
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{lipsum} % for dummy text
+\usetikzlibrary{calc}
+
+% Define background layer
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\tikzset{
+	% Add more line modifications here:
+	papyrus line/.style={ line width=1pt }
+}
+
+%Usage: \drawRole{}{}{}
+\def\drawRole#1#2#3{%
+	\begin{scope}[yscale=#2,scale=0.6*#3]
+		% Draw role on the left
+		\draw[papyrus line] (A.#1 west) .. controls +(0,1) and +(0,1) .. +(-1,0) .. controls +(0,-1) and +(0,-1) .. +(-.2,0) .. controls +(0,.7) and +(0,.7) .. +(-.8,0) .. controls +(0,-.5) and +(0,-.5) .. +(-.5,0) -- +(-.2,0);
+		\draw[papyrus line] (A.#1 west) +(-.6,-.75) -- +(0,-.75);
+		\draw[papyrus line] (A.#1 west) +(-.65,-.375) -- +(-.25,-.375);
+		
+		
+		% Draw right corner and vertical line
+		\draw[papyrus line] (A.#1 east) .. controls +(0,.7) and +(.4,0) .. +(-.5,0.751) -- ($(A.#1 west)+(-.5,.751)$);
+	\end{scope}
+}
+%Usage: \papyrus[]{}
+\newcommand\papyrus[2][1]{%
+	\tikz{
+		\node[inner xsep=1em, inner ysep=0.5em] (A) {#2};  % Draw the text of the node
+		\begin{pgfonlayer}{background}  % Draw the shape behind
+			
+			\drawRole{north}{1}{#1}
+			\drawRole{south}{-1}{#1}
+			
+			%\draw ([papyrus line] A.north west) -- (A.north east);
+			\draw[papyrus line] (A.north east) -- (A.south east);
+			%\draw[papyrus line] (A.south east) -- (A.south west);
+			\draw[papyrus line] (A.south west) -- (A.north west);
+			%\fill[white]   (A.north west) -- (A.north east) -- (A.south east) -- (A.south west) -- (A.north west);
+	\end{pgfonlayer}}
+}
+\begin{document}
+		\papyrus{
+			\parbox{.9\textwidth}{\lipsum[8]}
+		}
+		\papyrus{
+			\parbox{.6\textwidth}{\lipsum[5]}
+		}
+		\papyrus[.6]{
+			Short text
+		}
+\end{document}

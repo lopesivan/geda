@@ -1,0 +1,15 @@
+
+\documentclass[border=3pt,tikz]{standalone}
+\usetikzlibrary{fadings}
+\begin{tikzfadingfrompicture}[name=halo]
+  \shade[inner color=transparent!0,outer color=transparent!100] (0,0) circle (0.9);
+\end{tikzfadingfrompicture}
+\begin{document}
+\begin{tikzpicture}
+  \fill[blue!60!black] (-5,-5) rectangle (5,5);
+  \fill[path fading=halo,orange!80!yellow!80] % solar halo/corona
+    (0,0) circle (5);
+  \draw[very thin,orange!80!yellow!80,fill=orange!50!yellow!40] % Sun
+    (0,0) circle (2);
+\end{tikzpicture}
+\end{document}

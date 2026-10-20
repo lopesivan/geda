@@ -1,0 +1,331 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[graphics, active, tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{patterns}
+
+\tikzset{
+  node1/.style={circle, minimum size=0.2cm, draw, very thick, fill=red},
+  quark/.style={circle, minimum size=0.2cm, draw, very thick, fill=red},
+  gluon/.style={circle, minimum size=0.2cm, draw, very thick, fill=blue},
+  lepton/.style={circle, minimum size=0.2cm, draw, very thick, fill=olive, draw=none},
+  photon/.style={circle, minimum size=0.2cm, draw, very thick, fill=orange, draw=none},
+  Zbos/.style={circle, minimum size=0.2cm, draw, very thick, fill=green!85!black},
+  uhadron/.style={circle, minimum size=0.2cm, draw, very thick, fill=red!30},
+  hadron/.style={circle, minimum size=0.2cm, draw, very thick, fill=violet!75, draw=none},
+  photonline/.style={decorate, decoration={snake}, draw=orange},
+  lepline/.style={draw=olive, postaction={decorate},
+    decoration={markings,mark=at position .85 with {\arrow[draw=olive]{>}}}},
+  zline/.style={draw=green!65!black, postaction={decorate},
+    decoration={markings,mark=at position .75 with {\arrow[draw=green!65!black]{>}}}},	
+  qline/.style={draw=red, postaction={decorate},
+    decoration={markings,mark=at position .5 with {\arrow[draw=red]{>}}}},	
+  hline/.style={draw=violet, postaction={decorate},
+    decoration={markings,mark=at position .9 with {\arrow[draw=violet]{>}}}},		
+  gluonline/.style={decorate, draw=blue,
+    decoration={coil,amplitude=4pt, segment length=5pt}}
+}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+
+
+%\draw[show grid integer coordinates] (-6,-6) grid (5,5);
+
+%protons
+\draw [fill=gray](-4,0) ellipse (0.5cm and 1cm);
+\draw [fill=gray](4,0) ellipse (0.5cm and 1cm);
+\coordinate (p1) at (-4,0);
+\coordinate (p2) at (4,0); 
+\coordinate (o) at (0,0); 
+
+\node(lab) at (-4,-1.3){Proton};
+\node(lab) at (4,-1.3){Proton};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%HS
+\draw [qline, thick] (p1) -- (o); 
+\draw [qline, thick] (p2) -- (o); 
+
+\node[draw=none] (pq1) at (-3,0) {};
+\node[draw=none] (pq2) at (3,0) {};
+
+\node[star,draw, fill=lightgray, star points=9, label=below:HS] (ip) at (0,0) {};
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+%Primary jet
+
+\node[quark] (q0) at (0.5, 0.8) {};
+\node[] (q1) at (1.5, 2.3) {};
+\node[gluon] (g1) at (1.7, 1.6) {};
+
+\draw [qline, thick] (o) -- (q0); 
+\draw [qline, thick] (q0) -- (1.6,2.9);
+\node[quark, scale=0.7] () at (1.6,2.85) {};
+\draw [gluonline] (0.8,1.2) -- (g1);
+
+\draw [qline, thick] (g1) -- (2.2,3.0); 
+\draw [qline, thick] (g1) -- (3.3,2.3); 
+\node[quark, scale=0.7] () at (2.2,2.95) {};
+\node[quark, scale=0.7] () at (3.2,2.25) {};
+
+\node[gluon, scale=0.7] () at (1.0, 2.95) {};
+\draw [gluonline] (0.66,1.1) -- (1.0, 3);
+
+\node[gluon, scale=0.7] () at (3.05,2.75) {};
+\draw [gluonline] (2.5, 2) -- (3.1,2.8);
+
+\node[gluon, scale=0.7] (g4) at (0.1,3.2) {};
+\draw [gluonline] (0.6,1.5) -- (g4);
+
+%Hadrons
+%\draw [dotted, fill=red!15] plot [smooth cycle] %
+%    coordinates {(0.3,3.7)(2.5,3.5)(4.2,2.8)};
+
+\draw [pattern=north west lines,very thick, rotate=110] (1.2,-4.1) ellipse (0.5cm and 0.1cm); 
+\draw [pattern=north west lines,very thick,rotate=165] (0,-3.4) ellipse (1.0cm and 0.1cm);  
+\draw [pattern=north west lines,very thick, rotate=165] (-1.4,-3.7) ellipse (0.3cm and 0.1cm); 
+
+\node[uhadron](ph11) at (1.2, 3.75){};
+\node[hadron](ph12) at (0.5, 4.5){};
+\node[hadron](ph13) at (1.7, 3.65){};
+\draw [hline, thick] (1, 3.4) -- (ph11); 
+\draw [hline, thick] (0.35, 3.55) -- (ph12); 
+\draw [hline, thick] (1.5, 3.2) -- (ph13); 
+
+\node[photon] (yp1) at (0.1, 4.5) {};
+\draw [photonline, thick] (0.35, 3.7) -- (yp1); 
+
+\node[hadron](ph111) at (1., 4.4){};
+\node[hadron](ph112) at (1.4, 4.4){};
+\node[hadron](ph113) at (1.8,4.3){};
+
+\draw [hline, thick] (ph11) -- (ph111); 
+\draw [hline, thick] (ph11) -- (ph112); 
+\draw [hline, thick] (ph11) -- (ph113);
+
+\node[uhadron](ph21) at (2.5, 3.8){};
+\draw [hline, thick] (2.3,3.3) -- (ph21);
+\node[hadron](ph211) at (2.8, 4.5){};
+\node[hadron](ph212) at (2.3, 4.45){};
+\draw [hline, thick] (ph21) -- (ph211); 
+\draw [hline, thick] (ph21) -- (ph212);
+
+\node[hadron](ph22) at (2.8, 3.5){};
+\draw [hline, thick] (2.5, 3.25) -- (ph22);
+
+
+\node[hadron](ph31) at (3.9,3.1){}; 
+\node[hadron](ph32) at (4.1,2.7){};
+\node[hadron](ph33) at (4.2,2.2){};
+\draw [hline, thick] (3.45,2.8) -- (ph31);    
+\draw [hline, thick] (3.6,2.5) -- (ph32);  
+\draw [hline, thick] (3.65,2.2) -- (ph33);    
+
+\node[photon] (yp2) at (3.5, 1.5) {};
+\draw [photonline, thick] (2.1, 1.75) -- (yp2);  
+
+
+\node(lab) at (2,1.2){FSR};   
+%\node(lab) at (-1.3,3.6){Fragmentation};  
+%\node(lab) at (-1.3,3.3){/hadronisation};    
+\node(lab) at (4,4.1){Hadron decay};  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%ISR
+\node[gluon] (ig) at (-1.2,0.8) {};
+\draw [gluonline] (-1.8,0) -- (ig);
+
+\draw [qline, thick] (ig) -- (-0.9,1.6);
+\draw [qline, thick] (ig) -- (-0.5,1.3);   
+\node[quark, scale=0.7] () at (-0.9,1.5) {};
+\node[quark, scale=0.7] () at (-0.55,1.2) {};
+
+%Hadrons
+%\draw [dotted, fill=red!15] plot [smooth cycle] %
+%    coordinates {(-1.2, 1.9)(-0.4, 1.7)(0,1.2)};
+
+\draw [pattern=north west lines,very thick, rotate=142] (1.4,-0.9) ellipse (0.5cm and 0.1cm);  
+
+%Decay hadrons  
+\node[hadron, scale=0.7](ih1) at (-0.5, 2.1){};
+\node[hadron, scale=0.7](ih2) at (-0.1, 1.8){};
+\draw [hline, thick] (-0.7, 1.8) -- (ih1); 
+\draw [hline, thick] (-0.3,1.5) -- (ih2);  
+
+\node[photon] (ip2) at (-1, -0.5) {};
+\draw [photonline, thick] (-2.6,0) -- (ip2);   
+
+\node(lab) at (-1,0.3){ISR}; 
+\node(lab) at (-2.1,-0.6){QED ISR}; 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%BBR
+\draw [qline, thick] (4,-0.2) -- (2.1,-0.3); 
+\draw [gluonline] (4,-0.4) -- (2.3,-0.9);
+\draw [qline, thick] (-4,0.4) -- (-2.95,0.9);
+\draw [qline, thick] (4,0.2) -- (2.1,0.3);  
+
+\node[quark, scale=0.7] () at (2.15,-0.3) {}; 
+\node[quark, scale=0.7] () at (-3.05,0.85) {};
+\node[quark, scale=0.7] () at (2.2,0.3) {}; 
+\node[gluon, scale=0.7] () at (2.35,-0.9) {};
+
+\draw [pattern=north west lines,very thick, rotate=25] (-2.1,2.1) ellipse (0.1cm and 0.3cm); 
+\draw [pattern=north west lines, very thick] (1.90,0.35) ellipse (0.1cm and 0.3cm); 
+\draw [pattern=north west lines, very thick] (2.05,-.95) ellipse (0.1cm and 0.3cm); 
+\draw [pattern=north west lines, very thick] (1.85,-0.35) ellipse (0.1cm and 0.3cm); 
+
+
+\node[hadron, scale=0.7](bh1) at (1.4, 0.5){};
+\node[hadron, scale=0.7](bh2) at (1.4, 0.2){};
+\draw [hline, thick] (1.8, 0.5) -- (bh1); 
+\draw [hline, thick] (1.8, 0.2) -- (bh2); 
+
+\node[uhadron, scale=0.7](bh3) at (1.3, -0.5){};
+\node[hadron, scale=0.7](bh4) at (1.3, -0.2){};
+\draw [hline, thick] (1.8, -0.5) -- (bh3); 
+\draw [hline, thick] (1.8, -0.2) -- (bh4);  
+
+\node[hadron, scale=0.7](bh9) at (0.8, -0.3){};
+\node[hadron, scale=0.7](bh10) at (0.8, -0.7){};
+\draw [hline, thick] (bh3) -- (bh9); 
+\draw [hline, thick] (bh3) -- (bh10);  
+
+\node[hadron, scale=0.7](bh5) at (1.5, -0.8){};
+\node[hadron,scale=0.7](bh6) at (1.5, -1.2){};
+\draw [hline, thick] (1.95, -0.85) -- (bh5); 
+\draw [hline, thick] (1.95, -1.1) -- (bh6);  
+
+\node[hadron,scale=0.7](bh7) at (-2.2, 0.9){};
+\node[uhadron,scale=0.7](bh8) at (-2.35,1.5){};
+\draw [hline, thick] (-2.6, 0.85) -- (bh7); 
+\draw [hline, thick] (-2.75, 1.2) -- (bh8); 
+
+\node[hadron, scale=0.7](bh11) at (-1.9, 2){};
+\node[hadron, scale=0.7](bh12) at (-1.6, 1.6){};
+\draw [hline, thick] (bh8) -- (bh11); 
+\draw [hline, thick] (bh8) -- (bh12);  
+
+\node(lab) at (2.7,0.6){BBR};  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%Z production, decay, and photon radiation   
+
+\node[Zbos] (z) at (-1.2,-1.7) {};
+\node[lepton] (l1) at (-2.6, -2.7) {};
+\node[lepton] (l2) at (-1.6, -3.3) {};
+\node[photon] (y) at (-3.1, -2.2) {};
+
+\draw [zline, thick] (o) -- (z); 
+
+\draw [lepline, thick] (z) -- (l1) node (ys) [midway]{};
+\draw [lepline, thick] (z) -- (l2); 
+
+\draw [photonline, thick] (ys) -- (y);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%DPI
+
+\coordinate (s) at (1.5,-2); 
+\node[draw=none] (spq1) at (-4,-0.4) {};
+\node[draw=none] (spq2) at (4,-0.6) {};
+
+\draw [qline, thick] (spq1) -- (s); 
+\draw [gluonline] (spq2) -- (s); 
+
+\node[star,draw, fill=teal!90!gray, star points=9, scale=0.8, label=below right:DPS] (dps) at (s) {};  
+
+\draw [qline, thick] (dps) -- (0.26, -4.8) node (dn1) [midway]{}; 
+\draw [qline, thick] (dps) -- (2.2, -4.2) node (dn2) [midway]{};
+\node[quark, scale=0.7] () at (0.28, -4.7) {};
+\node[quark, scale=0.7] () at (2.15, -4.15) {};
+
+\node[gluon](sg1) at (0,-3.8){};  
+\draw [gluonline] (0.95,-3.1) -- (sg1);
+
+\draw [qline, thick] (sg1) -- (-0.75, -4.2); 
+\draw [qline, thick] (sg1) -- (-0.1, -4.55);
+
+\node[quark, scale=0.7] () at (-0.65, -4.15) {};
+\node[quark, scale=0.7] () at (-0.1, -4.45) {};
+
+\node[gluon, scale=0.7](sg2) at (1.55,-4.35){};
+\node[gluon, scale=0.7](sg3) at (2.6,-4){};
+\draw [gluonline] (dn2) -- (sg2);
+\draw [gluonline] (dn2) -- (sg3);
+
+%Hadrons
+%\draw [dotted, fill=red!15] plot [smooth cycle] %
+%    coordinates {(-1.2,-4.4) (-0.3,-5)(0.7,-5.1)};
+
+%\draw [dotted, fill=red!15] plot [smooth cycle] %
+%    coordinates {(1.5,-4.5) (2.4,-4.7)(3.1,-4.4)};	
+
+\draw [pattern=north west lines,very thick, rotate=-30] (1.9,-4.2) ellipse (0.9cm and 0.1cm);
+\draw [pattern=north west lines,very thick, rotate=20] (0.6,-4.9) ellipse (0.7cm and 0.1cm);
+
+%Decay hadrons  
+\node[uhadron](dh1) at (-0.9, -5.1){};
+\node[hadron](dh2) at (-1.4, -4.8){};
+\node[hadron](dh3) at (-0.3,-5.4){};
+\draw [hline, thick] (-0.6, -4.7) -- (dh1); 
+\draw [hline, thick] (-1.1,-4.4) -- (dh2);  
+\draw [hline, thick] (-0.2,-4.9) -- (dh3);  	
+
+\node[hadron](dh4) at (2.8, -4.8){};
+\node[uhadron](dh5) at (2.0, -5){};
+\draw [hline, thick] (2.6, -4.4) -- (dh4); 
+\draw [hline, thick] (2.0,-4.65) -- (dh5);  
+
+
+\node[hadron](dh6) at (-1.5, -5.5){};
+\node[hadron](dh7) at (-0.8, -5.8){};
+\draw [hline, thick] (dh1) -- (dh6); 
+\draw [hline, thick] (dh1) -- (dh7);   
+
+
+\node[hadron](dh8) at (1.8, -5.7){};
+\node[hadron](dh9) at (2.4, -5.6){};
+
+\draw [hline, thick] (dh5) -- (dh8); 
+\draw [hline, thick] (dh5) -- (dh9);   
+
+\node[photon] (dp) at (3.2, -3.6) {};
+\draw [photonline, thick] (2.3, -3.4) -- (dp); 
+
+\node[lepton] (dl1) at (3.8, -3.4) {};
+\node[lepton] (dl2) at (3.6, -4.1) {};
+\draw [lepline, thick] (dp) -- (dl1);
+\draw [lepline, thick] (dp) -- (dl2); 
+
+\node(lab) at (3.3,-2.7){Photon}; 
+\node(lab) at (3.4,-3.0){conversion}; 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Legends
+
+\node[quark, label=right:Quarks] at (-5.5, -2.8){};
+\node[gluon, label=right:Gluons] at (-5.5, -3.3){};
+\node[hadron, label=right:Stable hadrons] at (-5.5, -4.3){};
+%\draw [fill=red!30,very thick] (-5.5,-3.8) ellipse (.25cm and 0.15cm);
+\node[uhadron, label=right:Unstable hadrons] at (-5.5, -3.8){};
+\node[photon, label=right:Photons] at (-5.5, -5.8){};
+\node[Zbos, label=right:$Z$-boson] at (-5.5, -4.8){};
+\node[lepton, label=right:Leptons] at (-5.5, -5.3){};
+
+\draw [pattern=north west lines,very thick] (-5.5,3.2) ellipse (.25cm and 0.15cm);
+\node(lab) at (-4,3.4){Fragmentation};  
+\node(lab) at (-4,3.0){/hadronisation};   
+
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\usetikzlibrary{calc}
+\def\MarkRightAngle[size=#1](#2,#3,#4){
+  \draw[blue!80!black,thick] ($(#3)!#1!(#2)$) -- ($($(#3)!#1!(#2)$)!#1!90:(#2)$) -- ($(#3)!#1!(#4)$)
+}
+\begin{tikzpicture}[scale=3]
+  \coordinate (O) at (0,0);
+  \coordinate (X) at (2,0);
+  \coordinate (Y) at (0,2);
+  \draw[thick] (X) -- (O) -- (Y);
+  \MarkRightAngle[size=15pt](X,O,Y);
+\end{tikzpicture}
+\end{document}

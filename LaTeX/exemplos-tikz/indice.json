@@ -1,0 +1,2183 @@
+{
+  "exemplos": [
+    {
+      "titulo": "PV diagrams",
+      "pagina": "https://tikz.net/thermodynamics_pv_diagrams/",
+      "origem": "https://tikz.net/thermodynamics_pv_diagrams/",
+      "arquivo": "thermodynamics_pv_diagrams-70b8548f/exemplo-01-631b503324.tex",
+      "tipo": "extraido",
+      "sha256": "631b5033247931f63a75f25319f5dc123d980e60d41d164aadd127f4e934ca7a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Standing waves in air",
+      "pagina": "https://tikz.net/waves_standing_air/",
+      "origem": "https://tikz.net/waves_standing_air/",
+      "arquivo": "waves_standing_air-7f155c54/exemplo-01-b0ad30ae0c.tex",
+      "tipo": "extraido",
+      "sha256": "b0ad30ae0cfc7b1e0fa95a682a7dec3831df9eaba25c046eb6c3cd2f5fda6e04",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Standing waves",
+      "pagina": "https://tikz.net/waves_standing/",
+      "origem": "https://tikz.net/waves_standing/",
+      "arquivo": "waves_standing-05330460/exemplo-01-63f8aec63b.tex",
+      "tipo": "extraido",
+      "sha256": "63f8aec63b47fe07d46f3d038da3bfaa015b0e44f656507f25d9907f0245c544",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Beating waves",
+      "pagina": "https://tikz.net/waves_beat/",
+      "origem": "https://tikz.net/waves_beat/",
+      "arquivo": "waves_beat-ae3546a6/exemplo-01-efcb9c4ec8.tex",
+      "tipo": "extraido",
+      "sha256": "efcb9c4ec80279ed70727eaa700b58d2b099944375d56ead0235afb9e614c711",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Waves in a gas",
+      "pagina": "https://tikz.net/waves_air/",
+      "origem": "https://tikz.net/waves_air/",
+      "arquivo": "waves_air-4549d9b8/exemplo-01-d91e2ba1cc.tex",
+      "tipo": "extraido",
+      "sha256": "d91e2ba1cc11fcaad9a498985a11aa6917dee6e577ba116e78a13ddba3ffb61e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Waves in a gas",
+      "pagina": "https://tikz.net/waves_air/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/12/waves_air.tex",
+      "arquivo": "waves_air-4549d9b8/exemplo-02-eafa7ed3d6.tex",
+      "tipo": "download",
+      "sha256": "eafa7ed3d621cc35cbb2503ffaa5f90cbd08ea3a739cf424cdf22633187db267",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Decibel scale",
+      "pagina": "https://tikz.net/wave_decibel_scale/",
+      "origem": "https://tikz.net/wave_decibel_scale/",
+      "arquivo": "wave_decibel_scale-4d7991bb/exemplo-01-f34da9d3f5.tex",
+      "tipo": "extraido",
+      "sha256": "f34da9d3f5656cb2fd98b2eff6636d3466643d30490e90419e5acb219364af45",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Right angle symbol",
+      "pagina": "https://tikz.net/right_angle/",
+      "origem": "https://tikz.net/right_angle/",
+      "arquivo": "right_angle-d7010d4c/exemplo-01-98c828a163.tex",
+      "tipo": "extraido",
+      "sha256": "98c828a16358ef26cc72aa2fde9d1125e30069a0cffec30f13cc8ad998f55c21",
+      "documento_completo": false
+    },
+    {
+      "titulo": "Right angle symbol",
+      "pagina": "https://tikz.net/right_angle/",
+      "origem": "https://tikz.net/right_angle/",
+      "arquivo": "right_angle-d7010d4c/exemplo-02-efca7af1d3.tex",
+      "tipo": "extraido",
+      "sha256": "efca7af1d3a2cc0e39e7602370c09cc40c4b7d48faf68dcdeb1a180ead567fe5",
+      "documento_completo": false
+    },
+    {
+      "titulo": "Right angle symbol",
+      "pagina": "https://tikz.net/right_angle/",
+      "origem": "https://tikz.net/right_angle/",
+      "arquivo": "right_angle-d7010d4c/exemplo-03-72dbd0303a.tex",
+      "tipo": "extraido",
+      "sha256": "72dbd0303a5ddb6d5ba428688bce1c519c44ab053f55ae33d534b702b65f81ee",
+      "documento_completo": false
+    },
+    {
+      "titulo": "Phase transitions",
+      "pagina": "https://tikz.net/phase_transitions/",
+      "origem": "https://tikz.net/phase_transitions/",
+      "arquivo": "phase_transitions-ca9c8830/exemplo-01-c4b9672823.tex",
+      "tipo": "extraido",
+      "sha256": "c4b96728238b881954937f21508e2a05ecfe450a4d34774264f88241264d3e11",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Two-slit interference",
+      "pagina": "https://tikz.net/optics_twoslit/",
+      "origem": "https://tikz.net/optics_twoslit/",
+      "arquivo": "optics_twoslit-a73fe96c/exemplo-01-9dad6fc401.tex",
+      "tipo": "extraido",
+      "sha256": "9dad6fc40102b746a568efda440d046b5c4c9959e0f828155a5afc912df07c6a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Wave interference",
+      "pagina": "https://tikz.net/optics_interference/",
+      "origem": "https://tikz.net/optics_interference/",
+      "arquivo": "optics_interference-4ff2bd86/exemplo-01-c0b1367369.tex",
+      "tipo": "extraido",
+      "sha256": "c0b13673693ae569b4e34225abec4a9257f99bd90139961341128a11280b00d9",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Diffraction",
+      "pagina": "https://tikz.net/optics_diffraction/",
+      "origem": "https://tikz.net/optics_diffraction/",
+      "arquivo": "optics_diffraction-0bfcbda5/exemplo-01-20af3e04b7.tex",
+      "tipo": "extraido",
+      "sha256": "20af3e04b79a219b22bd38209e79c10b996c7c49fcc57a1d3d9694c849015e9f",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Diffraction",
+      "pagina": "https://tikz.net/optics_diffraction/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/12/optics_diffraction.tex",
+      "arquivo": "optics_diffraction-0bfcbda5/exemplo-02-3b89ef3ad0.tex",
+      "tipo": "download",
+      "sha256": "3b89ef3ad06f4726d3cf020bbefb92308298b40efd0705484501e0670db1de16",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Top jet",
+      "pagina": "https://tikz.net/jet_top/",
+      "origem": "https://tikz.net/jet_top/",
+      "arquivo": "jet_top-f4ee4f34/exemplo-01-d797ad72ee.tex",
+      "tipo": "extraido",
+      "sha256": "d797ad72eed0bf18f2066d8548a318420eb20aaf52dc7cffa2af664fd9b8aeac",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Impact parameters of B hadron decay",
+      "pagina": "https://tikz.net/impact_parameters/",
+      "origem": "https://tikz.net/impact_parameters/",
+      "arquivo": "impact_parameters-957cc094/exemplo-01-b458ecbc3c.tex",
+      "tipo": "extraido",
+      "sha256": "b458ecbc3c4769b8c98468c193fe650af2a93dfa482a0c0b72a21f63d110f953",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Impact parameters of B hadron decay",
+      "pagina": "https://tikz.net/impact_parameters/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/12/impact_parameters.tex",
+      "arquivo": "impact_parameters-957cc094/exemplo-02-938c741ac7.tex",
+      "tipo": "download",
+      "sha256": "938c741ac769d51634d01d3c21253a3e2ad387c15f0fa9d106ffd5ec284a101c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Rutherford scattering",
+      "pagina": "https://tikz.net/hyperbola/",
+      "origem": "https://tikz.net/hyperbola/",
+      "arquivo": "hyperbola-b593213f/exemplo-01-9b1ac9efe0.tex",
+      "tipo": "extraido",
+      "sha256": "9b1ac9efe0ccdd3edcfc480afc716fd40d359093e8c2905b5f4e5f050a14cca3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Rutherford scattering",
+      "pagina": "https://tikz.net/hyperbola/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/02/hyperbola.tex",
+      "arquivo": "hyperbola-b593213f/exemplo-02-24f571cb31.tex",
+      "tipo": "download",
+      "sha256": "24f571cb3134c466afde01ce81f2814554aa7e54f1f8e4c71390c992f518fcd7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Electromagnetic spectrum",
+      "pagina": "https://tikz.net/electromagnetic_spectrum/",
+      "origem": "https://tikz.net/electromagnetic_spectrum/",
+      "arquivo": "electromagnetic_spectrum-ad221caa/exemplo-01-476ce297e5.tex",
+      "tipo": "extraido",
+      "sha256": "476ce297e578a46334cd95a19087ae9c8eba55e96f7cbcad12eb5e507585dbaf",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Electric field lines of two charges",
+      "pagina": "https://tikz.net/electric_fieldlines2/",
+      "origem": "https://tikz.net/electric_fieldlines2/",
+      "arquivo": "electric_fieldlines2-7da899f4/exemplo-01-bc169eab9f.tex",
+      "tipo": "extraido",
+      "sha256": "bc169eab9f61b9ee3935261e1746c58d62f2d3f30fed86d033911b6eefd9e8ad",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Electric field lines of two charges",
+      "pagina": "https://tikz.net/electric_fieldlines2/",
+      "origem": "https://tikz.net/files/electric_fieldlines2.tex",
+      "arquivo": "electric_fieldlines2-7da899f4/exemplo-02-bc135c1b00.tex",
+      "tipo": "download",
+      "sha256": "bc135c1b009f9ec406a193da953e2815bb477135bb5acfd5f7b1a677665e5510",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Springs & masses",
+      "pagina": "https://tikz.net/dynamics_spring/",
+      "origem": "https://tikz.net/dynamics_spring/",
+      "arquivo": "dynamics_spring-6a3fafa4/exemplo-01-51b9c7d664.tex",
+      "tipo": "extraido",
+      "sha256": "51b9c7d664f21102d69479e1b6def5e97fb1a04b0c0b5be77d14ebcbe361074d",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Springs & masses",
+      "pagina": "https://tikz.net/dynamics_spring/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/02/dynamics_spring.tex",
+      "arquivo": "dynamics_spring-6a3fafa4/exemplo-02-3483f23ec6.tex",
+      "tipo": "download",
+      "sha256": "3483f23ec6131a88155a9eb7ef7a9e4fca019fd9cc5c9f595e6c677c094e7411",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pendulum and exact solution",
+      "pagina": "https://tikz.net/dynamics_pendulum/",
+      "origem": "https://tikz.net/dynamics_pendulum/",
+      "arquivo": "dynamics_pendulum-406805b1/exemplo-01-684cbbf700.tex",
+      "tipo": "extraido",
+      "sha256": "684cbbf700a7348090ed815cb04f17dbcb6719bc42852aa0db3134435934dd58",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pendulum and exact solution",
+      "pagina": "https://tikz.net/dynamics_pendulum/",
+      "origem": "https://tikz.net/wp-content/uploads/2023/10/dynamics_pendulum.tex",
+      "arquivo": "dynamics_pendulum-406805b1/exemplo-02-180d930170.tex",
+      "tipo": "download",
+      "sha256": "180d93017030df823ed0675720e1e360eb339f68b12c10cebae8ff02e4c511b2",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Phase portrait",
+      "pagina": "https://tikz.net/dynamics_phaseportrait/",
+      "origem": "https://tikz.net/dynamics_phaseportrait/",
+      "arquivo": "dynamics_phaseportrait-5e29536d/exemplo-01-8e2a8f5eda.tex",
+      "tipo": "extraido",
+      "sha256": "8e2a8f5edafe065820c8ba32eda3af9b6c9f0e0c5a1755802db92f9b141e1024",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Phase portrait",
+      "pagina": "https://tikz.net/dynamics_phaseportrait/",
+      "origem": "https://tikz.net/files/dynamics_phaseportrait.tex",
+      "arquivo": "dynamics_phaseportrait-5e29536d/exemplo-02-c09c548198.tex",
+      "tipo": "download",
+      "sha256": "c09c548198bbdbf7fc3e56204b435a26ef33aef0e369492257fc1184bc9a25d4",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pulleys, ropes & masses",
+      "pagina": "https://tikz.net/dynamics_pulley/",
+      "origem": "https://tikz.net/dynamics_pulley/",
+      "arquivo": "dynamics_pulley-4369c8d5/exemplo-01-5c6aa2af93.tex",
+      "tipo": "extraido",
+      "sha256": "5c6aa2af93abeea3a3ebe1c0e7cfaf9e3083e670a2452eb989583489ffcb8f75",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pulleys, ropes & masses",
+      "pagina": "https://tikz.net/dynamics_pulley/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/02/dynamics_pulley.tex",
+      "arquivo": "dynamics_pulley-4369c8d5/exemplo-02-2fc8afab95.tex",
+      "tipo": "download",
+      "sha256": "2fc8afab957ace7b5c71562759471b18fb686b270d163a5318c01ab873a2b43d",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Displacement current",
+      "pagina": "https://tikz.net/displacement_current/",
+      "origem": "https://tikz.net/displacement_current/",
+      "arquivo": "displacement_current-ea41a706/exemplo-01-1f0a8262c6.tex",
+      "tipo": "extraido",
+      "sha256": "1f0a8262c6fe815a4845337145195c34e391c3eefc81d91ddfcbf7fc7af54dd0",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Displacement current",
+      "pagina": "https://tikz.net/displacement_current/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/12/displacement_current.tex",
+      "arquivo": "displacement_current-ea41a706/exemplo-02-c986e7c131.tex",
+      "tipo": "download",
+      "sha256": "c986e7c1311cbb2a9fdbc3c72b182237a759d05591507d28544788c03ed1bf34",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Complex plane & oscillator",
+      "pagina": "https://tikz.net/complex/",
+      "origem": "https://tikz.net/complex/",
+      "arquivo": "complex-db3911f1/exemplo-01-09c9c72e4b.tex",
+      "tipo": "extraido",
+      "sha256": "09c9c72e4b031f856fcf685e055e611a794f3a74f94c5c426d0e285e8d1b1161",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Tangent to a circle",
+      "pagina": "https://tikz.net/circle_tangent/",
+      "origem": "https://tikz.net/circle_tangent/",
+      "arquivo": "circle_tangent-e3425b7b/exemplo-01-9ec740315c.tex",
+      "tipo": "extraido",
+      "sha256": "9ec740315c78eb97533cb48a49bdb6c0bd426492b44f32b4a33c886233ca65ea",
+      "documento_completo": false
+    },
+    {
+      "titulo": "Tangent to a circle",
+      "pagina": "https://tikz.net/circle_tangent/",
+      "origem": "https://tikz.net/circle_tangent/",
+      "arquivo": "circle_tangent-e3425b7b/exemplo-02-89ce477bcd.tex",
+      "tipo": "extraido",
+      "sha256": "89ce477bcd5da5da2ce4438818ac5fc4b11424568040a4a2d7e6f4ca3845e9bc",
+      "documento_completo": false
+    },
+    {
+      "titulo": "Tangent to a circle",
+      "pagina": "https://tikz.net/circle_tangent/",
+      "origem": "https://tikz.net/circle_tangent/",
+      "arquivo": "circle_tangent-e3425b7b/exemplo-03-d21174dac1.tex",
+      "tipo": "extraido",
+      "sha256": "d21174dac15bb48b2bb15aebc74aba4892cd888e491ae61b4459d04c8d4b60b7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Capacitors",
+      "pagina": "https://tikz.net/capacitors/",
+      "origem": "https://tikz.net/capacitors/",
+      "arquivo": "capacitors-d7d9108f/exemplo-01-3137021947.tex",
+      "tipo": "extraido",
+      "sha256": "3137021947b80f9b55ed4077fd6aec8899532c130e3797f1e6d7c242af18ff58",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Black body plots",
+      "pagina": "https://tikz.net/blackbody_plots/",
+      "origem": "https://tikz.net/blackbody_plots/",
+      "arquivo": "blackbody_plots-5664be28/exemplo-01-43159b1275.tex",
+      "tipo": "extraido",
+      "sha256": "43159b1275f9c28759327d32516ffc0c9ebb22e3be09619cc6fd9565f1dcbff2",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Black body model",
+      "pagina": "https://tikz.net/blackbody/",
+      "origem": "https://tikz.net/blackbody/",
+      "arquivo": "blackbody-f5032095/exemplo-01-5c1f1eaf7d.tex",
+      "tipo": "extraido",
+      "sha256": "5c1f1eaf7da1a157dca57e4dafbabcb1a4eb88b523ffdae8693dde2374287fcd",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Black body model",
+      "pagina": "https://tikz.net/blackbody/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/03/blackbody.tex",
+      "arquivo": "blackbody-f5032095/exemplo-02-1d20e0545a.tex",
+      "tipo": "download",
+      "sha256": "1d20e0545a1122173292296d26d72212e1690694a5398feba4b4dc2d69e51ac9",
+      "documento_completo": true
+    },
+    {
+      "titulo": "3D coordinate systems",
+      "pagina": "https://tikz.net/axis3d/",
+      "origem": "https://tikz.net/axis3d/",
+      "arquivo": "axis3d-fefbcba9/exemplo-01-8b56f9636b.tex",
+      "tipo": "extraido",
+      "sha256": "8b56f9636b34e18ec6f180b74455511406acd227c75da08bae6930cdab69a88c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "3D coordinate systems",
+      "pagina": "https://tikz.net/axis3d/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/01/axis3D.tex",
+      "arquivo": "axis3d-fefbcba9/exemplo-02-69d9320f10.tex",
+      "tipo": "download",
+      "sha256": "69d9320f105e9aa29aeb25181fcd58096c2a8a7ffdc7bb4934425bbff2a183c8",
+      "documento_completo": true
+    },
+    {
+      "titulo": "CMS coordinate system",
+      "pagina": "https://tikz.net/axis3d_cms/",
+      "origem": "https://tikz.net/axis3d_cms/",
+      "arquivo": "axis3d_cms-df85f63d/exemplo-01-b66ea3a52d.tex",
+      "tipo": "extraido",
+      "sha256": "b66ea3a52ddff194dc98f6b5d2166c9e6ce333f6759352f5b8aec0794a602cba",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pseudorapidity",
+      "pagina": "https://tikz.net/axis2d_pseudorapidity/",
+      "origem": "https://tikz.net/axis2d_pseudorapidity/",
+      "arquivo": "axis2d_pseudorapidity-816d9932/exemplo-01-e133c31bb6.tex",
+      "tipo": "extraido",
+      "sha256": "e133c31bb6a8ea29e3b164b3ba0c6f60ca48ad5af50adac52dd81a75850ae529",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pseudorapidity",
+      "pagina": "https://tikz.net/axis2d_pseudorapidity/",
+      "origem": "https://tikz.net/axis2d_pseudorapidity/",
+      "arquivo": "axis2d_pseudorapidity-816d9932/exemplo-02-3cdbd97c28.tex",
+      "tipo": "extraido",
+      "sha256": "3cdbd97c28e6c96f3ad3f7d8ae9a9096ba8c28d49924d4b3ca2bf9bfc6cc9121",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pseudorapidity",
+      "pagina": "https://tikz.net/axis2d_pseudorapidity/",
+      "origem": "https://tikz.net/axis2d_pseudorapidity/",
+      "arquivo": "axis2d_pseudorapidity-816d9932/exemplo-03-ccb6a9c996.tex",
+      "tipo": "extraido",
+      "sha256": "ccb6a9c996e0deb8778a687ed641aad2774e815f18eb1a6b769f12735b225165",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Temperature scale",
+      "pagina": "https://tikz.net/temperature_scale/",
+      "origem": "https://tikz.net/temperature_scale/",
+      "arquivo": "temperature_scale-0a921945/exemplo-01-338c94610b.tex",
+      "tipo": "extraido",
+      "sha256": "338c94610b96eb01cee2ab58922494c48a53c7fccdfe7c2f89d132e53b07fd9e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Temperature scale",
+      "pagina": "https://tikz.net/temperature_scale/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/12/temperature_scale.tex",
+      "arquivo": "temperature_scale-0a921945/exemplo-02-17ec2015dc.tex",
+      "tipo": "download",
+      "sha256": "17ec2015dc36341fc42bf3ea63511ea21168a735a7048d1d0b510b90790ae5d7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Neural networks",
+      "pagina": "https://tikz.net/neural_networks/",
+      "origem": "https://tikz.net/neural_networks/",
+      "arquivo": "neural_networks-9df34383/exemplo-01-51fba64b9e.tex",
+      "tipo": "extraido",
+      "sha256": "51fba64b9ec88cbd647c42843ca67fde90ca006996e8f72ffcf71c9a03a4e805",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Neural networks",
+      "pagina": "https://tikz.net/neural_networks/",
+      "origem": "https://tikz.net/neural_networks/",
+      "arquivo": "neural_networks-9df34383/exemplo-02-59c8f3060c.tex",
+      "tipo": "extraido",
+      "sha256": "59c8f3060c1630f5aca12dc3ca1f25fca19982e7174b7eceb16754e427afee4e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Neural networks",
+      "pagina": "https://tikz.net/neural_networks/",
+      "origem": "https://tikz.net/neural_networks/",
+      "arquivo": "neural_networks-9df34383/exemplo-03-3f153a9ff8.tex",
+      "tipo": "extraido",
+      "sha256": "3f153a9ff8a167d2a40d3cb28d756103854f900d018a41b08567364ad01b8698",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Neural networks",
+      "pagina": "https://tikz.net/neural_networks/",
+      "origem": "https://tikz.net/neural_networks/",
+      "arquivo": "neural_networks-9df34383/exemplo-04-8dfe792fee.tex",
+      "tipo": "extraido",
+      "sha256": "8dfe792feeaef584418d1564b04b99b05b823ce60935ee57b445aa01e151af3e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Hadronic top pair (and Higgs) production",
+      "pagina": "https://tikz.net/jets_ttbar/",
+      "origem": "https://tikz.net/jets_ttbar/",
+      "arquivo": "jets_ttbar-045c59ef/exemplo-01-988c24ca26.tex",
+      "tipo": "extraido",
+      "sha256": "988c24ca26b85fb355eb58aa29e89dc055f40022d45dc16f383cddbf037a9581",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Hadronic top pair (and Higgs) production",
+      "pagina": "https://tikz.net/jets_ttbar/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/09/jets_ttbar.tex",
+      "arquivo": "jets_ttbar-045c59ef/exemplo-02-2f0e01e18a.tex",
+      "tipo": "download",
+      "sha256": "2f0e01e18a4dc4a4427040ec3548aef3ed58817bebd8ea42bb3f65a9d25effc5",
+      "documento_completo": true
+    },
+    {
+      "titulo": "B tagging jets",
+      "pagina": "https://tikz.net/jet_btag/",
+      "origem": "https://tikz.net/jet_btag/",
+      "arquivo": "jet_btag-815b2001/exemplo-01-6592bb018d.tex",
+      "tipo": "extraido",
+      "sha256": "6592bb018dccbf2554cc357f88dc25fc98275fc595d3cb1a3ac26d1cf34adc00",
+      "documento_completo": true
+    },
+    {
+      "titulo": "B tagging jets",
+      "pagina": "https://tikz.net/jet_btag/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/09/jet_btag.tex",
+      "arquivo": "jet_btag-815b2001/exemplo-02-77a1690127.tex",
+      "tipo": "download",
+      "sha256": "77a16901274c5de436d4a4d8c9f53762d0d58044116abf1943aa4905e5f18281",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Extended Mass – Gravitational Potential",
+      "pagina": "https://tikz.net/extended-mass-gravitational-potential/",
+      "origem": "https://tikz.net/extended-mass-gravitational-potential/",
+      "arquivo": "extended-mass-gravitational-potential-012cd3f5/exemplo-01-60a1f57b76.tex",
+      "tipo": "extraido",
+      "sha256": "60a1f57b76e6cf715a879553f57c1b4d0e1e2c47633098a713cb63892684ddef",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Kepler Second Law",
+      "pagina": "https://tikz.net/kepler-second-law/",
+      "origem": "https://tikz.net/kepler-second-law/",
+      "arquivo": "kepler-second-law-42a399ff/exemplo-01-ee5247a146.tex",
+      "tipo": "extraido",
+      "sha256": "ee5247a14619f59da6ee387c2e8d944bf34ab965cf4d4a0d9c9e1e38d730a8a9",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Hyperbolic Orbit",
+      "pagina": "https://tikz.net/hyperbolic-orbit/",
+      "origem": "https://tikz.net/hyperbolic-orbit/",
+      "arquivo": "hyperbolic-orbit-8d01c90a/exemplo-01-dff9c97b99.tex",
+      "tipo": "extraido",
+      "sha256": "dff9c97b9926d63b7305812a1238891c1168050aaef6f8cda3f419c6e3d5d738",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Hyperbolic Orbit",
+      "pagina": "https://tikz.net/hyperbolic-orbit/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/10/Hyperbolic-Orbit.tex",
+      "arquivo": "hyperbolic-orbit-8d01c90a/exemplo-02-2d8c65fa1e.tex",
+      "tipo": "download",
+      "sha256": "2d8c65fa1ed784b7c8d1a498374afd5ce54eff6b97364c24347c78f5f4b6695b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Gravitational Potential",
+      "pagina": "https://tikz.net/gravitational-potential/",
+      "origem": "https://tikz.net/gravitational-potential/",
+      "arquivo": "gravitational-potential-7b64f4ac/exemplo-01-9cd0432a93.tex",
+      "tipo": "extraido",
+      "sha256": "9cd0432a93868bba757ef525999c278c2ab38ee67796d2867684e7405f255013",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Elliptical Orbit",
+      "pagina": "https://tikz.net/elliptical-orbit/",
+      "origem": "https://tikz.net/elliptical-orbit/",
+      "arquivo": "elliptical-orbit-29bcef13/exemplo-01-f2697ede20.tex",
+      "tipo": "extraido",
+      "sha256": "f2697ede20bfedfdebe1da25abca540c5e68580f16bfd7240cc1054786080b2a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Graph of Effective Potential",
+      "pagina": "https://tikz.net/graph-of-effective-potential/",
+      "origem": "https://tikz.net/graph-of-effective-potential/",
+      "arquivo": "graph-of-effective-potential-c61e4354/exemplo-01-cc4f28521e.tex",
+      "tipo": "extraido",
+      "sha256": "cc4f28521e27d00235d116a77532a182fde923ec507dc2572e7b0e92f58954b7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Graph of Effective Potential",
+      "pagina": "https://tikz.net/graph-of-effective-potential/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/10/Effective_Potential.tex",
+      "arquivo": "graph-of-effective-potential-c61e4354/exemplo-02-fd9c288032.tex",
+      "tipo": "download",
+      "sha256": "fd9c288032090621fff729de62c77b607dc9321764cc54030cea048cfd854372",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Earth Moon Interaction",
+      "pagina": "https://tikz.net/earth-moon-interaction/",
+      "origem": "https://tikz.net/earth-moon-interaction/",
+      "arquivo": "earth-moon-interaction-c985db55/exemplo-01-34dfbcdcf4.tex",
+      "tipo": "extraido",
+      "sha256": "34dfbcdcf48aa17ece0470e949946bd88c684a499d97936992ddabc72f597b9f",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Radius of Curvature",
+      "pagina": "https://tikz.net/radius-of-curvature/",
+      "origem": "https://tikz.net/radius-of-curvature/",
+      "arquivo": "radius-of-curvature-616c3057/exemplo-01-f0f5d366d9.tex",
+      "tipo": "extraido",
+      "sha256": "f0f5d366d959ac801243ea87697e96fd26a380d034041b019f9291488fc37d41",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Penrose diagrams of Minkowski and Schwarzschild spacetime",
+      "pagina": "https://tikz.net/relativity_penrose_diagram/",
+      "origem": "https://tikz.net/relativity_penrose_diagram/",
+      "arquivo": "relativity_penrose_diagram-0cce9fd8/exemplo-01-e59baf9900.tex",
+      "tipo": "extraido",
+      "sha256": "e59baf99004ede856c67d6964ed4bbc810bc7a5a32ff02311e597c4d2bd2c7ad",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Penrose diagrams of Minkowski and Schwarzschild spacetime",
+      "pagina": "https://tikz.net/relativity_penrose_diagram/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/10/relativity_penrose_diagram.tex",
+      "arquivo": "relativity_penrose_diagram-0cce9fd8/exemplo-02-7ee12322c0.tex",
+      "tipo": "download",
+      "sha256": "7ee12322c07ba3db43a4b182cf2bb79ddade22f161da5ed6c36b70d5832b6c35",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Kruskal diagrams of Schwarzschild black holes",
+      "pagina": "https://tikz.net/relativity_kruskal_diagram/",
+      "origem": "https://tikz.net/relativity_kruskal_diagram/",
+      "arquivo": "relativity_kruskal_diagram-b765de19/exemplo-01-1c444551bd.tex",
+      "tipo": "extraido",
+      "sha256": "1c444551bd3a66e5b7d8dcb9b489dbb4aba313c31cf511cbda147b41940f7991",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Minkowski diagrams & Lorentz transformations",
+      "pagina": "https://tikz.net/relativity_minkowski_diagram/",
+      "origem": "https://tikz.net/relativity_minkowski_diagram/",
+      "arquivo": "relativity_minkowski_diagram-368ab8f8/exemplo-01-1a291a91d3.tex",
+      "tipo": "extraido",
+      "sha256": "1a291a91d34ab3a077a005196676640d368b259a461698cd5a386add238a7d24",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Hadronically decayed tau jet",
+      "pagina": "https://tikz.net/jet_tau/",
+      "origem": "https://tikz.net/jet_tau/",
+      "arquivo": "jet_tau-b90524bb/exemplo-01-49378d9dbe.tex",
+      "tipo": "extraido",
+      "sha256": "49378d9dbe091ba2863286805d681bf5b3d8f321ad3a1de82a77dd260325d89e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Hadronically decayed tau jet",
+      "pagina": "https://tikz.net/jet_tau/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/01/jet_tau.tex",
+      "arquivo": "jet_tau-b90524bb/exemplo-02-85f62e3570.tex",
+      "tipo": "download",
+      "sha256": "85f62e3570ed15201d24e1690b265986000fe2016ba5b021b3d88992819b392a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Dijet rapidity regions",
+      "pagina": "https://tikz.net/jet_eta/",
+      "origem": "https://tikz.net/jet_eta/",
+      "arquivo": "jet_eta-a33b21ac/exemplo-01-01df04caeb.tex",
+      "tipo": "extraido",
+      "sha256": "01df04caeb4ad62ae3f4a5288e91ca643351f212dd94986e4bb650c00ba16eb9",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Dijet rapidity regions",
+      "pagina": "https://tikz.net/jet_eta/",
+      "origem": "https://tikz.net/jet_eta/",
+      "arquivo": "jet_eta-a33b21ac/exemplo-02-4842704ad9.tex",
+      "tipo": "extraido",
+      "sha256": "4842704ad9bcc82bf0616ca35f8fe32386eaf8ee405b178de0e839ce18b55732",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Histogram vectors",
+      "pagina": "https://tikz.net/histogram_vectors/",
+      "origem": "https://tikz.net/histogram_vectors/",
+      "arquivo": "histogram_vectors-4880b304/exemplo-01-4aa34c4a6c.tex",
+      "tipo": "extraido",
+      "sha256": "4aa34c4a6cc5d9031a72ce7be2f0dcd5bd5e09be55e00d128e0d3fb3feb9bb85",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Histogram vectors",
+      "pagina": "https://tikz.net/histogram_vectors/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/11/histogram_vectors.tex",
+      "arquivo": "histogram_vectors-4880b304/exemplo-02-f75e95954d.tex",
+      "tipo": "download",
+      "sha256": "f75e95954dc8bc0a390d6d3e2eb1868f1ba381b4ea7f07548158658be4910c20",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Absolute Rotary Encoder",
+      "pagina": "https://tikz.net/absolute-rotary-encoder/",
+      "origem": "https://tikz.net/absolute-rotary-encoder/",
+      "arquivo": "absolute-rotary-encoder-1ab5dc74/exemplo-01-b0d85a78c2.tex",
+      "tipo": "extraido",
+      "sha256": "b0d85a78c238b03e70310f4471bb925a8a0390eb198c0a3cdc7f388375caefe3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Absolute Rotary Encoder",
+      "pagina": "https://tikz.net/absolute-rotary-encoder/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/11/absolute-rotary-encoder.tex",
+      "arquivo": "absolute-rotary-encoder-1ab5dc74/exemplo-02-ddb20efa72.tex",
+      "tipo": "download",
+      "sha256": "ddb20efa726921e791862976b31ed9da1dc2cb94bc9958c7a409febd6b686e69",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Electric voltage in a circuit as gravity potenial energy",
+      "pagina": "https://tikz.net/electric_circuit_voltage_3d/",
+      "origem": "https://tikz.net/electric_circuit_voltage_3d/",
+      "arquivo": "electric_circuit_voltage_3d-52df6cd9/exemplo-01-4dfeba2c8d.tex",
+      "tipo": "extraido",
+      "sha256": "4dfeba2c8d219f9b864aa07c1a892e12b4d691b3597cf1f34d4ac35db00c1678",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Electric voltage in a circuit as gravity potenial energy",
+      "pagina": "https://tikz.net/electric_circuit_voltage_3d/",
+      "origem": "https://tikz.net/wp-content/uploads/2021/12/electric_circuit_voltage_3d.tex",
+      "arquivo": "electric_circuit_voltage_3d-52df6cd9/exemplo-02-8598082781.tex",
+      "tipo": "download",
+      "sha256": "8598082781039212918496006e4060451d81cf377fd8a4b215ae66c5ac196af5",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Electric voltage in a circuit",
+      "pagina": "https://tikz.net/electric_circuit_voltage_plots/",
+      "origem": "https://tikz.net/electric_circuit_voltage_plots/",
+      "arquivo": "electric_circuit_voltage_plots-771174be/exemplo-01-5cb3cdee9d.tex",
+      "tipo": "extraido",
+      "sha256": "5cb3cdee9d69ce5f9b1977dd861a1d5aebc0cc7918a5761b04ca46a661526fb1",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Tangential, cyclic & bicentric quadrilaterals",
+      "pagina": "https://tikz.net/quadrilaterals_bicentric/",
+      "origem": "https://tikz.net/quadrilaterals_bicentric/",
+      "arquivo": "quadrilaterals_bicentric-f10cc71b/exemplo-01-11f08d2065.tex",
+      "tipo": "extraido",
+      "sha256": "11f08d20657b6d0f54479927719711c0cc81f2e2b40347f504d08458bcf94de4",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Tangential, cyclic & bicentric quadrilaterals",
+      "pagina": "https://tikz.net/quadrilaterals_bicentric/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/01/quadrilaterals_bicentric.tex",
+      "arquivo": "quadrilaterals_bicentric-f10cc71b/exemplo-02-9aac9f01d9.tex",
+      "tipo": "download",
+      "sha256": "9aac9f01d955ffd97ac519df821e09a1f89b614fc0a71509eaee1c74ddc6dd35",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Quadrilateral hierarchy",
+      "pagina": "https://tikz.net/quadrilaterals/",
+      "origem": "https://tikz.net/quadrilaterals/",
+      "arquivo": "quadrilaterals-f6db1cdb/exemplo-01-2eb8bed8d0.tex",
+      "tipo": "extraido",
+      "sha256": "2eb8bed8d092aed2ab181427dca2fd84fc85af1b63702e605744e9270dab6ccd",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Quadrilateral hierarchy",
+      "pagina": "https://tikz.net/quadrilaterals/",
+      "origem": "https://tikz.net/wp-content/uploads/2022/11/quadrilaterals.tex",
+      "arquivo": "quadrilaterals-f6db1cdb/exemplo-02-fd3ceba606.tex",
+      "tipo": "download",
+      "sha256": "fd3ceba60633c49865a09e846a3b8818b3819d1c106f32d2e579c21b76afaad5",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Gravitational force and field",
+      "pagina": "https://tikz.net/dynamics_gravity/",
+      "origem": "https://tikz.net/dynamics_gravity/",
+      "arquivo": "dynamics_gravity-1fe5539e/exemplo-01-2c048f47e1.tex",
+      "tipo": "extraido",
+      "sha256": "2c048f47e1308883d0936c0c6e926fa3854d39c13afae3fc85ec56a1688d95ac",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Distance Between Two Lines",
+      "pagina": "https://tikz.net/distance-between-two-lines/",
+      "origem": "https://tikz.net/distance-between-two-lines/",
+      "arquivo": "distance-between-two-lines-5c1faa44/exemplo-01-700b4b467e.tex",
+      "tipo": "extraido",
+      "sha256": "700b4b467e2e9497d172080f7a18cb1e1def82bdd96b4b9d7186dec6c70eb6ec",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Distance Between a Point and a Line",
+      "pagina": "https://tikz.net/distance-between-a-point-and-a-line/",
+      "origem": "https://tikz.net/distance-between-a-point-and-a-line/",
+      "arquivo": "distance-between-a-point-and-a-line-754ef95e/exemplo-01-a89f441c55.tex",
+      "tipo": "extraido",
+      "sha256": "a89f441c558b325816bee778687e3e7b26c1b28bd9e6d2ce7aeae8cbc9702bcb",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Approximation of Lines Intersecting",
+      "pagina": "https://tikz.net/approximation-of-lines-intersecting/",
+      "origem": "https://tikz.net/approximation-of-lines-intersecting/",
+      "arquivo": "approximation-of-lines-intersecting-0ca522aa/exemplo-01-f4c00f5eb6.tex",
+      "tipo": "extraido",
+      "sha256": "f4c00f5eb6d9dc059637712135bc2ee3b9f811a949d0af6f1625ffdf62f1ea63",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Product architecture",
+      "pagina": "https://tikz.net/product-architecture/",
+      "origem": "https://tikz.net/product-architecture/",
+      "arquivo": "product-architecture-0fa84e83/exemplo-01-cb18a58cdb.tex",
+      "tipo": "extraido",
+      "sha256": "cb18a58cdbfb258ad086e32ae3455455ade8b3ff900c2571772358ba1eccfc50",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Golden circles",
+      "pagina": "https://tikz.net/golden-circles/",
+      "origem": "https://tikz.net/golden-circles/",
+      "arquivo": "golden-circles-710ead33/exemplo-01-3b00c01ea6.tex",
+      "tipo": "extraido",
+      "sha256": "3b00c01ea63f448087f5026399a0f9e32a56c325118d91518649bab97a429098",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Intersection of Surfaces",
+      "pagina": "https://tikz.net/intersection/",
+      "origem": "https://tikz.net/intersection/",
+      "arquivo": "intersection-d7997ac4/exemplo-01-ad966079d7.tex",
+      "tipo": "extraido",
+      "sha256": "ad966079d73c0093212a29aac11c438cc5072de3218fa3a0f0b5812164e3a6de",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Jake, the owl",
+      "pagina": "https://tikz.net/owl/",
+      "origem": "https://tikz.net/owl/",
+      "arquivo": "owl-4d320491/exemplo-01-5d105bae9d.tex",
+      "tipo": "extraido",
+      "sha256": "5d105bae9d44f312723fbe2afce4310746388c9ca69dc91418671ebd56730fe0",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Jake, the owl",
+      "pagina": "https://tikz.net/owl/",
+      "origem": "https://tikz.net/owl/",
+      "arquivo": "owl-4d320491/exemplo-02-5d1a494ce4.tex",
+      "tipo": "extraido",
+      "sha256": "5d1a494ce4ba82c9ca2182e0614c6d8e327e76fb5af2009a1e3f7d6432b22cc8",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Drawing on an image",
+      "pagina": "https://tikz.net/drawing-on-image/",
+      "origem": "https://tikz.net/drawing-on-image/",
+      "arquivo": "drawing-on-image-f3daaef7/exemplo-01-85af582e81.tex",
+      "tipo": "extraido",
+      "sha256": "85af582e81ac372d17199ab6ff572785b938ffa2ba65b1e7e77f7ec35d86d989",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Easy curves",
+      "pagina": "https://tikz.net/easy-curves/",
+      "origem": "https://tikz.net/easy-curves/",
+      "arquivo": "easy-curves-a58dc073/exemplo-01-0bc535a303.tex",
+      "tipo": "extraido",
+      "sha256": "0bc535a3039c6a8f1da4ca1d46a97ab83b636847f46aacfd4d76618fb0649229",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Easy curves",
+      "pagina": "https://tikz.net/easy-curves/",
+      "origem": "https://tikz.net/easy-curves/",
+      "arquivo": "easy-curves-a58dc073/exemplo-02-b0c471c5ea.tex",
+      "tipo": "extraido",
+      "sha256": "b0c471c5eab442fb461a661db6450315aec751cfb62628ffe5a7c9bb80f0b6e7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Easy curves",
+      "pagina": "https://tikz.net/easy-curves/",
+      "origem": "https://tikz.net/easy-curves/",
+      "arquivo": "easy-curves-a58dc073/exemplo-03-83adc3ed70.tex",
+      "tipo": "extraido",
+      "sha256": "83adc3ed70d5638b34097189d42fefaa6c5b93d27caa372ce4e0ff0ea8e348a9",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Magnified subfigures of portions of a large image",
+      "pagina": "https://tikz.net/zoom/",
+      "origem": "https://tikz.net/zoom/",
+      "arquivo": "zoom-65c9f27b/exemplo-01-cdc86890c6.tex",
+      "tipo": "extraido",
+      "sha256": "cdc86890c6d89498d642de00ccbcc4b85fc6c96880338c1a803ccb1ab8d62def",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Mechanical Systems",
+      "pagina": "https://tikz.net/mechanical-systems/",
+      "origem": "https://tikz.net/mechanical-systems/",
+      "arquivo": "mechanical-systems-58ab1403/exemplo-01-b078a1b32e.tex",
+      "tipo": "extraido",
+      "sha256": "b078a1b32e87ab4e56fcbffa060e8105c3c262bff56c203677f521ca2a12016f",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Tangent line of an arbitrary point on a path",
+      "pagina": "https://tikz.net/tangent-point-path/",
+      "origem": "https://tikz.net/tangent-point-path/",
+      "arquivo": "tangent-point-path-76c9d2fd/exemplo-01-1ee869ba27.tex",
+      "tipo": "extraido",
+      "sha256": "1ee869ba271259ad7e0ebfc54adb76b2c33da0890807cd44ef684fe6f7ba24c9",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Line passing through a point and perpendicular to another one",
+      "pagina": "https://tikz.net/perpendicular/",
+      "origem": "https://tikz.net/perpendicular/",
+      "arquivo": "perpendicular-dc3b9384/exemplo-01-ec2afe0710.tex",
+      "tipo": "extraido",
+      "sha256": "ec2afe0710efc9699a883aa4f8a32326a98220abb4ccee0e69eddbb5828cae1e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Drawing stars",
+      "pagina": "https://tikz.net/stars/",
+      "origem": "https://tikz.net/stars/",
+      "arquivo": "stars-fb6e0b3f/exemplo-01-a83d7207f5.tex",
+      "tipo": "extraido",
+      "sha256": "a83d7207f58d42ec1778eb7736a557d67ba51be9523159a2b180e2826fe9ebcb",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Wheel chart",
+      "pagina": "https://tikz.net/wheel-chart/",
+      "origem": "https://tikz.net/wheel-chart/",
+      "arquivo": "wheel-chart-d3632daf/exemplo-01-967b5975dc.tex",
+      "tipo": "extraido",
+      "sha256": "967b5975dc32d45f152916541eda0c50c6765fe458a48797f9591af2e05bcdff",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Random circles",
+      "pagina": "https://tikz.net/random-circles/",
+      "origem": "https://tikz.net/random-circles/",
+      "arquivo": "random-circles-a785f53e/exemplo-01-419b2d1338.tex",
+      "tipo": "extraido",
+      "sha256": "419b2d1338d30dccefc6bdef9d3ec75200e30840814369fca4d5081d8e3cad94",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Octahedron",
+      "pagina": "https://tikz.net/octahedron/",
+      "origem": "https://tikz.net/octahedron/",
+      "arquivo": "octahedron-7884ca67/exemplo-01-b42a2b7f21.tex",
+      "tipo": "extraido",
+      "sha256": "b42a2b7f21f37ec10bce005871765d2a29900c95ac66d3d406f5dea8d8eb76aa",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Feynman diagrams",
+      "pagina": "https://tikz.net/feynman-diagrams/",
+      "origem": "https://tikz.net/feynman-diagrams/",
+      "arquivo": "feynman-diagrams-ba14d75f/exemplo-01-99551a9041.tex",
+      "tipo": "extraido",
+      "sha256": "99551a904110b7a0dc8974be072c6c4cc204d501b0824273fb15aefcbe13273a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Phase oriented project management",
+      "pagina": "https://tikz.net/project-management/",
+      "origem": "https://tikz.net/project-management/",
+      "arquivo": "project-management-e6d85de4/exemplo-01-2e8f881112.tex",
+      "tipo": "extraido",
+      "sha256": "2e8f8811125e04dcd26cf34e1398efa0a4eb662b75ff4a00d1eb6cedac88c9af",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Tree with aligned matrix",
+      "pagina": "https://tikz.net/tree-matrix/",
+      "origem": "https://tikz.net/tree-matrix/",
+      "arquivo": "tree-matrix-2e53537c/exemplo-01-80f497ad34.tex",
+      "tipo": "extraido",
+      "sha256": "80f497ad34662740ebcdcb4b46f406a688d182b8d07aaff101db34dc4bc6f5f8",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Venn diagrams",
+      "pagina": "https://tikz.net/venn-diagrams/",
+      "origem": "https://tikz.net/venn-diagrams/",
+      "arquivo": "venn-diagrams-d8796306/exemplo-01-0398b56c48.tex",
+      "tipo": "extraido",
+      "sha256": "0398b56c48cdfc10838db70e774e1df58ad79227b2feb22452afc36dc2c01c76",
+      "documento_completo": true
+    },
+    {
+      "titulo": "TikZ table",
+      "pagina": "https://tikz.net/tikz-table/",
+      "origem": "https://tikz.net/tikz-table/",
+      "arquivo": "tikz-table-b0788552/exemplo-01-0168bb4f76.tex",
+      "tipo": "extraido",
+      "sha256": "0168bb4f76169789ffe5dca30396f046f3832379038c2cfa79aed0f2726e41b3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Sierpinski triangle",
+      "pagina": "https://tikz.net/sierpinski-triangle/",
+      "origem": "https://tikz.net/sierpinski-triangle/",
+      "arquivo": "sierpinski-triangle-8588bc1b/exemplo-01-b38accc0d7.tex",
+      "tipo": "extraido",
+      "sha256": "b38accc0d7f8cf46c9d15766ccd84c5c5179d8994470254a557335dc6f4e804e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Spiral approaching a circle",
+      "pagina": "https://tikz.net/5403-2/",
+      "origem": "https://tikz.net/5403-2/",
+      "arquivo": "5403-2-c9e42f65/exemplo-01-90a9c6dad0.tex",
+      "tipo": "extraido",
+      "sha256": "90a9c6dad0634c6baa526907734995fa1f4fbaed4492cbde441ae37add8ee9c7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Chinese checkers board",
+      "pagina": "https://tikz.net/chinese-checkers-board/",
+      "origem": "https://tikz.net/chinese-checkers-board/",
+      "arquivo": "chinese-checkers-board-7289abd4/exemplo-01-dbd80c07ea.tex",
+      "tipo": "extraido",
+      "sha256": "dbd80c07ea8ee8e344bcb079958ab0675dafa547f51447a420a1a527bebfd9d5",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Amplifier",
+      "pagina": "https://tikz.net/amplifier/",
+      "origem": "https://tikz.net/amplifier/",
+      "arquivo": "amplifier-fc9c726d/exemplo-01-7e4b7284ad.tex",
+      "tipo": "extraido",
+      "sha256": "7e4b7284ad13c43918944119faf82d0c811f8b3a954f1fdd116ceabdb3e55b6e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Circuit with Resistors",
+      "pagina": "https://tikz.net/circuit-with-resistors/",
+      "origem": "https://tikz.net/circuit-with-resistors/",
+      "arquivo": "circuit-with-resistors-0735b2ea/exemplo-01-cd96f24df6.tex",
+      "tipo": "extraido",
+      "sha256": "cd96f24df649bfc566fb358699d1bc2b7f74d5eaca237be2b5075a94b967d2bf",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Inverting Op Amp",
+      "pagina": "https://tikz.net/operational-amplifier-inversion/",
+      "origem": "https://tikz.net/operational-amplifier-inversion/",
+      "arquivo": "operational-amplifier-inversion-40f34e80/exemplo-01-8487ffeae3.tex",
+      "tipo": "extraido",
+      "sha256": "8487ffeae346c407faa7393d2d156370e89b7da40efb7fd36a2527b62f3818bd",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Non Inverting Op Amp",
+      "pagina": "https://tikz.net/operational-amplifier-not-inversion/",
+      "origem": "https://tikz.net/operational-amplifier-not-inversion/",
+      "arquivo": "operational-amplifier-not-inversion-771b5392/exemplo-01-aa78eeee90.tex",
+      "tipo": "extraido",
+      "sha256": "aa78eeee90320258cab7c4168fd41b27298dbfd70fdb62534006f7edffd4b889",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Semiconductor Contact – Diode",
+      "pagina": "https://tikz.net/semiconductor-contact-diode/",
+      "origem": "https://tikz.net/semiconductor-contact-diode/",
+      "arquivo": "semiconductor-contact-diode-7e534e42/exemplo-01-8afa5c0d62.tex",
+      "tipo": "extraido",
+      "sha256": "8afa5c0d62237dbef8be6011bda983b71051e80e1ffc3615a5cffa92938cdbcf",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Ideal Diode Characteristic",
+      "pagina": "https://tikz.net/ideal-diode-characteristic/",
+      "origem": "https://tikz.net/ideal-diode-characteristic/",
+      "arquivo": "ideal-diode-characteristic-5b9494f1/exemplo-01-399456f153.tex",
+      "tipo": "extraido",
+      "sha256": "399456f153bb1ae1ce7e354d4ef4c88515f92e02af54a3c4281b7959e74d5e78",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Full Wave Rectification – Diode Bridge",
+      "pagina": "https://tikz.net/diode-bridge-full-rectification/",
+      "origem": "https://tikz.net/diode-bridge-full-rectification/",
+      "arquivo": "diode-bridge-full-rectification-1e7d438f/exemplo-01-95420203c0.tex",
+      "tipo": "extraido",
+      "sha256": "95420203c048f738d803cffa2e2db72575aab345ea2ecb4fec437cb9e7d85544",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Full Wave Rectification – Two Diodes and Transformer",
+      "pagina": "https://tikz.net/full-rectification-with-two-diodes-and-transformer/",
+      "origem": "https://tikz.net/full-rectification-with-two-diodes-and-transformer/",
+      "arquivo": "full-rectification-with-two-diodes-and-transformer-556c43fd/exemplo-01-2bcad39471.tex",
+      "tipo": "extraido",
+      "sha256": "2bcad39471cce3dfff005c497d4ae80f565be1739929b43b3f138695ca65d07e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Julian Day",
+      "pagina": "https://tikz.net/julian-day/",
+      "origem": "https://tikz.net/julian-day/",
+      "arquivo": "julian-day-5222a056/exemplo-01-40471b3bd0.tex",
+      "tipo": "extraido",
+      "sha256": "40471b3bd06ba5b9e81a5d9cafa90a0ae1b3840d35fb78ce08a18a0737f573ac",
+      "documento_completo": true
+    },
+    {
+      "titulo": "LED – Diode Circuit",
+      "pagina": "https://tikz.net/led-diode-circuit/",
+      "origem": "https://tikz.net/led-diode-circuit/",
+      "arquivo": "led-diode-circuit-f2d15acd/exemplo-01-3bcf3da995.tex",
+      "tipo": "extraido",
+      "sha256": "3bcf3da9950b7e65a3c503a2b3cc6e07312f475f87a439955b347fa634c004f5",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Half Wave Rectification",
+      "pagina": "https://tikz.net/semi-rectification/",
+      "origem": "https://tikz.net/semi-rectification/",
+      "arquivo": "semi-rectification-e0472e2b/exemplo-01-2d6112c1cb.tex",
+      "tipo": "extraido",
+      "sha256": "2d6112c1cb1a8963edbb1bfded2ed0afc71f2ad925fea1b4490811494c614e89",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Simple Diode Circuit",
+      "pagina": "https://tikz.net/simple-diode-circuit/",
+      "origem": "https://tikz.net/simple-diode-circuit/",
+      "arquivo": "simple-diode-circuit-b0f7ac48/exemplo-01-5e45427c43.tex",
+      "tipo": "extraido",
+      "sha256": "5e45427c43c2fcfac977f0f362f5597e1e49ee8fc963088492febafa4492edf2",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Voltage Divider with Load",
+      "pagina": "https://tikz.net/voltage-divider-with-load/",
+      "origem": "https://tikz.net/voltage-divider-with-load/",
+      "arquivo": "voltage-divider-with-load-e93b877e/exemplo-01-8256926591.tex",
+      "tipo": "extraido",
+      "sha256": "82569265917c99117d1fba987a878f372f7ba470a5d39089838042d15e8a97af",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Voltage Divider",
+      "pagina": "https://tikz.net/voltage-divider/",
+      "origem": "https://tikz.net/voltage-divider/",
+      "arquivo": "voltage-divider-c2468427/exemplo-01-37a637e7d8.tex",
+      "tipo": "extraido",
+      "sha256": "37a637e7d833ae96c88815a519a2c4a986d79f338de2800b2fa4c0b334510e8e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Voltage Follower – Op Amp",
+      "pagina": "https://tikz.net/voltage-follower/",
+      "origem": "https://tikz.net/voltage-follower/",
+      "arquivo": "voltage-follower-25406550/exemplo-01-55e4221e3a.tex",
+      "tipo": "extraido",
+      "sha256": "55e4221e3a4f02cbb1d596588f63ab93fc0e71b4a5ad72e8c94e0f58be253134",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Inverting Op Amp – Negative Feedback",
+      "pagina": "https://tikz.net/voltage-inversion/",
+      "origem": "https://tikz.net/voltage-inversion/",
+      "arquivo": "voltage-inversion-ef9e0478/exemplo-01-6a5a143525.tex",
+      "tipo": "extraido",
+      "sha256": "6a5a1435256f6d645ffd908598ce6b4450aed8169943afbff9b7319a233a9ca2",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Non Inverting Op Amp – Negative Feedback",
+      "pagina": "https://tikz.net/voltage-no-inversion/",
+      "origem": "https://tikz.net/voltage-no-inversion/",
+      "arquivo": "voltage-no-inversion-a8f7ab91/exemplo-01-4d70c1c51c.tex",
+      "tipo": "extraido",
+      "sha256": "4d70c1c51cd82e1dde127e53f6a967a34d687d630f2003c85de9f02ac7e8c573",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Apparent Wind",
+      "pagina": "https://tikz.net/apparent-wind/",
+      "origem": "https://tikz.net/apparent-wind/",
+      "arquivo": "apparent-wind-756e0548/exemplo-01-f7c000075c.tex",
+      "tipo": "extraido",
+      "sha256": "f7c000075c118f3182e201d1268362e2658ac58324923bdcf42daef266014a54",
+      "documento_completo": true
+    },
+    {
+      "titulo": "3D Plane and Normal Vector",
+      "pagina": "https://tikz.net/3d-plane-and-normal-vector/",
+      "origem": "https://tikz.net/3d-plane-and-normal-vector/",
+      "arquivo": "3d-plane-and-normal-vector-b9505d38/exemplo-01-7a55e33b20.tex",
+      "tipo": "extraido",
+      "sha256": "7a55e33b20ad771d7808f2923408734cac72723d7fc12b8da3843ccc564798f5",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Manifold example",
+      "pagina": "https://tikz.net/manifold/",
+      "origem": "https://tikz.net/manifold/",
+      "arquivo": "manifold-400cea28/exemplo-01-2d1b4d76a3.tex",
+      "tipo": "extraido",
+      "sha256": "2d1b4d76a3518243aa5f018658fab6e8963dc3cd2785aeeaf6e622ce71e0bd55",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Generation of a random graph",
+      "pagina": "https://tikz.net/generation-random-graph/",
+      "origem": "https://tikz.net/generation-random-graph/",
+      "arquivo": "generation-random-graph-952449aa/exemplo-01-fca6dabb69.tex",
+      "tipo": "extraido",
+      "sha256": "fca6dabb69e384075de308bcd27edbb1aba063fbb06b736fb5df04b7a020c2e6",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Clebsh example",
+      "pagina": "https://tikz.net/clebsh-example/",
+      "origem": "https://tikz.net/clebsh-example/",
+      "arquivo": "clebsh-example-a946a207/exemplo-01-6f9e756cfa.tex",
+      "tipo": "extraido",
+      "sha256": "6f9e756cfab2b7263721d90d0c570a6b0e769d11a885af7f7db96b50362e7b02",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Flowchart",
+      "pagina": "https://tikz.net/flowchart/",
+      "origem": "https://tikz.net/flowchart/",
+      "arquivo": "flowchart-e766e126/exemplo-01-704c6bb622.tex",
+      "tipo": "extraido",
+      "sha256": "704c6bb6228cfdecdfefb102784b1087d7a45d865f97c207014c6174719ac1d2",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Circular segments with incrementing radii",
+      "pagina": "https://tikz.net/6057-2/",
+      "origem": "https://tikz.net/6057-2/",
+      "arquivo": "6057-2-7ad708b9/exemplo-01-461cceda17.tex",
+      "tipo": "extraido",
+      "sha256": "461cceda17b8fa653e012670c6bbeaac052852bc51f2287159d33a9309744902",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Automatic placing dynamic styling of nodes in a graph",
+      "pagina": "https://tikz.net/automatic-placing-dynamic-styling-of-nodes-in-a-graph/",
+      "origem": "https://tikz.net/automatic-placing-dynamic-styling-of-nodes-in-a-graph/",
+      "arquivo": "automatic-placing-dynamic-styling-of-nodes-in-a-graph-5c4aec01/exemplo-01-0b53e0f358.tex",
+      "tipo": "extraido",
+      "sha256": "0b53e0f358b1af0a9cc80c0cda235b505460ae26259546af09396168ce51d496",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Missing square triangle",
+      "pagina": "https://tikz.net/missing-square-triangle/",
+      "origem": "https://tikz.net/missing-square-triangle/",
+      "arquivo": "missing-square-triangle-f7fe96ca/exemplo-01-02df28877b.tex",
+      "tipo": "extraido",
+      "sha256": "02df28877b9a099f1b9d6a292533a887a43c946ef028332592b8937b824fe1f8",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Ebbinghaus",
+      "pagina": "https://tikz.net/ebbinghaus/",
+      "origem": "https://tikz.net/ebbinghaus/",
+      "arquivo": "ebbinghaus-c32c8944/exemplo-01-f99006dff5.tex",
+      "tipo": "extraido",
+      "sha256": "f99006dff5199a3b1d54480bff42305f545bf1a63fb9169438af8b813da1012e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Munker",
+      "pagina": "https://tikz.net/munker/",
+      "origem": "https://tikz.net/munker/",
+      "arquivo": "munker-61422340/exemplo-01-820eceb07f.tex",
+      "tipo": "extraido",
+      "sha256": "820eceb07fff1d3507e88e948f8a3ee3cf4272d0337d51d9e51856c493426f94",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Cafe wall",
+      "pagina": "https://tikz.net/cafe-wall/",
+      "origem": "https://tikz.net/cafe-wall/",
+      "arquivo": "cafe-wall-067e800a/exemplo-01-0093e794a8.tex",
+      "tipo": "extraido",
+      "sha256": "0093e794a84031287459e2b31a0aa2e1bcd138b78fd66a113c87adf87b769b1e",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Scintillating grid",
+      "pagina": "https://tikz.net/scintillating-grid/",
+      "origem": "https://tikz.net/scintillating-grid/",
+      "arquivo": "scintillating-grid-0642ef0f/exemplo-01-fa589aa530.tex",
+      "tipo": "extraido",
+      "sha256": "fa589aa5302fb7c4e6133151c6b76b73501a8e1e1cc32aa4b365807580564bf3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Circular Economy – Spiral",
+      "pagina": "https://tikz.net/circular-economy-spiral/",
+      "origem": "https://tikz.net/circular-economy-spiral/",
+      "arquivo": "circular-economy-spiral-4ebf78ed/exemplo-01-19e12ef17d.tex",
+      "tipo": "extraido",
+      "sha256": "19e12ef17d59dfd315494f7a5f337d95351f38f04258d660a9580f9c7f923afa",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Frame example",
+      "pagina": "https://tikz.net/frame-example/",
+      "origem": "https://tikz.net/frame-example/",
+      "arquivo": "frame-example-c5a65f54/exemplo-01-87cfe52147.tex",
+      "tipo": "extraido",
+      "sha256": "87cfe5214796fd61682f3c32639b78f9ecb36fc707333988dd4f8c958a75d36b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Circular Project Planning",
+      "pagina": "https://tikz.net/circular-project-planning/",
+      "origem": "https://tikz.net/circular-project-planning/",
+      "arquivo": "circular-project-planning-cb9f76a5/exemplo-01-e7f26798fa.tex",
+      "tipo": "extraido",
+      "sha256": "e7f26798fa19605610a9031be33c9f480d3e09d589ba18d27bbff39b6f64ef2c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Times Tables and Mandelbrot",
+      "pagina": "https://tikz.net/times-tables-and-mandelbrot/",
+      "origem": "https://tikz.net/times-tables-and-mandelbrot/",
+      "arquivo": "times-tables-and-mandelbrot-e47db109/exemplo-01-4ae57ffd0e.tex",
+      "tipo": "extraido",
+      "sha256": "4ae57ffd0e4512ac676f1a2625e9e7f5697480f87561a134238c7e27d7c05568",
+      "documento_completo": true
+    },
+    {
+      "titulo": "5-Level Three-phase Cascaded H-Bridge Converter (CHB)",
+      "pagina": "https://tikz.net/chb/",
+      "origem": "https://tikz.net/chb/",
+      "arquivo": "chb-3520e776/exemplo-01-1a05cd8569.tex",
+      "tipo": "extraido",
+      "sha256": "1a05cd85694ccaea685403f2dc5868edc114b0506a1cb115b956a4a810efa7b1",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Boost Converter",
+      "pagina": "https://tikz.net/boost/",
+      "origem": "https://tikz.net/boost/",
+      "arquivo": "boost-58363f70/exemplo-01-1981a7e819.tex",
+      "tipo": "extraido",
+      "sha256": "1981a7e81974dbf118e99f6d4e97e86d472e4dc94e92bcf5f08de73dc0bc021b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Buck and Buck-Boost Converters",
+      "pagina": "https://tikz.net/buckboost/",
+      "origem": "https://tikz.net/buckboost/",
+      "arquivo": "buckboost-8a953271/exemplo-01-bae42fac95.tex",
+      "tipo": "extraido",
+      "sha256": "bae42fac95d0976dd6ce869393d0faafd7a097ab48daad05fbef7d3077b05881",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Buck and Buck-Boost Converters",
+      "pagina": "https://tikz.net/buckboost/",
+      "origem": "https://tikz.net/buckboost/",
+      "arquivo": "buckboost-8a953271/exemplo-02-7df63e334f.tex",
+      "tipo": "extraido",
+      "sha256": "7df63e334fb45f8aa881346f3b1330bcbadc11c3e2f0d6660fd345fae79d0a02",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Maximum Power Point Tracking (MPPT) for Single Photovoltaic Module",
+      "pagina": "https://tikz.net/mppt/",
+      "origem": "https://tikz.net/mppt/",
+      "arquivo": "mppt-126d50a4/exemplo-01-1149f1d234.tex",
+      "tipo": "extraido",
+      "sha256": "1149f1d23487982905efe59873cb36a07534bc59675f3f851677dd192359e150",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Maximum Power Point Tracking (MPPT) for Single Photovoltaic Module",
+      "pagina": "https://tikz.net/mppt/",
+      "origem": "https://tikz.net/mppt/",
+      "arquivo": "mppt-126d50a4/exemplo-02-01120e7816.tex",
+      "tipo": "extraido",
+      "sha256": "01120e78160a6f1f8f7b75bddc8631e47b0964c6acdcf36790abde0fe5738567",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Photovoltaic (PV) Power Processing Architectures",
+      "pagina": "https://tikz.net/photovoltaic/",
+      "origem": "https://tikz.net/photovoltaic/",
+      "arquivo": "photovoltaic-57a223d1/exemplo-01-e8cde8a1f9.tex",
+      "tipo": "extraido",
+      "sha256": "e8cde8a1f91820c22038b469854d17053f33deade7b02166b1d99086593b921b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Photovoltaic (PV) Power Processing Architectures",
+      "pagina": "https://tikz.net/photovoltaic/",
+      "origem": "https://tikz.net/photovoltaic/",
+      "arquivo": "photovoltaic-57a223d1/exemplo-02-f65a98a5db.tex",
+      "tipo": "extraido",
+      "sha256": "f65a98a5db12fe4f4260a3dadae9252e46e86f39097b0c35b030b1ff459e7d38",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Photovoltaic (PV) Power Processing Architectures",
+      "pagina": "https://tikz.net/photovoltaic/",
+      "origem": "https://tikz.net/photovoltaic/",
+      "arquivo": "photovoltaic-57a223d1/exemplo-03-3d12ee9aa7.tex",
+      "tipo": "extraido",
+      "sha256": "3d12ee9aa7c77df19779a803511828e51fe685dea3bccb078773430620f63916",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Tux with bricks",
+      "pagina": "https://tikz.net/tux/",
+      "origem": "https://tikz.net/tux/",
+      "arquivo": "tux-4fefda62/exemplo-01-ad2ec9e4b3.tex",
+      "tipo": "extraido",
+      "sha256": "ad2ec9e4b3fbdd4ccf01582f2395ddc31f80030f75b1b56bc38b33dcc8e6cfea",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Electrical Modeling of Supercapacitors",
+      "pagina": "https://tikz.net/supercap/",
+      "origem": "https://tikz.net/supercap/",
+      "arquivo": "supercap-3be2c5f3/exemplo-01-f25be333b3.tex",
+      "tipo": "extraido",
+      "sha256": "f25be333b34115ab7f7c69f9f10da663f2ae061aa88040f326fa34e9250f5c83",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Mohr’s circle",
+      "pagina": "https://tikz.net/mohrs-circle/",
+      "origem": "https://tikz.net/mohrs-circle/",
+      "arquivo": "mohrs-circle-400785e3/exemplo-01-c4293ae24d.tex",
+      "tipo": "extraido",
+      "sha256": "c4293ae24dd279eec186d63de5d1c9964b49774d341df433720af5b84deff6bf",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Radiofrequency Frontend",
+      "pagina": "https://tikz.net/radiofrequency-frontend/",
+      "origem": "https://tikz.net/radiofrequency-frontend/",
+      "arquivo": "radiofrequency-frontend-632f5aae/exemplo-01-0522869165.tex",
+      "tipo": "extraido",
+      "sha256": "0522869165ce9de7b2dde890b84a29e26ada6ce89f917fa34b5f2350e6baeb1a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Slide rule",
+      "pagina": "https://tikz.net/slide-rule/",
+      "origem": "https://tikz.net/slide-rule/",
+      "arquivo": "slide-rule-bb09f0ad/exemplo-01-c257be7efd.tex",
+      "tipo": "extraido",
+      "sha256": "c257be7efdab4830cc69f32644c5bc40797c74eacaea66ab832bf5a4586f06ab",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Warsaw circle",
+      "pagina": "https://tikz.net/warsaw-circle/",
+      "origem": "https://tikz.net/warsaw-circle/",
+      "arquivo": "warsaw-circle-8c0eada7/exemplo-01-b8a0723725.tex",
+      "tipo": "extraido",
+      "sha256": "b8a0723725892a13d221051f8e8aff892ff51ca35a4fc821c4de0b376cb4a433",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Papyrus",
+      "pagina": "https://tikz.net/papyrus/",
+      "origem": "https://tikz.net/papyrus/",
+      "arquivo": "papyrus-f116413c/exemplo-01-1f2097d8a3.tex",
+      "tipo": "extraido",
+      "sha256": "1f2097d8a340c31eff51493e357f55135e323577c56b81bd2294417cec4053af",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Composing functions",
+      "pagina": "https://tikz.net/composing-functions/",
+      "origem": "https://tikz.net/composing-functions/",
+      "arquivo": "composing-functions-0ae073a1/exemplo-01-0ab86dffe5.tex",
+      "tipo": "extraido",
+      "sha256": "0ab86dffe503a1353019bd007585af7af8e1cc34d845f72d2657bfedd5c41127",
+      "documento_completo": true
+    },
+    {
+      "titulo": "NAND perceptron",
+      "pagina": "https://tikz.net/nand-perceptron/",
+      "origem": "https://tikz.net/nand-perceptron/",
+      "arquivo": "nand-perceptron-bbca5110/exemplo-01-d4d7071d26.tex",
+      "tipo": "extraido",
+      "sha256": "d4d7071d2639b0fbc65ee3592bfd4bbe17f63580500e9e8353169e28f8f880bc",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Transposed FIR Filter",
+      "pagina": "https://tikz.net/transposed-fir-filter/",
+      "origem": "https://tikz.net/transposed-fir-filter/",
+      "arquivo": "transposed-fir-filter-ab68569a/exemplo-01-0e7e912292.tex",
+      "tipo": "extraido",
+      "sha256": "0e7e912292745f8dc82e2389fdfb949e33af4aabe921ea27d5a8f7c7b85a52e4",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Direct FIR with Adder Tree",
+      "pagina": "https://tikz.net/6610-2/",
+      "origem": "https://tikz.net/6610-2/",
+      "arquivo": "6610-2-112dc98f/exemplo-01-6bda169268.tex",
+      "tipo": "extraido",
+      "sha256": "6bda16926890fc5ba4e88da69bbad2b9468674376d3a1080eb65141c900b8e64",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Multivibrators",
+      "pagina": "https://tikz.net/multivibrators/",
+      "origem": "https://tikz.net/multivibrators/",
+      "arquivo": "multivibrators-dff77031/exemplo-01-5618e7f924.tex",
+      "tipo": "extraido",
+      "sha256": "5618e7f92480cc06e9dada3b2c193aabde02b1928f8589350d5503bbcdf6e1da",
+      "documento_completo": true
+    },
+    {
+      "titulo": "JFET in Common Source Wiring and AC Equivalent",
+      "pagina": "https://tikz.net/jfet-in-common-source-wiring-and-ac-equivalent/",
+      "origem": "https://tikz.net/jfet-in-common-source-wiring-and-ac-equivalent/",
+      "arquivo": "jfet-in-common-source-wiring-and-ac-equivalent-533f0438/exemplo-01-9e2650f672.tex",
+      "tipo": "extraido",
+      "sha256": "9e2650f6724e0d383a6d13a7930ed7f2447169e103eb9e5be4f1d160e156fee9",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Three-Level Space Vector Modulation (SVM)",
+      "pagina": "https://tikz.net/svm3/",
+      "origem": "https://tikz.net/svm3/",
+      "arquivo": "svm3-83717d88/exemplo-01-9cf9ac9200.tex",
+      "tipo": "extraido",
+      "sha256": "9cf9ac920059ceff23e275cbcf7dc7ddb993b9d9ad424adb46603437601fed83",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Five-Level Space Vector Modulation (SVM) with Boundary Lines",
+      "pagina": "https://tikz.net/svm5/",
+      "origem": "https://tikz.net/svm5/",
+      "arquivo": "svm5-a7611acf/exemplo-01-b65f0031bc.tex",
+      "tipo": "extraido",
+      "sha256": "b65f0031bcaea553e64b35ba5faa6270994776892f6b4c14e549be50b7a0f350",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Pseudoscalar Quindecuplet",
+      "pagina": "https://tikz.net/quindecuplet/",
+      "origem": "https://tikz.net/quindecuplet/",
+      "arquivo": "quindecuplet-c279091c/exemplo-01-03601af247.tex",
+      "tipo": "extraido",
+      "sha256": "03601af2472cf502c167f5170c301db49138bb88e4882f23e95affdcdae889a3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Graphical interpretation of complex roots",
+      "pagina": "https://tikz.net/complex_roots/",
+      "origem": "https://tikz.net/complex_roots/",
+      "arquivo": "complex_roots-054880d5/exemplo-01-39b85e401c.tex",
+      "tipo": "extraido",
+      "sha256": "39b85e401cf85f38b7db29bcca4ebf56782db2cbcfa23a3c3cd47a984f8c3dc8",
+      "documento_completo": true
+    },
+    {
+      "titulo": "CERN logo",
+      "pagina": "https://tikz.net/cern_logo/",
+      "origem": "https://tikz.net/cern_logo/",
+      "arquivo": "cern_logo-6c92b1dc/exemplo-01-cfb6ad322d.tex",
+      "tipo": "extraido",
+      "sha256": "cfb6ad322d9da25824b851d6ef578a0a0d224f37b863cb9fa33bfe457f20b816",
+      "documento_completo": true
+    },
+    {
+      "titulo": "CMS logo",
+      "pagina": "https://tikz.net/cms_logo/",
+      "origem": "https://tikz.net/cms_logo/",
+      "arquivo": "cms_logo-289d7530/exemplo-01-85d20e1695.tex",
+      "tipo": "extraido",
+      "sha256": "85d20e1695339d77c473c1eb33d7c70d76441f85d6a7f653268c32cf60fc9c48",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Event categorization",
+      "pagina": "https://tikz.net/categorization_events/",
+      "origem": "https://tikz.net/categorization_events/",
+      "arquivo": "categorization_events-e958774b/exemplo-01-ee9b5f5821.tex",
+      "tipo": "extraido",
+      "sha256": "ee9b5f5821a9fb9aab5f12bec7705d90fba11267119106eb51c131421d89a009",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Event categorization",
+      "pagina": "https://tikz.net/categorization_events/",
+      "origem": "https://tikz.net/categorization_events/",
+      "arquivo": "categorization_events-e958774b/exemplo-02-e5233f6147.tex",
+      "tipo": "extraido",
+      "sha256": "e5233f6147737edaffe8d283a5e12c28381a972a1af87d509b174fa4e0e60030",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Diphoton vertex",
+      "pagina": "https://tikz.net/vertex_diphoton/",
+      "origem": "https://tikz.net/vertex_diphoton/",
+      "arquivo": "vertex_diphoton-88b92c2a/exemplo-01-373426e35b.tex",
+      "tipo": "extraido",
+      "sha256": "373426e35bf4b7c1f74924f5827b9a4de3af96805c1b578dc23893e81cb6c01c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Beamspot profile",
+      "pagina": "https://tikz.net/beamspot/",
+      "origem": "https://tikz.net/beamspot/",
+      "arquivo": "beamspot-adcdb37f/exemplo-01-9beae7468b.tex",
+      "tipo": "extraido",
+      "sha256": "9beae7468b4120e9c1e0ccff400f2d2dbc98e9cd1c292d36428f283dcc830445",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Z boson decay",
+      "pagina": "https://tikz.net/sm_z_decay/",
+      "origem": "https://tikz.net/sm_z_decay/",
+      "arquivo": "sm_z_decay-8e1e52cb/exemplo-01-fa52d3f622.tex",
+      "tipo": "extraido",
+      "sha256": "fa52d3f622b58389a638c7721062268f0795472e3d92c8d6985212aa9c3f7b86",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Signatures of long-lived particles",
+      "pagina": "https://tikz.net/bsm_longlived/",
+      "origem": "https://tikz.net/bsm_longlived/",
+      "arquivo": "bsm_longlived-998b7314/exemplo-01-0d20239236.tex",
+      "tipo": "extraido",
+      "sha256": "0d20239236ed8b2dd44dd6b7ac28b0d74335e03b7f8265193640e24148200800",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Signatures of long-lived particles",
+      "pagina": "https://tikz.net/bsm_longlived/",
+      "origem": "https://tikz.net/wp-content/uploads/2023/10/BSM_longlived.tex",
+      "arquivo": "bsm_longlived-998b7314/exemplo-02-a952fb50df.tex",
+      "tipo": "download",
+      "sha256": "a952fb50df291a0114216e873dba7f34854a6c38e4a0b2a299c81b4bba28a69f",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Transverse plane & missing momentum",
+      "pagina": "https://tikz.net/transverse_plane/",
+      "origem": "https://tikz.net/transverse_plane/",
+      "arquivo": "transverse_plane-60ea86e0/exemplo-01-0892863ab0.tex",
+      "tipo": "extraido",
+      "sha256": "0892863ab00b1531eac9373a7d8992a431664f057471722c41d9b3baf73f4ab3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "New-physics effects on high-energy tails",
+      "pagina": "https://tikz.net/bsm_tails/",
+      "origem": "https://tikz.net/bsm_tails/",
+      "arquivo": "bsm_tails-2cccae2d/exemplo-01-9f804582d9.tex",
+      "tipo": "extraido",
+      "sha256": "9f804582d9e0429f9716733ff889db7c2ae2feac22bcb55b35226267a74e0282",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Dimensionality of spacetime",
+      "pagina": "https://tikz.net/relativity_dimensions/",
+      "origem": "https://tikz.net/relativity_dimensions/",
+      "arquivo": "relativity_dimensions-50b800fd/exemplo-01-f8e372ae34.tex",
+      "tipo": "extraido",
+      "sha256": "f8e372ae34f9fa89baac70dbfc0fc13b1168e2558d932682d8b41260eb182ad7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Physics domains at different spacetime scales & the Bronshtein cube",
+      "pagina": "https://tikz.net/relativity_scales/",
+      "origem": "https://tikz.net/relativity_scales/",
+      "arquivo": "relativity_scales-5f2bad8d/exemplo-01-39584a982e.tex",
+      "tipo": "extraido",
+      "sha256": "39584a982ec8e67e58f747989ef69f58879d91b93db11f6590e264823e209f11",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Weak hypercharge & isospin",
+      "pagina": "https://tikz.net/sm_isospin_weak/",
+      "origem": "https://tikz.net/sm_isospin_weak/",
+      "arquivo": "sm_isospin_weak-c9f96147/exemplo-01-c67f5982fa.tex",
+      "tipo": "extraido",
+      "sha256": "c67f5982fae0193dec745ae8750eb639d8cbd0120ad5d773b2764f7789a52b4a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Meson & baryon multiplets",
+      "pagina": "https://tikz.net/sm_isospin/",
+      "origem": "https://tikz.net/sm_isospin/",
+      "arquivo": "sm_isospin-89dd1e37/exemplo-01-a0bfd796bd.tex",
+      "tipo": "extraido",
+      "sha256": "a0bfd796bdb1589e9594019cf4e04d88d4aa06cfb245cfaffe8217c3df251fdf",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Piechart of SM decays",
+      "pagina": "https://tikz.net/sm_decay_piechart/",
+      "origem": "https://tikz.net/sm_decay_piechart/",
+      "arquivo": "sm_decay_piechart-d2d6a8ad/exemplo-01-32dbd009e5.tex",
+      "tipo": "extraido",
+      "sha256": "32dbd009e5c24386ad266dae627e884a95f4287f022b8ebcbdd1d14d3c17a5eb",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Branching fraction matrix of pair decays",
+      "pagina": "https://tikz.net/sm_decay_matrix/",
+      "origem": "https://tikz.net/sm_decay_matrix/",
+      "arquivo": "sm_decay_matrix-c7420bd7/exemplo-01-a25673bcc0.tex",
+      "tipo": "extraido",
+      "sha256": "a25673bcc05b9d8d0c1e17ca54f3d901f7547ba8fe35f37cd3dcb06dbd0776e4",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Standard Model",
+      "pagina": "https://tikz.net/sm_particles/",
+      "origem": "https://tikz.net/sm_particles/",
+      "arquivo": "sm_particles-240bee28/exemplo-01-aefa5cfce7.tex",
+      "tipo": "extraido",
+      "sha256": "aefa5cfce78b81f2ae0277000dd2c034ad6fe25d5408fce9dd6069073f318788",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Standard Model",
+      "pagina": "https://tikz.net/sm_particles/",
+      "origem": "https://tikz.net/wp-content/uploads/2024/03/SM_particles_simple.tex",
+      "arquivo": "sm_particles-240bee28/exemplo-02-7aa4278e23.tex",
+      "tipo": "download",
+      "sha256": "7aa4278e23b200e391f1cac40c939f57beed7a827c8c56dcc1fb20dbb17674ea",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Standard Model",
+      "pagina": "https://tikz.net/sm_particles/",
+      "origem": "https://tikz.net/wp-content/uploads/2026/01/SM_particles_beamer.tex",
+      "arquivo": "sm_particles-240bee28/exemplo-03-b548dd6586.tex",
+      "tipo": "download",
+      "sha256": "b548dd65867aceee9b9c0edc884d4723057f59ff986bfd7d50622215f1120eec",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Standard Model (round)",
+      "pagina": "https://tikz.net/sm_particles_round/",
+      "origem": "https://tikz.net/sm_particles_round/",
+      "arquivo": "sm_particles_round-484bfb89/exemplo-01-3a7808bf83.tex",
+      "tipo": "extraido",
+      "sha256": "3a7808bf83d0321ca398db097cc678b1990c71af01489d7f67964c06cb6e9e63",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Particle mass versus lifetime & decay length",
+      "pagina": "https://tikz.net/sm_particles_masses/",
+      "origem": "https://tikz.net/sm_particles_masses/",
+      "arquivo": "sm_particles_masses-802cbfd4/exemplo-01-cd5ad0a203.tex",
+      "tipo": "extraido",
+      "sha256": "cd5ad0a2031c6bd3e66eb8a7feeadce51880f3d06afdb1c0edb7cb31cad2a430",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Normal Distribution",
+      "pagina": "https://tikz.net/normal-distribution/",
+      "origem": "https://tikz.net/normal-distribution/",
+      "arquivo": "normal-distribution-97f191f7/exemplo-01-58d9772ef2.tex",
+      "tipo": "extraido",
+      "sha256": "58d9772ef2c3c2ee290e2d505f3b5677d89eff56438a93aec290a99de084a1ec",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Data fusion system",
+      "pagina": "https://tikz.net/data-fusion/",
+      "origem": "https://tikz.net/data-fusion/",
+      "arquivo": "data-fusion-df34d26b/exemplo-01-b87f9ac89e.tex",
+      "tipo": "extraido",
+      "sha256": "b87f9ac89ec244b5dd6847bd899de9bc8186860923aded51918221f858dae276",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Fast Fourier Transform",
+      "pagina": "https://tikz.net/fast-fourier-transform/",
+      "origem": "https://tikz.net/fast-fourier-transform/",
+      "arquivo": "fast-fourier-transform-07391dd3/exemplo-01-69bf266e35.tex",
+      "tipo": "extraido",
+      "sha256": "69bf266e359bf34c4117dac0d635a0eaa85d1b4951859b6dc718d97d2a90355d",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Fast Fourier Transform",
+      "pagina": "https://tikz.net/fast-fourier-transform/",
+      "origem": "https://tikz.net/fast-fourier-transform/",
+      "arquivo": "fast-fourier-transform-07391dd3/exemplo-02-c4277abb5d.tex",
+      "tipo": "extraido",
+      "sha256": "c4277abb5d7edad17bfb80ef09fae0927296ac832225b424db6fef79295c0ac0",
+      "documento_completo": true
+    },
+    {
+      "titulo": "FFT Algorithm Analysis",
+      "pagina": "https://tikz.net/fft-algorithm-analysis/",
+      "origem": "https://tikz.net/fft-algorithm-analysis/",
+      "arquivo": "fft-algorithm-analysis-8f125aa5/exemplo-01-17f300d6b8.tex",
+      "tipo": "extraido",
+      "sha256": "17f300d6b8e89c5bf07308756f3bbc4772e2183f097c1b94e3957ea856da506b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "FFT Algorithm Analysis",
+      "pagina": "https://tikz.net/fft-algorithm-analysis/",
+      "origem": "https://tikz.net/fft-algorithm-analysis/",
+      "arquivo": "fft-algorithm-analysis-8f125aa5/exemplo-02-cb00168d0e.tex",
+      "tipo": "extraido",
+      "sha256": "cb00168d0e13c61ffdcc1f37b45ecfc4f216580096a73616ace20e5a24457105",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Non Deterministic Finite Automaton",
+      "pagina": "https://tikz.net/non-deterministic-finite-automaton/",
+      "origem": "https://tikz.net/non-deterministic-finite-automaton/",
+      "arquivo": "non-deterministic-finite-automaton-ff41897d/exemplo-01-ae74675a6c.tex",
+      "tipo": "extraido",
+      "sha256": "ae74675a6c87d50c3dc4f60cc1638de4dca1008a6b300681475de0bfa0bb399a",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Vending Machine",
+      "pagina": "https://tikz.net/vending-machine/",
+      "origem": "https://tikz.net/vending-machine/",
+      "arquivo": "vending-machine-d8888d2c/exemplo-01-e3299a8698.tex",
+      "tipo": "extraido",
+      "sha256": "e3299a8698707572dba059906688662cdb7960a40a5c855ae365671eb64a55f1",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Mealy Finite State Machine",
+      "pagina": "https://tikz.net/mealy-finite-state-machine/",
+      "origem": "https://tikz.net/mealy-finite-state-machine/",
+      "arquivo": "mealy-finite-state-machine-88d235c7/exemplo-01-ca7b76faf9.tex",
+      "tipo": "extraido",
+      "sha256": "ca7b76faf915127d633261384c89fae6f1b97a80e6fdc8a8656ae0c02685f28b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Moore Finite State Machine",
+      "pagina": "https://tikz.net/moore-finite-state-machine/",
+      "origem": "https://tikz.net/moore-finite-state-machine/",
+      "arquivo": "moore-finite-state-machine-34969ded/exemplo-01-4c64dc9818.tex",
+      "tipo": "extraido",
+      "sha256": "4c64dc98183a69e38f5a35526a55b8ece5eb6f91c33534b9a97e6eff85d32d65",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Moore Finite State Machine",
+      "pagina": "https://tikz.net/moore-finite-state-machine/",
+      "origem": "https://tikz.net/moore-finite-state-machine/",
+      "arquivo": "moore-finite-state-machine-34969ded/exemplo-02-02bede8971.tex",
+      "tipo": "extraido",
+      "sha256": "02bede89715592832d13d79e6ee4fdc85696006bf9c77373d687c42b26610d5c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Earth seasons",
+      "pagina": "https://tikz.net/astronomy_seasons/",
+      "origem": "https://tikz.net/astronomy_seasons/",
+      "arquivo": "astronomy_seasons-37e09925/exemplo-01-3239d35aa3.tex",
+      "tipo": "extraido",
+      "sha256": "3239d35aa389728ebbc8a9f8e9ea210aae7f08dc16e492e705cc467b33a3f30c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Earth seasons",
+      "pagina": "https://tikz.net/astronomy_seasons/",
+      "origem": "https://tikz.net/astronomy_seasons/",
+      "arquivo": "astronomy_seasons-37e09925/exemplo-02-a8fe7dae93.tex",
+      "tipo": "extraido",
+      "sha256": "a8fe7dae936b873e7958191acd47fe570c1e84ce2012fae0aa60ab991badfd16",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Earth seasons",
+      "pagina": "https://tikz.net/astronomy_seasons/",
+      "origem": "https://tikz.net/astronomy_seasons/",
+      "arquivo": "astronomy_seasons-37e09925/exemplo-03-27e9804f5d.tex",
+      "tipo": "extraido",
+      "sha256": "27e9804f5d1b1d2e5dc8f6260ac8c78334772562965dd4547a0f89d80bf5fbb5",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Earth seasons",
+      "pagina": "https://tikz.net/astronomy_seasons/",
+      "origem": "https://tikz.net/astronomy_seasons/",
+      "arquivo": "astronomy_seasons-37e09925/exemplo-04-c7fe9a6e7c.tex",
+      "tipo": "extraido",
+      "sha256": "c7fe9a6e7cb7f79490dd979425306c5276e7b2daf84e51d6321a96a2a9e0863b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Lead nucleus & Pb-Pb collisions",
+      "pagina": "https://tikz.net/pbpb_collisions/",
+      "origem": "https://tikz.net/pbpb_collisions/",
+      "arquivo": "pbpb_collisions-5343b5fe/exemplo-01-ee046e62fd.tex",
+      "tipo": "extraido",
+      "sha256": "ee046e62fd95a2664b193e809cd8082bc2ded35595470c30c8d1658bd0205209",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Lead nucleus & Pb-Pb collisions",
+      "pagina": "https://tikz.net/pbpb_collisions/",
+      "origem": "https://tikz.net/pbpb_collisions/",
+      "arquivo": "pbpb_collisions-5343b5fe/exemplo-02-416293f3a0.tex",
+      "tipo": "extraido",
+      "sha256": "416293f3a073954da720a74727e89605d6b909d7241af643dca5502da06ce12c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Taking an X-ray for the Head",
+      "pagina": "https://tikz.net/xray-head/",
+      "origem": "https://tikz.net/xray-head/",
+      "arquivo": "xray-head-4f2a579a/exemplo-01-d6ca32a0e0.tex",
+      "tipo": "extraido",
+      "sha256": "d6ca32a0e0f3f42815854ceac7cc2b362b2b787f8b0be2b70fb8994e12795e16",
+      "documento_completo": true
+    },
+    {
+      "titulo": "LogCabin: Distributed System Built on Raft",
+      "pagina": "https://tikz.net/logcabin-distributed-system-built-on-raft/",
+      "origem": "https://tikz.net/logcabin-distributed-system-built-on-raft/",
+      "arquivo": "logcabin-distributed-system-built-on-raft-c5d8ca93/exemplo-01-39aa58b519.tex",
+      "tipo": "extraido",
+      "sha256": "39aa58b519813b8939f74996fee117ca096453da395310895332f17a82b402fa",
+      "documento_completo": true
+    },
+    {
+      "titulo": "LogCabin: Distributed System Built on Raft",
+      "pagina": "https://tikz.net/logcabin-distributed-system-built-on-raft/",
+      "origem": "https://tikz.net/logcabin-distributed-system-built-on-raft/",
+      "arquivo": "logcabin-distributed-system-built-on-raft-c5d8ca93/exemplo-02-2c313dddb5.tex",
+      "tipo": "extraido",
+      "sha256": "2c313dddb55a8b944cf889e2cbf092fe7d29e535cd0e7e7596ca600b5c62197d",
+      "documento_completo": true
+    },
+    {
+      "titulo": "LogCabin: Distributed System Built on Raft",
+      "pagina": "https://tikz.net/logcabin-distributed-system-built-on-raft/",
+      "origem": "https://tikz.net/logcabin-distributed-system-built-on-raft/",
+      "arquivo": "logcabin-distributed-system-built-on-raft-c5d8ca93/exemplo-03-b881569f43.tex",
+      "tipo": "extraido",
+      "sha256": "b881569f434e6f2d2c36848ae95479e2add2b87dc8ab3038a088b320e29d4e7c",
+      "documento_completo": true
+    },
+    {
+      "titulo": "ARM CPU",
+      "pagina": "https://tikz.net/arm-cpu/",
+      "origem": "https://tikz.net/arm-cpu/",
+      "arquivo": "arm-cpu-3cc9199d/exemplo-01-e10499b87e.tex",
+      "tipo": "extraido",
+      "sha256": "e10499b87ec2306365445cb70d9b455d2992bd7b166ebb8b5eb6313fb832b6d2",
+      "documento_completo": true
+    },
+    {
+      "titulo": "ARM CPU",
+      "pagina": "https://tikz.net/arm-cpu/",
+      "origem": "https://tikz.net/arm-cpu/",
+      "arquivo": "arm-cpu-3cc9199d/exemplo-02-d2490e0aa0.tex",
+      "tipo": "extraido",
+      "sha256": "d2490e0aa075b4fd3f6d3ddd8db5a167905567342fe84ec93bf15451a72f917b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "ARM CPU",
+      "pagina": "https://tikz.net/arm-cpu/",
+      "origem": "https://tikz.net/arm-cpu/",
+      "arquivo": "arm-cpu-3cc9199d/exemplo-03-e13fbdffbb.tex",
+      "tipo": "extraido",
+      "sha256": "e13fbdffbb5a5801f3bf67e08aa77abe7e26afcf4f15189a3f17904a5d92146b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "CPU Command Bit Fields",
+      "pagina": "https://tikz.net/cpu-command-bit-fields/",
+      "origem": "https://tikz.net/cpu-command-bit-fields/",
+      "arquivo": "cpu-command-bit-fields-ab02be9c/exemplo-01-84d5b00822.tex",
+      "tipo": "extraido",
+      "sha256": "84d5b008229c7b8635d68b74cc603e63d29829127da0c6f0f09781c61686bb93",
+      "documento_completo": true
+    },
+    {
+      "titulo": "CPU Command Bit Fields",
+      "pagina": "https://tikz.net/cpu-command-bit-fields/",
+      "origem": "https://tikz.net/cpu-command-bit-fields/",
+      "arquivo": "cpu-command-bit-fields-ab02be9c/exemplo-02-589e03fb2c.tex",
+      "tipo": "extraido",
+      "sha256": "589e03fb2ce8bb256af0875e49986310e2b90b44be87ee195317922b61a5c5c8",
+      "documento_completo": true
+    },
+    {
+      "titulo": "CPU Command Bit Fields",
+      "pagina": "https://tikz.net/cpu-command-bit-fields/",
+      "origem": "https://tikz.net/cpu-command-bit-fields/",
+      "arquivo": "cpu-command-bit-fields-ab02be9c/exemplo-03-af5173f309.tex",
+      "tipo": "extraido",
+      "sha256": "af5173f309eb971ffdb894e59c3ff14e72b5f40ea57f9c8a24cc276baa3b2e76",
+      "documento_completo": true
+    },
+    {
+      "titulo": "CPU Command Bit Fields",
+      "pagina": "https://tikz.net/cpu-command-bit-fields/",
+      "origem": "https://tikz.net/cpu-command-bit-fields/",
+      "arquivo": "cpu-command-bit-fields-ab02be9c/exemplo-04-300e9f6105.tex",
+      "tipo": "extraido",
+      "sha256": "300e9f6105d1a9e97b2a1040d6c34b09b4dcdc7604f62db950989d0deb8c7ffe",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Back-to-back topology & track multiplicity",
+      "pagina": "https://tikz.net/sm_acoplanarity/",
+      "origem": "https://tikz.net/sm_acoplanarity/",
+      "arquivo": "sm_acoplanarity-914a7d60/exemplo-01-f516944a32.tex",
+      "tipo": "extraido",
+      "sha256": "f516944a32c6986a2c5f941fa0df091bc997423a6cd276a03e4cb11aaa280444",
+      "documento_completo": true
+    },
+    {
+      "titulo": "An Interesting Stereographic Projection",
+      "pagina": "https://tikz.net/symmetry_in_stereographic_projection_of_90_degree_rotated_sphere/",
+      "origem": "https://tikz.net/symmetry_in_stereographic_projection_of_90_degree_rotated_sphere/",
+      "arquivo": "symmetry_in_stereographic_projection_of_90_degree_rotated_sphere-cbab67ab/exemplo-01-2fc2f4d6a1.tex",
+      "tipo": "extraido",
+      "sha256": "2fc2f4d6a1836ccad0ab5ba1f384cca49c489fb803cd83f4e2f375939cad93bd",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Stereographic Projection in Spherical Coordinates",
+      "pagina": "https://tikz.net/stereographic-projection-in-spherical-coordinates/",
+      "origem": "https://tikz.net/stereographic-projection-in-spherical-coordinates/",
+      "arquivo": "stereographic-projection-in-spherical-coordinates-d9d999db/exemplo-01-a0a63af731.tex",
+      "tipo": "extraido",
+      "sha256": "a0a63af73122f0883cccf495cefe192324bab41978ce9b52340b1a9519a5f024",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Steiner Circles",
+      "pagina": "https://tikz.net/7997-2/",
+      "origem": "https://tikz.net/7997-2/",
+      "arquivo": "7997-2-e801f4ae/exemplo-01-c897f1e304.tex",
+      "tipo": "extraido",
+      "sha256": "c897f1e304081a8a04ef086b3d37e2f7b880da29e241f6a8ed52b0c2aad7aa59",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Classification of composite materials",
+      "pagina": "https://tikz.net/classification/",
+      "origem": "https://tikz.net/classification/",
+      "arquivo": "classification-120f58e5/exemplo-01-096afeff86.tex",
+      "tipo": "extraido",
+      "sha256": "096afeff86cb126922e5e33c6c5196b19e53bac52ab5ea1c5dfcdf5144ce483b",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Stereographically Nested Tori",
+      "pagina": "https://tikz.net/stereographically-nested-tori/",
+      "origem": "https://tikz.net/stereographically-nested-tori/",
+      "arquivo": "stereographically-nested-tori-93429123/exemplo-01-5eda69aefd.tex",
+      "tipo": "extraido",
+      "sha256": "5eda69aefdc6a217c9d2389acf27e58a6a2e4a3dccb823d7e494c126c5ee3122",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Z + jets production in proton collisions",
+      "pagina": "https://tikz.net/pp_collisions_zjets/",
+      "origem": "https://tikz.net/pp_collisions_zjets/",
+      "arquivo": "pp_collisions_zjets-d83e3970/exemplo-01-07d6c0d216.tex",
+      "tipo": "extraido",
+      "sha256": "07d6c0d21688e7d395304efc1dc73d6f3c0f4de8aab372de874f5d493932d572",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Desargues’s theorem",
+      "pagina": "https://tikz.net/desargues/",
+      "origem": "https://tikz.net/desargues/",
+      "arquivo": "desargues-1647753f/exemplo-01-889d52f0a8.tex",
+      "tipo": "extraido",
+      "sha256": "889d52f0a847f4bd142657628e26deb5fc37b6fe23662d859a4c1f20a961b9ea",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Confidence interval",
+      "pagina": "https://tikz.net/statistics_confidence_interval/",
+      "origem": "https://tikz.net/statistics_confidence_interval/",
+      "arquivo": "statistics_confidence_interval-e748c48e/exemplo-01-4da0112c06.tex",
+      "tipo": "extraido",
+      "sha256": "4da0112c0645c1e722f8dd229dc268f2e67a43d476e5416b564a80bdcd1625c4",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Confidence interval",
+      "pagina": "https://tikz.net/statistics_confidence_interval/",
+      "origem": "https://tikz.net/statistics_confidence_interval/",
+      "arquivo": "statistics_confidence_interval-e748c48e/exemplo-02-48e2d8ea5d.tex",
+      "tipo": "extraido",
+      "sha256": "48e2d8ea5d755a0c3d11aa106796e99e3c320f83e4e03895b8221e58c0cfdfe3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Cathode-ray Oscilloscope Measurement Circuits",
+      "pagina": "https://tikz.net/cathode-ray-oscilloscope-measurement-circuits/",
+      "origem": "https://tikz.net/cathode-ray-oscilloscope-measurement-circuits/",
+      "arquivo": "cathode-ray-oscilloscope-measurement-circuits-80106a5d/exemplo-01-16f26a6d4a.tex",
+      "tipo": "extraido",
+      "sha256": "16f26a6d4a203b0b9cb5a12273ddf9f5813939ec84f7ce39ceeb28372a1dd221",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Cathode-ray Oscilloscope Measurement Circuits",
+      "pagina": "https://tikz.net/cathode-ray-oscilloscope-measurement-circuits/",
+      "origem": "https://tikz.net/cathode-ray-oscilloscope-measurement-circuits/",
+      "arquivo": "cathode-ray-oscilloscope-measurement-circuits-80106a5d/exemplo-02-7cb8f7d6d7.tex",
+      "tipo": "extraido",
+      "sha256": "7cb8f7d6d7d5fc7101075844bb4cf5740dfd3d7a91205e6bb3edc44faf4d7130",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Cathode-ray Oscilloscope Measurement Circuits",
+      "pagina": "https://tikz.net/cathode-ray-oscilloscope-measurement-circuits/",
+      "origem": "https://tikz.net/cathode-ray-oscilloscope-measurement-circuits/",
+      "arquivo": "cathode-ray-oscilloscope-measurement-circuits-80106a5d/exemplo-03-57c59c0d35.tex",
+      "tipo": "extraido",
+      "sha256": "57c59c0d35060c378591cb7eaeba42967db58f753a200c84f77a5793751c5691",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Potentiometric circuits",
+      "pagina": "https://tikz.net/potentiometric-circuits/",
+      "origem": "https://tikz.net/potentiometric-circuits/",
+      "arquivo": "potentiometric-circuits-616f7dfc/exemplo-01-c9763df3bd.tex",
+      "tipo": "extraido",
+      "sha256": "c9763df3bd66d3782c9e5ba569f84cc8ab120b36b53fddd030cd34ee780490c3",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Potentiometric circuits",
+      "pagina": "https://tikz.net/potentiometric-circuits/",
+      "origem": "https://tikz.net/potentiometric-circuits/",
+      "arquivo": "potentiometric-circuits-616f7dfc/exemplo-02-1499a160ea.tex",
+      "tipo": "extraido",
+      "sha256": "1499a160ea45d5f8d2563be4c0b32b3cb5390eb31eebd7f805206aabe7f397c7",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Potentiometric circuits",
+      "pagina": "https://tikz.net/potentiometric-circuits/",
+      "origem": "https://tikz.net/potentiometric-circuits/",
+      "arquivo": "potentiometric-circuits-616f7dfc/exemplo-03-038e00282c.tex",
+      "tipo": "extraido",
+      "sha256": "038e00282cdcc5d277f055bd968eeeca56252deb8c57bc4740aac5efbdf2f6aa",
+      "documento_completo": true
+    },
+    {
+      "titulo": "Potentiometric circuits",
+      "pagina": "https://tikz.net/potentiometric-circuits/",
+      "origem": "https://tikz.net/potentiometric-circuits/",
+      "arquivo": "potentiometric-circuits-616f7dfc/exemplo-04-07a5868ac2.tex",
+      "tipo": "extraido",
+      "sha256": "07a5868ac228cca6a6399b8848dfef998d4c2165a7f4f2c3935e49963bdbca13",
+      "documento_completo": true
+    }
+  ],
+  "erros": []
+}

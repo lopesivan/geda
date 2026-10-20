@@ -1,0 +1,120 @@
+%designed by: Amir Ostadrahimi
+%Photovoltaic Series String
+
+\documentclass  [border=5pt]{standalone}
+\usepackage[american,cuteinductors,smartlabels]{circuitikz}
+%
+\ctikzset{bipoles/thickness=1.2}
+\ctikzset{bipoles/length=1cm}
+\ctikzset{bipoles/diode/height=.375}
+\ctikzset{bipoles/diode/width=.3}
+\tikzstyle{every node}=[font=\small]
+\tikzstyle{every path}=[line width=0.8pt,line cap=round,line join=round]
+
+\begin{document}
+
+  \begin{circuitikz}
+%Panel1
+	%Frame
+	\draw (0,0) coordinate (P11);
+	\draw (P11)++(2,0) coordinate(P12);
+	\draw (P11)++(-1,-2) coordinate (P13);
+	\draw (P13)++(2,0) coordinate(P14);
+	\draw [line width=.5mm, fill=cyan!90!black]  (P11)--(P12)--(P14)--(P13)--cycle;
+	%Horizontal Lines
+	\draw [line width=.5mm] (P11)++ (-.125,-0.25)--++(2,0) ;
+	\draw [line width=.5mm] (P11)++ (-.25,-0.5)--++(2,0);
+	\draw [line width=.5mm] (P11)++ (-.375,-0.75)--++(2,0) ;
+	\draw [line width=.5mm] (P11)++ (-.5,-1)--++(2,0) ;
+	\draw [line width=.5mm] (P11)++  (-.625,-1.25)--++(2,0) ;
+	\draw [line width=.5mm] (P11)++ (-.75,-1.5)--++(2,0)  ;
+	\draw [line width=.5mm] (P11)++  (-.875,-1.75)--++(2,0) coordinate (P134) ;
+	%Vertical Line
+	\draw [line width=.5mm](P11)++(.5,0)--++(-1,-2);
+	\draw [line width=.5mm] (P11)++(1,0)--++(-1,-2);
+	\draw [line width=.5mm] (P11)++ (1.5,0)--++(-1,-2);
+	\draw (P13)++(0.3,-0.25) coordinate (Pname1);
+	\node (PVname1) at (Pname1) {PV1};
+
+%Panel2
+	%Frame
+	\draw [line width=.5mm] (0,-2.5) coordinate (P21)--++(2,0) coordinate(P22);
+	\draw [line width=.5mm] (P21)--++(-1,-2) coordinate(P23)--++(2,0) coordinate(P24);
+	\draw [line width=.5mm] (P22)--(P24);
+	\draw [line width=.5mm, fill=cyan!90!black] (P21)--(P22)--(P24)--(P23)--cycle;
+	%Vertical Lines
+	\draw [line width=.5mm] (P21)++ (-.125,-0.25)--++(2,0) ;
+	\draw [line width=.5mm] (P21)++ (-.25,-0.5)--++(2,0) ;
+	\draw [line width=.5mm] (P21)++ (-.375,-0.75)--++(2,0) ;
+	\draw [line width=.5mm] (P21)++ (-.5,-1)--++(2,0) ;
+	\draw [line width=.5mm] (P21)++  (-.625,-1.25)--++(2,0) ;
+	\draw [line width=.5mm] (P21)++ (-.75,-1.5)--++(2,0)  ;
+	\draw [line width=.5mm] (P21)++  (-.875,-1.75)--++(2,0) coordinate (P234) ;
+	%Horizontal Line
+	\draw [line width=.5mm] (P21)++(.5,0)--++(-1,-2);
+	\draw [line width=.5mm] (P21)++(1,0)--++(-1,-2);
+	\draw [line width=.5mm] (P21)++ (1.5,0)--++(-1,-2);
+	\draw (P23)++(0.3,-0.25) coordinate (Pname2);
+	\node (PVname2) at (Pname2) {PV2};
+
+%#Panel3
+	%Frame
+	\draw [line width=.5mm] (0,-5) coordinate (P31)--++(2,0) coordinate(P32);
+	\draw [line width=.5mm] (P31)--++(-1,-2) coordinate(P33)--++(2,0) coordinate(P34);
+	\draw [line width=.5mm] (P32)--(P34);
+	\draw [line width=.5mm, fill=cyan!90!black] (P31)--(P32)--(P34)--(P33)--cycle;
+	%Vertical Lines
+	\draw [line width=.5mm] (P31)++ (-.125,-0.25)--++(2,0) ;
+	\draw [line width=.5mm] (P31)++ (-.25,-0.5)--++(2,0) ;
+	\draw [line width=.5mm] (P31)++ (-.375,-0.75)--++(2,0) ;
+	\draw [line width=.5mm] (P31)++ (-.5,-1)--++(2,0) ;
+	\draw [line width=.5mm] (P31)++ (-.625,-1.25)--++(2,0) ;
+	\draw [line width=.5mm] (P31)++ (-.75,-1.5)--++(2,0) ;
+	\draw [line width=.5mm] (P31)++ (-.875,-1.75)--++(2,0) coordinate (P334) ;
+	%Horizontal Line
+	\draw [line width=.5mm] (P31)++(.5,0)--++(-1,-2);
+	\draw [line width=.5mm] (P31)++(1,0)--++(-1,-2);
+	\draw [line width=.5mm] (P31)++ (1.5,0)--++(-1,-2);
+	\draw (P33)++(0.3,-0.25) coordinate (Pname3);
+	\node (PVname3) at (Pname3) {PV3};
+
+%Connections
+	\draw (P31)++(0.5,0) coordinate (P3u); %P3 up connection
+	\draw (P34)++(-0.5,0) coordinate (P3b); %P3 bottom connection
+	\draw (P24)++(-0.5,0) coordinate (P2b); %P2 bottom connection
+	\draw (P21)++(0.5,0) coordinate (P2u);  %P2 up connection
+	\draw (P11)++(0.5,0) coordinate (P1u); %P1 up connection
+	\draw (P14)++(-0.5,0) coordinate (P1b); %P1 bottom connection
+	\draw (P3u)--(P2b);
+	\draw (P14)++(-0.5,0) coordinate (P1b);
+	\draw (P2u)--(P1b);
+
+%Diodes
+	%D2
+	\draw (P3u)++(0,0.25) coordinate (P32m);
+	\draw (P2u)++(0,0.25) coordinate (P21m);
+	\draw (P32m) --++(2,0) to [D*,l_=$D2$]++(0,2.5)-- (P21m);
+	%-D1
+	\draw (P1u)++(0,0.25) coordinate (P11m);
+	\draw (P21m) --++(2,0) to [D*,l_=$D1$]++(0,2.5)-- (P11m);
+	%D3
+	\draw (P3b)++(0,-0.25) coordinate (P31m);
+	\draw (P31m) --++(2,0) to [D*,l_=$D3$]++(0,2.5)-- (P32m);
+
+%Converter
+	\draw (P1u)--++(0,.5) --++(2.5,0) to [short,i=$i_{pv}$]++(2,0)--++(0,-3.5) coordinate(CMu);
+	\draw (CMu)++(-1,-.5) coordinate (CMl);
+	\draw (CMl)++(1,-.5) coordinate (CMb);
+	\draw (CMb)++(1,0.15) coordinate (CO2);
+	\draw (CO2)++(0,0.7) coordinate (CO1);
+	\draw [line width=.5mm, fill=green!50] (CMu)--++(-1,0)--(CMl)-- ++(0,-0.5)--(CMb)--++(1,0)--(CO2)--(CO1)--++(0,0.15)--cycle;
+	\draw (P3b)--++(0,-0.5)--++(4.5,0)--(CMb);
+	\draw (CMl)++(-.1,0) coordinate (CMl1);
+	\node [right] (Conv) at (CMl1) {\large $Converter$};
+%-
+\draw (CO1)--++(0.5,0) to [open,o-o,v=$$]++(0,-0.7)--(CO2);
+  \end{circuitikz}
+
+\end{document} 
+
+

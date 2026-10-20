@@ -19,6 +19,9 @@ show:
 # Executa `make png` em cada subpasta que tenha um Makefile
 png:
 	./png.sh
+# Executa `make png` em cada subpasta que tenha um Makefile
+pdf:
+	./pdf.sh
 
 # Remove artefatos gerados
 clean:

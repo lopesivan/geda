@@ -1,0 +1,21 @@
+
+\documentclass[border=3pt,tikz]{standalone}
+\tikzset{
+  pics/earth/.style={ % Earth in orbit (argument #1 = polar angle)
+    code={
+      \message{^^JEarth polar angle=#1}
+      \draw[black,very thin,fill=blue!50!cyan!50]
+         (#1:{\ROx} and {\ROy}) circle(\RE);
+    }
+  }
+}
+\begin{document}
+\begin{tikzpicture}
+  \def\RE{0.4} % Earth radius
+  \def\ROx{3.0} % orbit horizontal radius
+  \def\ROy{0.9} % orbit vertical radius
+  \foreach \ang in {0,90,180,270}{
+    \pic {earth=\ang};
+  }
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,9 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+    \draw [red] (0,0) circle [radius=1];
+    \draw [domain=0:50,variable=\t,smooth,samples=500]
+        plot ({\t r}: {1+2*exp(-0.1*\t)});
+\end{tikzpicture}
+\end{document}
