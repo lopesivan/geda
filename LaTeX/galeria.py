@@ -12,19 +12,23 @@ for makefile in sorted(raiz.rglob("Makefile")):
     if not makefile.is_file():
         continue
 
-    # Inclui PNGs e PDFs da mesma pasta do Makefile.
-    for arquivo in sorted(makefile.parent.iterdir()):
-        if not arquivo.is_file():
+    # Inclui somente PNGs que estão na mesma pasta do Makefile.
+    for imagem in sorted(makefile.parent.iterdir()):
+        if not imagem.is_file() or imagem.suffix.lower() != ".png":
             continue
 
-        extensao = arquivo.suffix.lower()
-        if extensao not in {".png", ".pdf"}:
-            continue
-
-        nome = arquivo.relative_to(raiz).as_posix()
+        nome = imagem.relative_to(raiz).as_posix()
         caminho = quote(nome, safe="/")
-        tipo = extensao[1:]
-        itens.append((nome, caminho, tipo))
+
+        # Procura o PDF correspondente ao PNG.
+        pdf = imagem.with_suffix(".pdf")
+        caminho_pdf = (
+            quote(pdf.relative_to(raiz).as_posix(), safe="/")
+            if pdf.is_file()
+            else None
+        )
+
+        itens.append((nome, caminho, caminho_pdf))
 
 html = """<!DOCTYPE html>
 <html lang="pt-BR">
@@ -75,16 +79,18 @@ html = """<!DOCTYPE html>
   }
 
   .card {
-    padding: 0;
+    display: flex;
+    flex-direction: column;
     text-align: left;
-    font: inherit;
-    color: inherit;
     background: #222;
     border: 1px solid #333;
     border-radius: 10px;
     overflow: hidden;
     transition: transform .15s, border-color .15s;
-    cursor: pointer;
+  }
+
+  .card[hidden] {
+    display: none;
   }
 
   .card:hover {
@@ -92,50 +98,28 @@ html = """<!DOCTYPE html>
     border-color: #777;
   }
 
-  .card[hidden] { display: none; }
-
-  .card:focus-visible, .fechar:focus-visible {
-    outline: 3px solid #75baff;
-    outline-offset: 3px;
-  }
-
-  .preview {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background: #fff;
-  }
-
-  .preview img {
+  .imagem-btn {
     display: block;
     width: 100%;
-    height: 100%;
+    padding: 0;
+    border: 0;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .imagem-btn img {
+    display: block;
+    width: 100%;
+    height: 200px;
     object-fit: contain;
   }
 
-  .preview iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    pointer-events: none;
+  .imagem-btn:focus-visible,
+  .link-pdf:focus-visible,
+  .fechar:focus-visible {
+    outline: 3px solid #75baff;
+    outline-offset: -3px;
   }
-
-  .tipo {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    padding: 4px 8px;
-    border-radius: 5px;
-    background: #333;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-  }
-
-  .tipo.pdf { background: #b71c1c; }
-  .tipo.png { background: #1565c0; }
 
   .nome {
     display: block;
@@ -148,13 +132,39 @@ html = """<!DOCTYPE html>
     white-space: nowrap;
   }
 
+  .link-pdf {
+    display: block;
+    margin-top: auto;
+    padding: 10px 12px;
+    border-top: 1px solid #383838;
+    color: #75baff;
+    text-decoration: none;
+    font-size: 13px;
+  }
+
+  .link-pdf:hover {
+    background: #303030;
+    text-decoration: underline;
+  }
+
+  .sem-pdf {
+    display: block;
+    margin-top: auto;
+    padding: 10px 12px;
+    border-top: 1px solid #383838;
+    color: #777;
+    font-size: 13px;
+  }
+
   .vazio {
     text-align: center;
     color: #aaa;
     padding: 30px;
   }
 
-  .vazio[hidden] { display: none; }
+  .vazio[hidden] {
+    display: none;
+  }
 
   .modal {
     width: 100vw;
@@ -170,10 +180,8 @@ html = """<!DOCTYPE html>
 
   .modal[open] {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
   }
 
   .modal::backdrop {
@@ -182,17 +190,9 @@ html = """<!DOCTYPE html>
 
   .modal img {
     max-width: 100%;
-    max-height: calc(100dvh - 160px);
+    max-height: calc(100dvh - 140px);
     object-fit: contain;
     border-radius: 8px;
-  }
-
-  .modal iframe {
-    width: min(100%, 1100px);
-    height: calc(100dvh - 170px);
-    border: 0;
-    border-radius: 8px;
-    background: #fff;
   }
 
   .fechar {
@@ -207,16 +207,11 @@ html = """<!DOCTYPE html>
     cursor: pointer;
   }
 
-  .abrir {
-    color: #75baff;
-    text-decoration: none;
-    font-size: 14px;
-  }
-
-  .abrir:hover { text-decoration: underline; }
-
   .legenda {
-    max-width: 100%;
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    right: 20px;
     max-height: 50px;
     overflow: auto;
     text-align: center;
@@ -234,47 +229,44 @@ html = """<!DOCTYPE html>
   class="filtro"
   id="filtro"
   type="search"
-  aria-label="Filtrar arquivos pelo nome, pasta ou extensão"
-  placeholder="Filtrar por nome, pasta, PNG ou PDF…"
+  aria-label="Filtrar imagens pelo nome ou pasta"
+  placeholder="Filtrar por nome ou pasta…"
 >
 
 <div class="grid" id="grid">
 """
 
-for nome, caminho, tipo in itens:
+for nome, caminho, caminho_pdf in itens:
     nome_html = escape(nome, quote=True)
     caminho_html = escape(caminho, quote=True)
     filtro_html = escape(nome.lower(), quote=True)
 
-    if tipo == "png":
-        preview = f'<img src="{caminho_html}" alt="{nome_html}" loading="lazy">'
+    if caminho_pdf:
+        pdf_html = escape(caminho_pdf, quote=True)
+        link_pdf = (
+            f'<a class="link-pdf" href="{pdf_html}" '
+            f'target="_blank" rel="noopener">📄 Abrir PDF ↗</a>'
+        )
     else:
-        preview = f'<iframe src="{caminho_html}#page=1&toolbar=0&navpanes=0" title="{nome_html}" loading="lazy" tabindex="-1"></iframe>'
+        link_pdf = '<span class="sem-pdf">PDF não disponível</span>'
 
-    html += f"""  <button class="card" type="button"
-    data-nome="{filtro_html}"
-    data-src="{caminho_html}"
-    data-tipo="{tipo}"
-    title="{nome_html}">
-    <div class="preview">
-      {preview}
-      <span class="tipo {tipo}">{tipo.upper()}</span>
-    </div>
+    html += f"""  <div class="card" data-nome="{filtro_html}" title="{nome_html}">
+    <button class="imagem-btn" type="button" aria-label="Ampliar {nome_html}">
+      <img src="{caminho_html}" alt="{nome_html}" loading="lazy">
+    </button>
     <span class="nome">{nome_html}</span>
-  </button>
+    {link_pdf}
+  </div>
 """
 
 html += """</div>
 
-<p class="vazio" id="vazio" hidden>Nenhum arquivo encontrado.</p>
+<p class="vazio" id="vazio" hidden>Nenhuma imagem encontrada.</p>
 
-<dialog class="modal" id="modal" aria-label="Visualização ampliada">
+<dialog class="modal" id="modal" aria-label="Imagem ampliada">
   <button class="fechar" id="fechar" type="button" aria-label="Fechar">&times;</button>
-  <div id="modalConteudo"></div>
+  <img id="modalImg" alt="">
   <div class="legenda" id="modalLegenda"></div>
-  <a class="abrir" id="abrirArquivo" href="#" target="_blank" rel="noopener">
-    Abrir arquivo em nova aba ↗
-  </a>
 </dialog>
 
 <script>
@@ -283,50 +275,27 @@ const cards = [...document.querySelectorAll('.card')];
 const contador = document.getElementById('contador');
 const vazio = document.getElementById('vazio');
 const modal = document.getElementById('modal');
-const modalConteudo = document.getElementById('modalConteudo');
+const modalImg = document.getElementById('modalImg');
 const modalLegenda = document.getElementById('modalLegenda');
-const abrirArquivo = document.getElementById('abrirArquivo');
 
 function atualizarFiltro() {
   const busca = filtro.value.toLowerCase().trim();
   let visiveis = 0;
-  let pngs = 0;
-  let pdfs = 0;
 
   cards.forEach(card => {
     const mostrar = card.dataset.nome.includes(busca);
     card.hidden = !mostrar;
-
-    if (mostrar) {
-      visiveis++;
-      if (card.dataset.tipo === 'png') pngs++;
-      if (card.dataset.tipo === 'pdf') pdfs++;
-    }
+    if (mostrar) visiveis++;
   });
 
-  contador.textContent = `${visiveis} de ${cards.length} arquivos | ${pngs} PNG | ${pdfs} PDF`;
+  contador.textContent = `${visiveis} de ${cards.length} imagens`;
   vazio.hidden = visiveis > 0;
 }
 
-function abrirModal(src, nome, tipo) {
-  modalConteudo.replaceChildren();
-
-  if (tipo === 'pdf') {
-    const iframe = document.createElement('iframe');
-    iframe.src = src;
-    iframe.title = nome;
-    iframe.style.width = 'min(90vw, 1100px)';
-    iframe.style.height = 'calc(100dvh - 170px)';
-    modalConteudo.appendChild(iframe);
-  } else {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = nome;
-    modalConteudo.appendChild(img);
-  }
-
+function abrirModal(src, nome) {
+  modalImg.src = src;
+  modalImg.alt = nome;
   modalLegenda.textContent = nome;
-  abrirArquivo.href = src;
   modal.showModal();
 }
 
@@ -335,24 +304,25 @@ function fecharModal() {
 }
 
 cards.forEach(card => {
-  card.addEventListener('click', () => {
-    abrirModal(
-      card.dataset.src,
-      card.title,
-      card.dataset.tipo
-    );
+  const botao = card.querySelector('.imagem-btn');
+
+  botao.addEventListener('click', () => {
+    const img = botao.querySelector('img');
+    abrirModal(img.src, img.alt);
   });
 });
 
 filtro.addEventListener('input', atualizarFiltro);
 document.getElementById('fechar').addEventListener('click', fecharModal);
 
+// Fecha ao clicar no espaço ao redor da imagem.
+// A tecla Escape é tratada automaticamente pelo dialog.
 modal.addEventListener('click', event => {
   if (event.target === modal) fecharModal();
 });
 
 modal.addEventListener('close', () => {
-  modalConteudo.replaceChildren();
+  modalImg.removeAttribute('src');
 });
 
 atualizarFiltro();
@@ -364,9 +334,8 @@ atualizarFiltro();
 destino = raiz / "galeria.html"
 destino.write_text(html, encoding="utf-8")
 
-pngs = sum(tipo == "png" for _, _, tipo in itens)
-pdfs = sum(tipo == "pdf" for _, _, tipo in itens)
+total_pdf = sum(pdf is not None for _, _, pdf in itens)
 
-print(f"✅ {destino} gerado com {len(itens)} arquivos")
-print(f"   PNG: {pngs}")
-print(f"   PDF: {pdfs}")
+print(f"✅ {destino} gerado com {len(itens)} imagens")
+print(f"📄 {total_pdf} PDFs associados")
+
